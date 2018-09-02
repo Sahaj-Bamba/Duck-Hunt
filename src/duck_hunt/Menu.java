@@ -8,6 +8,12 @@ import acm.program.DialogProgram;
 /**
  *
  * @author admin
+ * 
+ * This class creates the main game menu which can be used to change settings , view credits , high score , start game etc.
+ * 
+ * It opens in a Dialogue Window
+ * 
+ * It creates objects for different windows and then start them when the user selects the respective option.
  */
     
 public class Menu extends DialogProgram
@@ -15,10 +21,10 @@ public class Menu extends DialogProgram
     @Override
     public void run()
     {
-        int cnt;
-        Credits temp4=new Credits();
-        Settings temp3=new Settings();
-        Instructions temp2 = new Instructions();
+        int cnt;                                                            // option selection controller 
+        Credits temp4=new Credits();                                        // Credits Window
+        Settings temp3=new Settings();                                      // Settings Window
+        Instructions temp2 = new Instructions();                            // Instructions Window
         
         while (true)
         {

@@ -3,19 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package duck_hunt;
 
 /**
  *
  * @author admin
+ * 
+ * The main runnable class containing main function.
+ * 
+ * This Class first displays an Animation the front start game animation.
+ * Then it creates a Menu object and calls its run function which displays menu and everything proceeds
  */
+
+
 public class Duck_hunt {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Duck_hunt.animation();
+        Menu menu = new Menu();
+        menu.run();
+    }
+    public static void animation(){
+        
     }
     
 }

@@ -8,13 +8,19 @@ import acm.program.DialogProgram;
 /**
  *
  * @author admin
+ * 
+ * This is the credits Section.
+ * 
+ * It displays credits in a dialogue window.
  */
 public class Credits extends DialogProgram{
     
     @Override
     public void run()
     {
-        println("             Made By     \n\n         SAHAJ BAMBA\n\n\n         \n\n    VAISHNAV AGARWAL");
+        Menu menu = new Menu();
+        println("             Made By     \n\n         SAHAJ BAMBA\n   VAISHNAV AGARWAL");
+        menu.run();
     }
 }
 
