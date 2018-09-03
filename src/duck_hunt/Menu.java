@@ -22,6 +22,7 @@ public class Menu extends DialogProgram
     public void run()
     {
         int cnt;                                                            // option selection controller 
+        NewGame temp1=new NewGame();                                        // game Window
         Credits temp4=new Credits();                                        // Credits Window
         Settings temp3=new Settings();                                      // Settings Window
         Instructions temp2 = new Instructions();                            // Instructions Window
@@ -35,7 +36,7 @@ public class Menu extends DialogProgram
         }
         switch(cnt)
         {
-            case 1:new StartGame().start();
+            case 1: temp1.run();
                 break;
             case 2:temp2.run();
                 break;
