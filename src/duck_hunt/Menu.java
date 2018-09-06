@@ -23,28 +23,36 @@ public class Menu extends DialogProgram
     {
         int cnt;                                                            // option selection controller 
         NewGame temp1=new NewGame();                                        // game Window
-        Credits temp4=new Credits();                                        // Credits Window
-        Settings temp3=new Settings();                                      // Settings Window
-        Instructions temp2 = new Instructions();                            // Instructions Window
+        Credits temp8=new Credits();                                        // Credits Window
+        Settings temp5=new Settings();                                      // Settings Window
+        Instructions temp7 = new Instructions();                            // Instructions Window
         
         while (true)
         {
-            cnt=readInt("\tDUCK HUNT \n\n1- Start Game\n2- How to Play\n3- Settings \n4- Credits \n5- Exit ");
-            if(cnt>0&&cnt<6)
+            cnt=readInt("\tDUCK HUNT \n\n1- Single Player \n2- Two Player\n3- Chat\n4- Connect\n5-Settings\n6- Almnac \n7- How to Play\n8- Credits \n9- Quit ");
+            if(cnt>0&&cnt<10)
                 break;
             print("\tError \nYou Entered an incorrect value .");
         }
         switch(cnt)
         {
-            case 1: temp1.run();
+            case 1: temp1.start();
                 break;
-            case 2:temp2.run();
+            case 2:;
                 break;
-            case 3:temp3.run();
+            case 3:
                 break;
-            case 4:temp4.run();
+            case 4:
                 break;
-            case 5:System.exit(0);
+            case 5:temp5.start();
+                break;
+            case 6:
+                break;
+            case 7:temp7.start();
+                break;
+            case 8:temp8.start();
+                break;
+            case 9:System.exit(0);
                 break;
         }
     }

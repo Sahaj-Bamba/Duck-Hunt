@@ -6,6 +6,7 @@
 package duck_hunt;
 
 import acm.graphics.GLabel;
+import acm.graphics.GOval;
 import acm.program.GraphicsProgram;
 import java.awt.Color;
 
@@ -13,7 +14,15 @@ import java.awt.Color;
  *
  * @author admin
  */
-public class NewGame  extends GraphicsProgram{
+
+
+public class NewGame extends GraphicsProgram{
+
+    /**
+     *
+     */
+    public static GLabel Player_Score = new GLabel("Score = ");    
+    public static GOval Duck =new GOval(400,400,50,50);
     private Color[] colors;
     @Override
     public void init()
@@ -28,7 +37,8 @@ public class NewGame  extends GraphicsProgram{
         colors[5]=Color.MAGENTA;
         colors[6]=Color.PINK;
         colors[7]=Color.YELLOW;
-        }
+        addMouseListeners();
+    }
     
     public void FL(String a)
     {
@@ -38,9 +48,6 @@ public class NewGame  extends GraphicsProgram{
         char[] org =new char[a.length()];
         initial[0]=a.charAt(0);
         org[0]=' ';
-        
-        
-        
         for(int i=1;a.charAt(i)!='\n';i++)
         {
             org[i]=a.charAt(i);
@@ -61,6 +68,7 @@ public class NewGame  extends GraphicsProgram{
         GLabel label_initial =new GLabel(st_initial);
         GLabel label_org =new GLabel(st_org);
         GLabel size=new GLabel(a);
+        System.out.println(size.isVisible());
         size.setFont("SansSerif-50");
         label_initial.setFont("SansSerif-50");
         label_org.setFont("SansSerif-50");
@@ -88,15 +96,19 @@ public class NewGame  extends GraphicsProgram{
         removeAll();
         add(size,x,y);
         pause(500);
-        
+        System.out.println(size.isVisible());
         removeAll();
-        
+        System.out.println(size.isVisible());
     }
     @Override
     public void run(){
         init();
     FL("Game Begins  ");
-}
+        
+
+    }
+
+    
 }
 
 

@@ -13,4 +13,4 @@ A Duck hunt game only for hunters.
 4) Sockets, Connection , Player Search.
 5) Different ducks with different abilities like better speed , more randomability.
 6) Leader Board
-7) Be the Top Hunter in the World
+7) Be the Top Hunter in the World	

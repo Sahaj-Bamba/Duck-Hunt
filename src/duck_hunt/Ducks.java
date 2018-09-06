@@ -4,15 +4,13 @@
  * and open the template in the editor.
  */
 package duck_hunt;
-import java.awt.*;
 
-public class Player {
-    public Color colour;
-    public int score;
-
-    public Player() 
-    {
-        this.score = 0;
-    }
+/**
+ *
+ * @author admin
+ */
+public class Ducks {
+    
+    
     
 }

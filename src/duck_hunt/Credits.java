@@ -19,7 +19,7 @@ public class Credits extends DialogProgram{
     public void run()
     {
         Menu menu = new Menu();
-        println("             Made By     \n\n         SAHAJ BAMBA\n   VAISHNAV AGARWAL");
+        println("             Made By     \n\n         SAHAJ BAMBA\n   VAISHNAV AGARWAL\n           VIVEK MEENA  ");
         menu.run();
     }
 }
