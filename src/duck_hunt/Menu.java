@@ -23,6 +23,7 @@ public class Menu extends DialogProgram
     {
         int cnt;                                                            // option selection controller 
         NewGame temp1=new NewGame();                                        // game Window
+        Connect connect = new Connect();                                    // Connect Window
         Credits temp8=new Credits();                                        // Credits Window
         Settings temp5=new Settings();                                      // Settings Window
         Instructions temp7 = new Instructions();                            // Instructions Window
@@ -38,11 +39,11 @@ public class Menu extends DialogProgram
         {
             case 1: temp1.start();
                 break;
-            case 2:;
+            case 2:
                 break;
             case 3:
                 break;
-            case 4:
+            case 4:connect.main(" ");
                 break;
             case 5:temp5.start();
                 break;
