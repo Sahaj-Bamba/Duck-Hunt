@@ -34,6 +34,7 @@ public class Connect extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Elephant", 0, 24)); // NOI18N
         jButton1.setText("SERVER");
+        jButton1.setName("ServerButton"); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -42,6 +43,12 @@ public class Connect extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
         jButton2.setText("client");
+        jButton2.setName("ClientButton"); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,7 +76,14 @@ public class Connect extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+        Server_GUI.start();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,7 +117,9 @@ public class Connect extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
+                
                 new Connect().setVisible(true);
             }
         });
