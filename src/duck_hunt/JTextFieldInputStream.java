@@ -38,6 +38,7 @@ public class JTextFieldInputStream extends InputStream {
 
     @Override
     public int read() throws IOException {
+        
         if(pointer >= contents.length) return -1;
         return this.contents[pointer++];
     }

@@ -5,7 +5,10 @@
  */
 package duck_hunt;
 
+import java.awt.event.ActionEvent;
 import java.io.InputStream;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 /**
  *
@@ -24,8 +27,8 @@ public class ChatWindow extends javax.swing.JDialog implements Runnable{
     
     public ChatWindow(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.Client_in = new JTextFieldInputStream(jTextField1);
         initComponents();
+        this.Client_in = new JTextFieldInputStream(jTextField1);
     }
 
     ChatWindow() {
@@ -59,9 +62,19 @@ public class ChatWindow extends javax.swing.JDialog implements Runnable{
 
         jTextField1.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Elephant", 0, 18)); // NOI18N
         jButton1.setText("SEND");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,6 +111,29 @@ public class ChatWindow extends javax.swing.JDialog implements Runnable{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+Action action = new AbstractAction()
+{
+     private static final long serialVersionUID = 1L;
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        System.out.println("some action");
+    }
+
+        
+    };
+
+
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      */

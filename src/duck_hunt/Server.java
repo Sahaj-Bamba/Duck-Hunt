@@ -32,8 +32,10 @@ public class Server extends Thread {
         try {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
+            this.is_on = false;
             error.run(" Something went wrong please try again .");
             menu.start();
+            System.out.print("njvsdkvsdnjsdv dslvknkjdsvnjhdsbvhjbdskjvbsajhvhgbxchfgvsdcgfvgsdcvjhcsvjkscvjdskfcvkuzsdvcsghn");
             e.printStackTrace();
             return;
         }

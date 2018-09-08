@@ -22,6 +22,7 @@ public class Client extends Thread {
                 //do whatever with c
             }
         */    
+        
         try {
             Socket socket = new Socket(IP, port);
             BufferedReader bufferedReader = new BufferedReader
@@ -41,10 +42,11 @@ public class Client extends Thread {
         while (true) {
             System.out.println("Press 1 to quit");
             int ch = Integer.parseInt(bufferedReader.readLine());
+/*
             if (ch == 1) {
                 break;
             }
-
+*/
             System.out.println("Enter message");
             String text = bufferedReader.readLine();
             String from = "Client - " + name;
