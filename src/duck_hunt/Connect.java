@@ -5,10 +5,13 @@
  */
 package duck_hunt;
 
+
+
 /**
  *
  * @author admin
  */
+
 public class Connect extends javax.swing.JFrame {
 
     /**
@@ -79,16 +82,20 @@ public class Connect extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
         Server_GUI.start();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+        Client_GUI.start();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args) {
+    public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

@@ -19,6 +19,14 @@ package duck_hunt;
 
 public class Duck_hunt {
 
+    //  Different static variables containing data which is being used across various windows.
+    
+    public static Error error = new Error();    
+    public static Server server = new Server(1);
+    public static Client client = new Client();
+    public static Menu menu = new Menu();
+    public static ChatWindow chatwindow = new ChatWindow();
+    
     public static void main(String[] args) {
         Duck_hunt.animation();
         Menu menu = new Menu();

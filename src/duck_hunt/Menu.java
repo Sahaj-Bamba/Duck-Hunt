@@ -43,7 +43,7 @@ public class Menu extends DialogProgram
                 break;
             case 3:
                 break;
-            case 4:connect.main(" ");
+            case 4:connect.start();
                 break;
             case 5:temp5.start();
                 break;

@@ -1,3 +1,5 @@
+package duck_hunt;
+
 import java.io.Serializable;
 
 public class Message implements Serializable {
