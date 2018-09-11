@@ -22,15 +22,17 @@ public class Duck_hunt {
     //  Different static variables containing data which is being used across various windows.
     
     public static Error error = new Error();    
-    public static Server server = new Server(1);
-    public static Client client = new Client();
+    public static Server server_read = new Server(1);
+    public static Server server_write = new Server(1);
+    public static Client client_read = new Client();
+    public static Client client_write = new Client();
     public static Menu menu = new Menu();
     public static ChatWindow chatwindow = new ChatWindow();
     
     public static void main(String[] args) {
         Duck_hunt.animation();
         Menu menu = new Menu();
-        menu.run();
+        menu.start();
     }
     public static void animation(){
         
