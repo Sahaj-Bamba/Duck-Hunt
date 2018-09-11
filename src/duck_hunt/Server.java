@@ -39,7 +39,7 @@ public class Server extends Thread {
             e.printStackTrace();
             return;
         }
-        menu.start();
+        
         new Thread(chatwindow).start();
         
         while (true) {

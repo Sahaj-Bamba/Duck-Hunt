@@ -5,20 +5,14 @@
  */
 package duck_hunt;
 
-
-import static duck_hunt.Duck_hunt.server_read;
-import static duck_hunt.Duck_hunt.server_write;
+import static duck_hunt.Duck_hunt.server;
 import static java.lang.Integer.parseInt;
-
-
 
 /**
  *
  * @author admin
  */
 public class Server_GUI extends javax.swing.JDialog {
-
-public static Menu menu = new Menu();
 
     /**
      * Creates new form Server_GUI
@@ -140,22 +134,14 @@ public static Menu menu = new Menu();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        server_read.name = jTextField1.getText();
-        server_read.IP = jTextField2.getText();
-        server_read.port = parseInt(jTextField3.getText());
-        server_write.name = jTextField1.getText();
-        server_write.IP = jTextField2.getText();
-        server_write.port = parseInt(jTextField3.getText());
+        server.name = jTextField1.getText();
+        server.IP = jTextField2.getText();
+        server.port = parseInt(jTextField3.getText());
     //    System.out.println(new StringBuilder().append(server.name).append("  ").append(server.IP).append("  ").append(server.port).toString());
         this.setVisible(false);
         this.dispose();
         
-        
-        
-        server_read.start();
-        server_write.start();
-        
-        //menu.start();
+        server.start();
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -168,7 +154,6 @@ public static Menu menu = new Menu();
      * @param args the command line arguments
      */
     public static void start() {
-        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

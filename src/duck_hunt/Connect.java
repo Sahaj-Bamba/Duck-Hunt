@@ -95,7 +95,6 @@ public class Connect extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    @SuppressWarnings("empty-statement")
     public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -131,8 +130,6 @@ public class Connect extends javax.swing.JFrame {
                 new Connect().setVisible(true);
             }
         });
-        System.out.print("acd");
-        System.out.print("acd");
         System.out.print("acd");
     }
 
