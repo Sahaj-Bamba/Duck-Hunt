@@ -23,7 +23,11 @@ public class Duck_hunt {
     
     public static Error error = new Error();    
     public static Server server = new Server(1);
+    public static Thread server_hear = null;
+    public static Thread server_speak = null;    
     public static Client client = new Client();
+    public static Thread client_hear = null;
+    public static Thread client_speak = null;    
     public static Menu menu = new Menu();
     public static ChatWindow chatwindow = new ChatWindow();
     

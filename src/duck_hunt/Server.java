@@ -3,6 +3,8 @@ package duck_hunt;
 import static duck_hunt.Duck_hunt.chatwindow;
 import static duck_hunt.Duck_hunt.error;
 import static duck_hunt.Duck_hunt.menu;
+import static duck_hunt.Duck_hunt.server_hear;
+import static duck_hunt.Duck_hunt.server_speak;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -41,16 +43,19 @@ public class Server extends Thread {
         }
         
         new Thread(chatwindow).start();
-        
-        while (true) {
+
+//      enclose this in while loop for multiple clients handelling        
+
             try {
                 socket = serverSocket.accept();
-                Thread t = new Thread(new HandleClient(socket));
-                t.start();
+                server_hear = new Thread(new HandleClient_hear(socket , this.name));
+                server_speak = new Thread(new HandleClient_speak(socket , this.name));
+                server_speak.start();
+                server_hear.start();
             } catch (IOException e) {
                 e.printStackTrace();
                 return;
             }
-        }
+
     }
 }
