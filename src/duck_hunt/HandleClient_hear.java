@@ -5,6 +5,7 @@
  */
 package duck_hunt;
 
+import static duck_hunt.Duck_hunt.chatwindow;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
@@ -38,7 +39,7 @@ public class HandleClient_hear implements Runnable  {
                 
                 //      What to do after message is received
                 
-                
+                chatwindow.MessageReceived(message);
                 
             } catch (Exception e) {
                 e.printStackTrace();

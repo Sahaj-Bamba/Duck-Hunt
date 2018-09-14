@@ -5,8 +5,12 @@
  */
 package duck_hunt;
 
+import static duck_hunt.Duck_hunt.ChattedMessage;
+import static duck_hunt.Duck_hunt.WhoAmI;
+import static duck_hunt.Duck_hunt.WhoAmICalled;
+import static duck_hunt.Duck_hunt.server_speak;
+import static duck_hunt.Duck_hunt.client_speak;
 import java.awt.event.ActionEvent;
-import java.io.InputStream;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
@@ -16,10 +20,10 @@ import javax.swing.Action;
  */
 
 
-public class ChatWindow extends javax.swing.JDialog implements Runnable{
+public class ChatWindow extends javax.swing.JDialog{
     
     // Client Input Stream
-    public static InputStream Client_in;       //  Client Input Stream
+
 
     /**
      * Creates new form ChatWindow
@@ -28,12 +32,10 @@ public class ChatWindow extends javax.swing.JDialog implements Runnable{
     public ChatWindow(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.Client_in = new JTextFieldInputStream(jTextField1);
     }
 
     ChatWindow() {
         initComponents();
-        this.Client_in = new JTextFieldInputStream(jTextField1);
     }
 
 
@@ -124,21 +126,36 @@ Action action = new AbstractAction()
     };
 
 
+    public void MessageReceived(Message ms){
+        
+        String txt = ms.message;
+        jLabel2.setText(jLabel2.getText() + " \n" + ms.from  + txt);
+        
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        //      Send message on press of button after setting it to the label
+        String txt = jTextField1.getText();
+        jLabel2.setText(jLabel2.getText() + " \n" + WhoAmICalled + " : " + txt);
+        ChattedMessage = txt;
+        if(WhoAmI.equals("Server")){
+            server_speak.resume();
+        }
+        else if(WhoAmI.equals("Client")){
+            client_speak.resume();
+        }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      */
-    @Override
-    public void run() {
+    public void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -164,6 +181,7 @@ Action action = new AbstractAction()
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 ChatWindow dialog = new ChatWindow(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -180,7 +198,7 @@ Action action = new AbstractAction()
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

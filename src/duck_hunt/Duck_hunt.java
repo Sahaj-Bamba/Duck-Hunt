@@ -30,6 +30,9 @@ public class Duck_hunt {
     public static Thread client_speak = null;    
     public static Menu menu = new Menu();
     public static ChatWindow chatwindow = new ChatWindow();
+    public static String WhoAmI ;                                     //  Server/Client
+    public static String WhoAmICalled ;                               //  My name
+    public static String ChattedMessage;
     
     public static void main(String[] args) {
         Duck_hunt.animation();

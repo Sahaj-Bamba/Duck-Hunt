@@ -1,5 +1,7 @@
 package duck_hunt;
 
+import static duck_hunt.Duck_hunt.WhoAmICalled;
+import static duck_hunt.Duck_hunt.WhoAmI;
 import static duck_hunt.Duck_hunt.chatwindow;
 import static duck_hunt.Duck_hunt.error;
 import static duck_hunt.Duck_hunt.menu;
@@ -41,8 +43,9 @@ public class Server extends Thread {
             e.printStackTrace();
             return;
         }
-        
-        new Thread(chatwindow).start();
+        WhoAmI = "Server";
+        WhoAmICalled = this.name;
+        chatwindow.start();
 
 //      enclose this in while loop for multiple clients handelling        
 

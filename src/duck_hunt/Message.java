@@ -3,9 +3,9 @@ package duck_hunt;
 import java.io.Serializable;
 
 public class Message implements Serializable {
-    private String message;
-    private String from;
-    private String to;
+    public String message;
+    public String from;
+    public String to;
 
     public Message(String message, String from, String to) {
         this.message = message;

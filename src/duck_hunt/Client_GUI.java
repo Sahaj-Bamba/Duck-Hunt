@@ -122,13 +122,13 @@ public class Client_GUI extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        client.name = jTextField2.getText();
+        
+        client.name = jTextField1.getText();
         client.IP = jTextField2.getText();
         client.port = parseInt(jTextField3.getText());
         this.setVisible(false);
         this.dispose();
         
-        new Thread(chatwindow).start();
         client.start();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
