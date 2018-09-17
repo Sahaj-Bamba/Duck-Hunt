@@ -5,6 +5,7 @@
  */
 package duck_hunt;
 import acm.program.DialogProgram;
+
 /**
  *
  * @author admin
