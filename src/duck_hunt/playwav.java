@@ -14,8 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sun.audio.*;
 public class playwav extends Thread
-    {
-    
+{
     private InputStream in;
     private AudioStream au;
     private String song;
