@@ -19,7 +19,8 @@ public class HandleClient_hear implements Runnable  {
     private Socket socket = null;
     ObjectInputStream in = null;
     public String name;
-    public HandleClient_hear (Socket socket , String name) {
+
+    HandleClient_hear(Socket socket, String name) {
         this.socket = socket;
         try {
             in = new ObjectInputStream(socket.getInputStream());

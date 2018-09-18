@@ -17,7 +17,7 @@ import acm.program.DialogProgram;
  * It creates objects for different windows and then start them when the user selects the respective option.
  */
     
-public class Menu extends DialogProgram
+public class Menu extends DialogProgram implements Runnable
 {
     @Override
     public void run()

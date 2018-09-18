@@ -5,28 +5,13 @@
  */
 package duck_hunt;
 
-import acm.program.GraphicsProgram;
-
 /**
  *
  * @author user
  */
-public class test_audio extends GraphicsProgram {
-    playwav ac = new playwav();
+public class test_audio {
     public static void main(String[] args){
-        //this
-    
-    }
-    
-    public void play(){
-    
-        ac.start();
-        pause(5000);
-        while(true){
-        ac.suspend();
-        pause(2000);
-        ac.resume();
-        pause(2000);
-        }
+        playwav p = new playwav("C:\\Users\\user\\Desktop\\Duck-Hunt\\Song.wav");
+        p.start();
     }
 }
