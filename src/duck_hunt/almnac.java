@@ -13,8 +13,7 @@ import javax.swing.JFrame;
  * @author user
  */
 public class almnac extends GraphicsProgram{
-    JFrame frame=new JFrame();
-    frame.setVisible();
+   
     
             
 }
