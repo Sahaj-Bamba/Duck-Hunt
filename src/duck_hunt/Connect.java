@@ -5,6 +5,8 @@
  */
 package duck_hunt;
 
+import static duck_hunt.Duck_hunt.menu;
+
 
 
 /**
@@ -81,6 +83,7 @@ public class Connect extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         this.dispose();
+//        new Thread(menu).start();
         Server_GUI.start();
 
     }//GEN-LAST:event_jButton1ActionPerformed
