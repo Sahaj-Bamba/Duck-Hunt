@@ -43,14 +43,18 @@ public class Server extends Thread {
             e.printStackTrace();
             return;
         }
+        /*
         WhoAmI = "Server";
         WhoAmICalled = this.name;
         chatwindow.start();
-
+        */
 //      enclose this in while loop for multiple clients handelling        
 
             try {
                 socket = serverSocket.accept();
+                WhoAmI = "Server";
+                WhoAmICalled = this.name;
+                chatwindow.start();
                 server_hear = new Thread(new HandleClient_hear(socket , this.name));
                 server_speak = new Thread(new HandleClient_speak(socket , this.name));
                 server_speak.start();

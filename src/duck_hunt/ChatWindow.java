@@ -137,7 +137,7 @@ Action action = new AbstractAction()
 
         //      Send message on press of button after setting it to the label
         String txt = jTextField1.getText();
-        jLabel2.setText(jLabel2.getText() + " \n" + WhoAmICalled + " : " + txt);
+        jLabel2.setText(jLabel2.getText() + " /n" + WhoAmICalled + " : " + txt);
         ChattedMessage = txt;
         if(WhoAmI.equals("Server")){
             server_speak.resume();
