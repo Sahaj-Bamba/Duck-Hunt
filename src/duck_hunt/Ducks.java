@@ -14,7 +14,7 @@ public class Ducks {
     private double angle;                                //      angle
     private double speed;                                //      pixel per frame
     private int randomability;                          //      frames
-    private int hitpoints;                              //      integer
+    public int hitpoints;                              //      integer
     private int leavetime;                              //      frames
     public String bio;                              
     public String pic_location;
