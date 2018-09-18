@@ -18,6 +18,9 @@ import java.awt.Color;
 
 public class NewGame extends GraphicsProgram{
 
+    
+    public static Color x ;
+    //x=Color.
     /**
      *
      */
@@ -43,7 +46,7 @@ public class NewGame extends GraphicsProgram{
     public void FL(String a)
     {
         
-       System.out.println("Hi");
+       //System.out.println("Hi");
         char[] initial =new char [a.length()];
         char[] org =new char[a.length()];
         initial[0]=a.charAt(0);
