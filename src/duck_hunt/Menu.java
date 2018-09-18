@@ -28,6 +28,7 @@ public class Menu extends DialogProgram implements Runnable
         Credits temp8=new Credits();                                        // Credits Window
         Settings temp5=new Settings();                                      // Settings Window
         Instructions temp7 = new Instructions();                            // Instructions Window
+        almnac almn = new almnac();
         
         while (true)
         {
@@ -48,7 +49,7 @@ public class Menu extends DialogProgram implements Runnable
                 break;
             case 5:temp5.start();
                 break;
-            case 6:
+            case 6:almn.start();
                 break;
             case 7:temp7.start();
                 break;

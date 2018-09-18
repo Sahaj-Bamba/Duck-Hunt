@@ -6,6 +6,9 @@
 
 package duck_hunt;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author admin
@@ -20,6 +23,11 @@ package duck_hunt;
 public class Duck_hunt {
 
     
+    Duck_hunt(){
+           
+    }
+    
+    
     //          Main Game Variables
     
     //          Ducks
@@ -31,8 +39,17 @@ public class Duck_hunt {
     public static Ducks Black = new Ducks(1.0,2.0,2,2,3,"Generally Speaking Bomb is the Chillest Bird you will ever meet. However get him worked up and he has a tendency to go Off - explosively speaking. This can have its advantages, but Bomb struggles to control his power.","C:\\Users\\user\\Desktop\\Duck-Hunt\\Images\\Menu_4.jpg","Bomb");
     
     
+    //      Screen Size for system independence
     
+        
+        public static double default_screen_height; 
+        public static double default_screen_width;
     
+        public static double screen_height;
+        public static double screen_width;
+    
+        public static double screen_height_fraction;
+        public static double screen_width_fraction;
     
     //  Different static variables containing data which is being used across various windows.
     
@@ -50,10 +67,28 @@ public class Duck_hunt {
     public static String ChattedMessage;
     
     public static void main(String[] args) {
+        
+        /*
+                All The work of the screen size adjusting screen resolution independence
+        */
+        
+            
+        default_screen_height = 1080.0;
+        default_screen_width = 1920.0;
+    
+        screen_height = Toolkit.getDefaultToolkit().getScreenSize().height;
+        screen_width = Toolkit.getDefaultToolkit().getScreenSize().width;
+    
+        screen_height_fraction = screen_height/default_screen_height;
+        screen_width_fraction = screen_width/default_screen_width;
+        
+
+        
         Duck_hunt.animation();
         Menu menu = new Menu();
         menu.run();
     }
+    
     public static void animation(){
         
     }

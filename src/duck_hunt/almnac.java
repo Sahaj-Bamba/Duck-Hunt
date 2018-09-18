@@ -13,6 +13,8 @@ import static duck_hunt.Duck_hunt.Black;
 import static duck_hunt.Duck_hunt.Blue;
 import static duck_hunt.Duck_hunt.Red;
 import static duck_hunt.Duck_hunt.Yellow;
+import static duck_hunt.Duck_hunt.screen_height_fraction;
+import static duck_hunt.Duck_hunt.screen_width_fraction;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
@@ -24,8 +26,8 @@ import java.awt.event.MouseEvent;
 
 public class almnac extends GraphicsProgram{
     
-    private final int Height;
-    private final int Width;
+    private final double Height;
+    private final double Width;
     
     GImage Menu1_1 = null;
     GImage Menu1_2 = null;
@@ -52,8 +54,10 @@ public class almnac extends GraphicsProgram{
         
         addMouseListeners();
         
-        setSize(Width , Height);
-        setLocation(350 , 50);
+        setSize((int)(Width*screen_width_fraction) ,(int)(Height*screen_height_fraction));
+        setLocation((int)(350.0*screen_width_fraction) , (int)(screen_height_fraction*50.0));
+        
+        System.out.println((screen_width_fraction));
         
                 //      Create  Objects
         
@@ -64,7 +68,7 @@ public class almnac extends GraphicsProgram{
         
         Main_image = new GImage("");
         
-        Main = new GRect(600,300);
+        Main = new GRect(600*screen_width_fraction,300*screen_height_fraction);
                 
         Topic = new GLabel("Almnac");
         Description = new GLabel("");
@@ -75,38 +79,38 @@ public class almnac extends GraphicsProgram{
         
                 //      Set  Size
                 
-        Menu1_1.setSize(200,200);
-        Menu1_2.setSize(200,200);
-        Menu1_3.setSize(200,200);
-        Menu1_4.setSize(200,200);
+        Menu1_1.setSize(200*screen_width_fraction,200*screen_height_fraction);
+        Menu1_2.setSize(200*screen_width_fraction,200*screen_height_fraction);
+        Menu1_3.setSize(200*screen_width_fraction,200*screen_height_fraction);
+        Menu1_4.setSize(200*screen_width_fraction,200*screen_height_fraction);
         
-        Main_image.setSize(300,300);
+        Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
 
-        Main.setSize(600, 500);
+        Main.setSize(600*screen_width_fraction, 500*screen_height_fraction);
         
-        Topic.setFont((new Font("Serif", Font.BOLD, 150)));
+        Topic.setFont((new Font("Serif", Font.BOLD, (int)(150*screen_width_fraction))));
         
-        Description.setFont((new Font("Serif", Font.BOLD, 20)));
-        Property.setFont((new Font("Serif", Font.BOLD, 20)));
-        Name.setFont((new Font("Serif", Font.BOLD, 50)));
+        Description.setFont((new Font("Serif", Font.BOLD, (int)(20*screen_width_fraction))));
+        Property.setFont((new Font("Serif", Font.BOLD,(int)(20*screen_width_fraction))));
+        Name.setFont((new Font("Serif", Font.BOLD, (int)(50*screen_width_fraction))));
         
         
                 //      Set  Locations
         
-        Menu1_1.setLocation(400,20);
-        Menu1_2.setLocation(1200,20);
-        Menu1_3.setLocation(400,720);
-        Menu1_4.setLocation(1200,720);
+        Menu1_1.setLocation(400*screen_width_fraction,20*screen_height_fraction);
+        Menu1_2.setLocation(1200*screen_width_fraction,20*screen_height_fraction);
+        Menu1_3.setLocation(400*screen_width_fraction,720*screen_height_fraction);
+        Menu1_4.setLocation(1200*screen_width_fraction,720*screen_height_fraction);
         
-        Main_image.setLocation(600,220);
+        Main_image.setLocation(600*screen_width_fraction,220*screen_height_fraction);
         
-        Main.setLocation(600, 220);
+        Main.setLocation(600*screen_width_fraction, 220*screen_height_fraction);
         
-        Topic.setLocation(650,160);
+        Topic.setLocation(650*screen_width_fraction,160*screen_height_fraction);
 
-        Description.setLocation(650,620);
-        Property.setLocation(940,440);
-        Name.setLocation(940,340);
+        Description.setLocation(650*screen_width_fraction,620*screen_height_fraction);
+        Property.setLocation(940*screen_width_fraction,440*screen_height_fraction);
+        Name.setLocation(940*screen_width_fraction,340*screen_height_fraction);
 
         //p.setLocation(1200,720);
                 
@@ -155,7 +159,7 @@ public class almnac extends GraphicsProgram{
             Description.setLabel(Red.bio);
             
             Main_image.setImage(Red.pic_location);
-            Main_image.setSize(300,300);
+            
                 
         }
         else if(Menu1_2.contains(e.getX(),e.getY())){
@@ -169,7 +173,7 @@ public class almnac extends GraphicsProgram{
             Description.setLabel(Yellow.bio);
             
             Main_image.setImage(Yellow.pic_location);
-            Main_image.setSize(300,300);
+            
         }
         else if(Menu1_3.contains(e.getX(),e.getY())){
             
@@ -182,7 +186,7 @@ public class almnac extends GraphicsProgram{
             Description.setLabel(Blue.bio);
             
             Main_image.setImage(Blue.pic_location);
-            Main_image.setSize(300,300);
+            
         }
         else if(Menu1_4.contains(e.getX(),e.getY())){
             
@@ -195,9 +199,9 @@ public class almnac extends GraphicsProgram{
             Description.setLabel(Black.bio);
             
             Main_image.setImage(Black.pic_location);
-            Main_image.setSize(300,300);
+            
         }
-        
+        Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
     }
             
 }

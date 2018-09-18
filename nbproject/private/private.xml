@@ -3,23 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Graphic.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/StartGame.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Grect.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/HandleClient.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Connect.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Player.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/almnac.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/test_audio.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Image.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/playwav.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/rectangle.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Test_Almnac.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Ducks.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/NewGame.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Menu.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/test_rectangles.java</file>
-            <file>file:/C:/Users/user/Desktop/Duck-Hunt/src/duck_hunt/Duck_hunt.java</file>
+
+
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/almnac.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/HandleClient_speak.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Image.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Server_GUI.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Flash.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Graphic.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Client.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/NewGame.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/JTextFieldInputStream.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Guns.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Credits.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/ChatWindow.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/AL.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Error.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Server.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Test_Almnac.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Instructions.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Client_GUI.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Duck_hunt.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Menu.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Player.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/HandleClient.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/StartGame.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Ducks.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Settings.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/HandleClient_hear.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Connect.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/Message.java</file>
+            <file>file:/C:/Users/admin/Desktop/Avishkar/Cyber%20Quest/Softblitz/Duck_hunt/src/duck_hunt/playwav.java</file>
+
+
         </group>
     </open-files>
 </project-private>
