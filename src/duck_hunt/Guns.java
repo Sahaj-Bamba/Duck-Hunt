@@ -11,4 +11,22 @@ package duck_hunt;
  */
 public class Guns {
     
+    public int Delay;                                                   //      frames
+    public int Reload;                                                  //      frames
+    public int Damage;                                                  //      integer
+    public int Clip_size;                                               //      number of bullets
+    
+    public String pic_location;
+    
+    Guns(int a,int b,int c,int d,String e){
+        
+        this.Delay=a;
+        this.Reload=b;
+        this.Damage=c;
+        this.Clip_size=d;
+        
+        this.pic_location=e;
+        
+    }
+    
 }

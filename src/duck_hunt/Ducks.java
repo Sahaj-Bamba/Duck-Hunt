@@ -11,14 +11,17 @@ package duck_hunt;
  */
 public class Ducks {
     
-    private double angle;                                //      angle
-    private double speed;                                //      pixel per frame
-    private int randomability;                          //      frames
+
+    public double angle;                                //      angle
+    public double speed;                                //      pixel per frame
+    public int randomability;                          //      frames
     public int hitpoints;                              //      integer
-    private int leavetime;                              //      frames
+    public int leavetime;                              //      frames
     public String bio;                              
     public String pic_location;
     public String name;
+    public boolean is_alive;
+    public int size;
     
     Ducks(double angle , double speed , int randomability , int HP , int LT , String b , String p , String name){
         this.angle = angle;
@@ -29,7 +32,23 @@ public class Ducks {
         this.leavetime = LT;
         this.pic_location = p;
         this.name = name;
+        this.is_alive = true;
+        this.size = 100;
     }
+
+    Ducks(Ducks a) {
+        this.angle = a.angle;
+        this.speed = a.speed;
+        this.randomability = a.randomability;
+        this.hitpoints = a.hitpoints;
+        this.bio = a.bio;
+        this.leavetime = a.leavetime;
+        this.pic_location = a.pic_location;
+        this.name = a.name;
+        this.is_alive = true;
+        this.size = a.size;
+    }
+    
     
     
 }
