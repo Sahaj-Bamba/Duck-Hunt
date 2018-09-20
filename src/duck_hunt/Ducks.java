@@ -11,6 +11,7 @@ package duck_hunt;
  */
 public class Ducks {
     
+
     public double angle;                                //      angle
     public double speed;                                //      pixel per frame
     public int randomability;                          //      frames
