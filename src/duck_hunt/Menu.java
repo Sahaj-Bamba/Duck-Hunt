@@ -23,7 +23,7 @@ public class Menu extends DialogProgram implements Runnable
     public void run()
     {
         int cnt;                                                            // option selection controller 
-        NewGame temp1=new NewGame();                                        // game Window
+        StartGame temp1=new StartGame();                                        // game Window
         Connect connect = new Connect();                                    // Connect Window
         Credits temp8=new Credits();                                        // Credits Window
         Settings temp5=new Settings();                                      // Settings Window

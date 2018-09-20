@@ -9,9 +9,11 @@ import java.awt.*;
 public class Player {
     public Color colour;
     public int score;
-
-    public Player() 
+    public String name;
+    
+    public Player(String a) 
     {
+        this.name = a;
         this.score = 0;
     }
     
