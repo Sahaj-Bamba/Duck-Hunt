@@ -92,6 +92,7 @@ public class Connect extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         this.dispose();
+        
         Client_GUI.start();
     }//GEN-LAST:event_jButton2ActionPerformed
 

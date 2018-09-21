@@ -51,7 +51,7 @@ public class Duck_hunt {
         public static double screen_width_fraction;
     
     //  Different static variables containing data which is being used across various windows.
-    
+    public static int flag_speak =0;
     public static Error error = new Error();    
     public static Server server = new Server(1);
     public static Thread server_hear = null;
