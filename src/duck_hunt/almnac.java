@@ -33,20 +33,25 @@ public class almnac extends GraphicsProgram{
     GImage Menu1_2 = null;
     GImage Menu1_3 = null;
     GImage Menu1_4 = null;
+    
+    GImage star[] = new GImage[15];
+  
     GImage Main_image = null;
         
-    GRect Main = new GRect(600,300);
+    GRect Main = null;
     
     GLabel Topic = null;
     GLabel Description = null;
-    GLabel Property = null;
+    GLabel Property1 = null;
+    GLabel Property2 = null;
+    GLabel Property3 = null;
     GLabel Name = null;
         
         
     
     public almnac() {
         this.Height = 1000;
-        this.Width = 1850;
+        this.Width = 1900;
     }
     
     @Override
@@ -57,7 +62,7 @@ public class almnac extends GraphicsProgram{
         setSize((int)(Width*screen_width_fraction) ,(int)(Height*screen_height_fraction));
         setLocation((int)(350.0*screen_width_fraction) , (int)(screen_height_fraction*50.0));
         
-        System.out.println((screen_width_fraction));
+        //System.out.println((screen_width_fraction));
         
                 //      Create  Objects
         
@@ -65,14 +70,20 @@ public class almnac extends GraphicsProgram{
         Menu1_2 = new GImage(Yellow.pic_location);
         Menu1_3 = new GImage(Blue.pic_location);
         Menu1_4 = new GImage(Black.pic_location);
+    
+        for(int i=0;i<15;i++){
+            star[i] = new GImage("C:\\Users\\user\\Desktop\\Duck-Hunt\\Images\\star1.jpg");
+        }
         
         Main_image = new GImage("");
         
-        Main = new GRect(600*screen_width_fraction,300*screen_height_fraction);
+        Main = new GRect(600*screen_width_fraction,500*screen_height_fraction);
                 
         Topic = new GLabel("Almnac");
         Description = new GLabel("");
-        Property = new GLabel("");
+        Property1 = new GLabel("");
+        Property2 = new GLabel("");
+        Property3 = new GLabel("");
         Name = new GLabel("");
         
         //GOval p = new GOval(200,200);
@@ -84,15 +95,24 @@ public class almnac extends GraphicsProgram{
         Menu1_3.setSize(200*screen_width_fraction,200*screen_height_fraction);
         Menu1_4.setSize(200*screen_width_fraction,200*screen_height_fraction);
         
-        Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
+        for(int i=0;i<15;i++){
+            star[i].setSize(40*screen_width_fraction,40*screen_height_fraction);
+        }
+        
+        
+        
+       // this line is not in use curently
+       // Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
 
         Main.setSize(600*screen_width_fraction, 500*screen_height_fraction);
         
-        Topic.setFont((new Font("Serif", Font.BOLD, (int)(150*screen_width_fraction))));
+        Topic.setFont((new Font("Colonna MT", Font.BOLD, (int)(150*screen_width_fraction))));
         
-        Description.setFont((new Font("Serif", Font.BOLD, (int)(20*screen_width_fraction))));
-        Property.setFont((new Font("Serif", Font.BOLD,(int)(20*screen_width_fraction))));
-        Name.setFont((new Font("Serif", Font.BOLD, (int)(50*screen_width_fraction))));
+        Description.setFont((new Font("Harrington", Font.BOLD, (int)(20*screen_width_fraction))));
+        Property1.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
+        Property2.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
+        Property3.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
+        Name.setFont((new Font("Curlz MT", Font.BOLD, (int)(50*screen_width_fraction))));
         
         
                 //      Set  Locations
@@ -108,22 +128,37 @@ public class almnac extends GraphicsProgram{
         
         Topic.setLocation(650*screen_width_fraction,160*screen_height_fraction);
 
-        Description.setLocation(650*screen_width_fraction,620*screen_height_fraction);
-        Property.setLocation(940*screen_width_fraction,440*screen_height_fraction);
-        Name.setLocation(940*screen_width_fraction,340*screen_height_fraction);
+        Description.setLocation(630*screen_width_fraction,550*screen_height_fraction);
+        Property1.setLocation(960*screen_width_fraction,380*screen_height_fraction);
+        Property2.setLocation(960*screen_width_fraction,380*screen_height_fraction);
+        Property3.setLocation(960*screen_width_fraction,380*screen_height_fraction);
+        Name.setLocation(950*screen_width_fraction,280*screen_height_fraction);
 
         //p.setLocation(1200,720);
                 
+        for(int i=0;i<5;i++){
+            star[i].setLocation((1160+i*22)*screen_width_fraction,380*screen_height_fraction);
+        }
+        for(int i=5;i<10;i++){
+            star[i].setLocation((1160+i*22)*screen_width_fraction,380*screen_height_fraction);
+        }
+        for(int i=10;i<15;i++){
+            star[i].setLocation((1160+i*22)*screen_width_fraction,380*screen_height_fraction);
+        }
+        
+        
                 //      Set other properties
         
         Main.setColor(Color.green);
         Main.setFilled(true);
         
-        Topic.setColor(Color.CYAN);
+        Topic.setColor(Color.blue);
         
         Description.setColor(Color.CYAN);
-        Property.setColor(Color.CYAN);
-        Name.setColor(Color.CYAN);
+        Property1.setColor(Color.CYAN);
+        Property2.setColor(Color.CYAN);
+        Property3.setColor(Color.CYAN);
+        Name.setColor(Color.magenta);
         
         //p.setFillColor(Color.yellow);
         //p.setFilled(true);
@@ -141,8 +176,16 @@ public class almnac extends GraphicsProgram{
         
         add(Main_image);
         add(Description);
-        add(Property);
+        add(Property1);
+        add(Property2);
+        add(Property3);
         add(Name);
+        
+        /*
+        for(int i=0;i<5;i++){
+            add(star[i]);
+        }
+        */
         
         //add(p);
     }
@@ -155,12 +198,27 @@ public class almnac extends GraphicsProgram{
             Main.setColor(Color.RED);
             
             Name.setLabel(Red.name);
-            Property.setLabel("kfgwjkbagl");
+            Property1.setLabel("Speed");
+            Property2.setLabel("Hit Points");
+            Property3.setLabel("Randomability");
+            
             Description.setLabel(Red.bio);
             
             Main_image.setImage(Red.pic_location);
             
-                
+        
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+
+        
+            
         }
         else if(Menu1_2.contains(e.getX(),e.getY())){
             
@@ -168,11 +226,23 @@ public class almnac extends GraphicsProgram{
             
             Name.setLabel(Yellow.name);
             
-            Property.setLabel("kghesrnjkhageuik");
+            Property1.setLabel("Speed");
+            Property2.setLabel("Hit Points");
+            Property3.setLabel("Randomability");
             
             Description.setLabel(Yellow.bio);
             
             Main_image.setImage(Yellow.pic_location);
+    
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+            for(int i=5;i<10;i++){
+                add(star[i]);
+            }
+            for(int i=10;i<15;i++){
+                add(star[i]);
+            }
             
         }
         else if(Menu1_3.contains(e.getX(),e.getY())){
@@ -181,11 +251,23 @@ public class almnac extends GraphicsProgram{
             
             Name.setLabel(Blue.name);
             
-            Property.setLabel("jdsbvljkashb");
+            Property1.setLabel("Speed");
+            Property2.setLabel("Hit Points");
+            Property3.setLabel("Randomability");
             
             Description.setLabel(Blue.bio);
             
             Main_image.setImage(Blue.pic_location);
+    
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
             
         }
         else if(Menu1_4.contains(e.getX(),e.getY())){
@@ -194,13 +276,26 @@ public class almnac extends GraphicsProgram{
             
             Name.setLabel(Black.name);
             
-            Property.setLabel("bhjsdghlkjsbgoloh");
+            Property1.setLabel("Speed");
+            Property2.setLabel("Hit Points");
+            Property3.setLabel("Randomability");
             
             Description.setLabel(Black.bio);
             
             Main_image.setImage(Black.pic_location);
+    
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
+            for(int i=0;i<5;i++){
+                add(star[i]);
+            }
             
         }
+        
         Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
     }
             
