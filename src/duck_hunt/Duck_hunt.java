@@ -26,17 +26,33 @@ public class Duck_hunt {
            
     }
     
+    public static Player gamer =null;
     
     //          Main Game Variables
     
     //          Ducks
     
         //float angle , float speed , int randomability , int HP , int LT , String b , String p , String name
-    public static Ducks Red = new Ducks(1.0,2.0,2,2,3,"On an island occupied by the cheeriest birds imaginable, Red is a bit of an outcast. His cynical outlook has kept him at odds with the other birds,  but a bit of cynicism might be just what they need.","C:\\Users\\user\\Desktop\\Duck-Hunt\\Images\\Menu_1.jpg","The Red");
-    public static Ducks Blue = new Ducks(1.0,2.0,2,2,3,"Why am I blue people usually ask me and my answer to them is because I am so cool. I am not bragging I really am cool. I listen to none since I am better then them all. I keep moving and changing directions as much as I want. That means almost infinitely. ","C:\\Users\\user\\Desktop\\Duck-Hunt\\Images\\Menu_3.jpg","Blues");
-    public static Ducks Yellow = new Ducks(1.0,2.0,2,2,3,"Chuck is constantly running at 100 mph and that includes his mouth as well . His impulsive nature often gets him into trouble. Lukily he is fast enough to escape from the situation. Chuck says I am not fast I am just walking its you who is slow . ","C:\\Users\\user\\Desktop\\Duck-Hunt\\Images\\Menu_2.png","Chuck");
-    public static Ducks Black = new Ducks(1.0,2.0,2,2,3,"Generally Speaking Bomb is the Chillest Bird you will ever meet. However get him worked up and he has a tendency to go Off - explosively speaking. This can have its advantages, but Bomb struggles to control his power.","C:\\Users\\user\\Desktop\\Duck-Hunt\\Images\\Menu_4.jpg","Bomb");
+    public static Ducks Red = new Ducks(1.0,2.0,2,2,3,"On an island occupied by the cheeriest birds imaginable, Red is a bit of an outcast. His cynical outlook has kept him at odds with the other birds,  but a bit of cynicism might be just what they need.","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Menu_1.jpg","The Red");
+    public static Ducks Blue = new Ducks(1.0,2.0,2,2,3,"Why am I blue people usually ask me and my answer to them is because I am so cool. I am not bragging I really am cool. I listen to none since I am better then them all. I keep moving and changing directions as much as I want. That means almost infinitely. ","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Menu_3.jpg","Blues");
+    public static Ducks Yellow = new Ducks(1.0,2.0,2,2,3,"Chuck is constantly running at 100 mph and that includes his mouth as well . His impulsive nature often gets him into trouble. Lukily he is fast enough to escape from the situation. Chuck says I am not fast I am just walking its you who is slow . ","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Menu_2.png","Chuck");
+    public static Ducks Black = new Ducks(1.0,2.0,2,2,3,"Generally Speaking Bomb is the Chillest Bird you will ever meet. However get him worked up and he has a tendency to go Off - explosively speaking. This can have its advantages, but Bomb struggles to control his power.","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Menu_4.jpg","Bomb");
     
+    
+    //          Guns
+    
+    /*
+    public int Delay;                                                   //      frames
+    public int Reload;                                                  //      frames
+    public int Damage;                                                  //      integer
+    public int Clip_size;                                               //      number of bullets    
+    public String pic_location;
+    */
+    
+    public static Guns ak = new Guns(1,1,1,1,"C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Guns\\1","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\1.wav");    
+    public static Guns shotgun = new Guns(1,1,1,1,"C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Guns\\2","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\2.wav");        
+    public static Guns laser = new Guns(1,1,1,1,"C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Guns\\3","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\3.wav");    
+    public static Guns sniper = new Guns(1,1,1,1,"C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Guns\\4","C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\4.wav");    
     
     //      Screen Size for system independence
     

@@ -32,8 +32,8 @@ public class Menu extends DialogProgram implements Runnable
         
         while (true)
         {
-            cnt=readInt("\tDUCK HUNT \n\n1- Single Player \n2- Two Player\n3- Chat\n4- Connect\n5-Settings\n6- Almnac \n7- How to Play\n8- Credits \n9- Quit ");
-            if(cnt>0&&cnt<10)
+            cnt=readInt("\tDUCK HUNT \n\n1- Single Player \n2- Two Player\n3- Chat\n4- Connect\n5-Settings\n6- Almnac \n7- How to Play\n8- Credits \n9- Quit \n 10- Login/Signup");
+            if(cnt>0&&cnt<11)
                 break;
             print("\tError \nYou Entered an incorrect value .");
         }
@@ -57,6 +57,9 @@ public class Menu extends DialogProgram implements Runnable
                 break;
             case 9:System.exit(0);
                 break;
+            case 10:String args[] = null;
+                    new LoginForm().main(args);
+                    break;
         }
     }
     
