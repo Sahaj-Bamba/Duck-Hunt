@@ -129,9 +129,10 @@ public class StartGame extends GraphicsProgram
     
     long frame = 0;
     int active_gun = 0;
+    private final int fps = 60;
     
     
-    public int number_of_birds = 2;
+    public int number_of_birds = 10;
     public Ducks ducks[] = new Ducks[number_of_birds];
     public GImage ducks_pic[] = new GImage[number_of_birds];
     public int round_num = 0;
@@ -150,7 +151,7 @@ public class StartGame extends GraphicsProgram
     GRect Gun4 = new GRect(200*screen_width_fraction,200*screen_height_fraction);
     GPoint last_pos = new GPoint();
     GOval Pointer = new GOval(50*screen_width_fraction,50*screen_height_fraction);
-
+    
     //      Sounds
     /*
     playwav ak_sd = new playwav(ak.getsd());
@@ -176,6 +177,8 @@ public class StartGame extends GraphicsProgram
     
     GImage _pointer = new GImage("Images\\Images\\Pointers\\1.png");
     
+    
+    
     @Override
     public void init(){
 
@@ -199,7 +202,11 @@ public class StartGame extends GraphicsProgram
         
         
         for(int i=0;i<number_of_birds;i++){
+            
             int x =(int) (Math.random() * 4);
+            x=1;          //  for testing
+            int y =(int) (Math.random() * angles_allowed.length);
+            
             switch (x) {
                 case 0:
                     ducks[i] = new Ducks(Red);
@@ -220,11 +227,13 @@ public class StartGame extends GraphicsProgram
                 default:
                     break;
             }
+            
+            ducks[i].angle=angles_allowed[y];
+            ducks_pic[i] = new GImage("Images\\Images\\"+(x+1)+"\\"+(int)ducks[i].angle+".png");
         }
         
 
         //          Set initial angle of ducks
-        
         
         
 
@@ -250,6 +259,17 @@ public class StartGame extends GraphicsProgram
         //          Start all threads for initial and suspend
        
 
+        //          Seting initial location of birds
+        
+        for(int i=0;i<number_of_birds;i++){
+            
+            int x =(int) ((Math.random() * 1300) + 200);
+            int y = (int) ((Math.random() * 600) + 50);
+            
+            ducks_pic[i].setLocation( x, y);
+            
+        }
+        
         //      Adhusting different zones or levels
         
         level1.setLocation(0,0);
@@ -324,11 +344,15 @@ public class StartGame extends GraphicsProgram
         */
         System.out.println("hello");
         addall();
+        
         while(true){
             
+        move_all();
+        check_collision();
             
+        pause(1000/fps);
+        
         }
-
     }
 
     
@@ -353,14 +377,25 @@ public class StartGame extends GraphicsProgram
         
         add(_level1);
         
+
+        for(int i=0; i<number_of_birds; i++){
+            add(ducks_pic[i]);
+        }
+        
         add(_gun1);
         add(_gun2);
         add(_gun3);
         add(_gun4);
     
+        
+        
         add(_gun);
         
+        
+        
         add(_pointer);
+        
+        
         
     }
 
@@ -371,18 +406,43 @@ public class StartGame extends GraphicsProgram
         //              Perform Changes
         
         
+        move_all();
+        check_collision();
         
-        
-        
-        
-        
+        pause(1000/fps);
         //              Add Back All
         
         addall();
         
     }
     
+    public void move_all(){
+        
+        for(int i=0; i<number_of_birds; i++){
+            ducks_pic[i].move((-1)*(Math.cos(ducks[i].angle*Math.PI/180.0)*ducks[i].speed),(-1)*(Math.sin(ducks[i].angle*Math.PI/180.0)*ducks[i].speed));
+        }
+        
+    }
     
+    public void check_collision(){
+        
+        boolean flag = false;
+        int y;
+        
+        for(int i=0; i<number_of_birds; i++){
+            if(ducks_pic[i].getLocation().getX()>1600||ducks_pic[i].getLocation().getX()<200||ducks_pic[i].getLocation().getY()>700||ducks_pic[i].getLocation().getY()<10){
+                y =(int) (Math.random() * 12);
+                int x=1;
+                ducks[i].angle=angles_allowed[y];
+                ducks_pic[i].setImage("Images\\Images\\"+(x+1)+"\\"+(int)ducks[i].angle+".png");
+                System.out.println(ducks[i].angle);
+                ducks_pic[i].setSize(100,100);
+                move_all();
+                move_all();
+            }
+        }
+      
+    }
     
     @Override
     public void keyPressed(KeyEvent e){
@@ -401,7 +461,12 @@ public class StartGame extends GraphicsProgram
             active_gun=3;
         if(active_gun>3)
             active_gun=0;
-    
+        
+        remove(_gun);
+        _gun.setImage("Images\\Images\\Guns\\"+(active_gun+1)+"_2_1"+".png");
+        _gun.setSize(300*screen_width_fraction,400*screen_height_fraction); 
+        add(_gun);
+        
         System.out.println(active_gun);
     }
     
@@ -459,12 +524,19 @@ public class StartGame extends GraphicsProgram
     @Override
     public void mouseClicked(MouseEvent e){
         
+        for(int i=0; i<number_of_birds; i++){
+            if(ducks_pic[i].contains(e.getX(),e.getY()))
+                ducks_pic[i].setSize(ducks_pic[i].getWidth()-100,ducks_pic[i].getHeight()-100);
+        }
+        
+        
         /*
     playwav ak_sd = new playwav(ak.getsd());
     playwav shot_sd = new playwav(shotgun.getsd());
     playwav laser_sd = new playwav(laser.getsd());
     playwav sniper_sd = new playwav(sniper.getsd());
         */  
+        
     }
     
     @Override
@@ -486,40 +558,13 @@ public class StartGame extends GraphicsProgram
             }
             
             
-            /*
-            switch(active_gun){
-                case 0:ak_sd.resume();
-                        break;
-                case 1:shot_sd.resume();
-                        break;
-                case 2:laser_sd.resume();
-                        break;
-                case 3:sniper_sd.resume();
-                        break;
-                default:
-                        break;
-            }
-            */
+        
     }
     
     @Override
     public void mouseReleased(MouseEvent e){
-            //      Turn off shooting sound
-            
-/*            
-            switch(active_gun){
-                case 0:ak_sd.suspend();
-                        break;
-                case 1:shot_sd.suspend();
-                        break;
-                case 2:laser_sd.suspend();
-                        break;
-                case 3:sniper_sd.suspend();
-                        break;
-                default:
-                        break;
-            }
-*/  
+
+
     }
 }
 
