@@ -66,6 +66,9 @@ public class Client_GUI extends javax.swing.JDialog {
         jLabel4.setText("Port");
 
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextField2.setText("localhost");
+
+        jTextField3.setText("9876");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

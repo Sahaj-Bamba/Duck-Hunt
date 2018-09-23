@@ -7,6 +7,7 @@ package duck_hunt;
 import static duck_hunt.Duck_hunt.ChattedMessage;
 import static duck_hunt.Duck_hunt.WhoAmI;
 import static duck_hunt.Duck_hunt.client_speak;
+import static duck_hunt.Duck_hunt.flag_speak;
 import static duck_hunt.Duck_hunt.server_speak;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -24,7 +25,7 @@ public class HandleClient_speak implements Runnable {
     
     public String txt;
     private Socket socket = null;
-    ObjectOutputStream out = null;
+    public ObjectOutputStream out = null;
     public String name;
     
     public HandleClient_speak (Socket socket , String name) {
@@ -42,27 +43,40 @@ public class HandleClient_speak implements Runnable {
     
     @Override
     public void run() {
-
+/*
         if(WhoAmI.equals("Server")){
             server_speak.suspend();
         }
         else if(WhoAmI.equals("Client")){
             client_speak.suspend();
         }
-
+*/
         while(true){
+            /*if(flag_speak==1){
             try {
                 send_msg(ChattedMessage);
             } catch (IOException ex) {
                 Logger.getLogger(HandleClient_speak.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if(WhoAmI.equals("Server")){
+            flag_speak = 0;
+            }*/
+/*            if(WhoAmI.equals("Server")){
                     server_speak.suspend();
             }
             else if(WhoAmI.equals("Client")){
                     client_speak.suspend();
             }
-        }
+*/
+        while(flag_speak == 0);
+            try {
+                System.out.println("Sending try");
+                send_msg(ChattedMessage);
+            } catch (IOException ex) {
+                Logger.getLogger(HandleClient_speak.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            flag_speak=0;
+        
+}
     }
         
     

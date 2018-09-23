@@ -7,6 +7,7 @@ package duck_hunt;
 
 import static duck_hunt.Duck_hunt.ChattedMessage;
 import static duck_hunt.Duck_hunt.WhoAmI;
+import static duck_hunt.Duck_hunt.flag_speak;
 import static duck_hunt.Duck_hunt.WhoAmICalled;
 import static duck_hunt.Duck_hunt.server_speak;
 import static duck_hunt.Duck_hunt.client_speak;
@@ -28,6 +29,9 @@ public class ChatWindow extends javax.swing.JDialog{
     /**
      * Creates new form ChatWindow
      */
+    
+    
+    
     
     public ChatWindow(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -137,14 +141,19 @@ Action action = new AbstractAction()
 
         //      Send message on press of button after setting it to the label
         String txt = jTextField1.getText();
-        jLabel2.setText(jLabel2.getText() + " /n" + WhoAmICalled + " : " + txt);
+        jLabel2.setText(jLabel2.getText() + " \n" + WhoAmICalled + " : " + txt);
         ChattedMessage = txt;
+        flag_speak = 1;
+        
+        System.out.println("Pressed");
+/*        
         if(WhoAmI.equals("Server")){
-            server_speak.resume();
+            server_speak.s
         }
         else if(WhoAmI.equals("Client")){
             client_speak.resume();
         }    
+*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -201,4 +210,7 @@ Action action = new AbstractAction()
     public javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+   
+
 }

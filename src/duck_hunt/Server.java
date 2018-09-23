@@ -8,10 +8,11 @@ import static duck_hunt.Duck_hunt.menu;
 import static duck_hunt.Duck_hunt.server_hear;
 import static duck_hunt.Duck_hunt.server_speak;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server extends Thread {
+public class Server extends Thread implements Serializable{
         // s tell if server is on or not 
     
     private boolean is_on ;
@@ -54,11 +55,18 @@ public class Server extends Thread {
                 socket = serverSocket.accept();
                 WhoAmI = "Server";
                 WhoAmICalled = this.name;
-                chatwindow.start();
-                server_hear = new Thread(new HandleClient_hear(socket , this.name));
-                server_speak = new Thread(new HandleClient_speak(socket , this.name));
-                server_speak.start();
-                server_hear.start();
+                
+              //  new Thread(new Menu()).start();
+           new Thread(new Menu()).start();
+              //new Thread(new ChatWindow()).start();
+//                server_hear = new Thread(new HandleClient_hear(socket , this.name));
+//                server_speak = new Thread(new HandleClient_speak(socket , this.name));
+//                server_speak.start();
+//                server_hear.start();
+               // new Thread(new ChatWindow()).start();
+            //   new Thread(new ChatWindow()).start();
+               new Thread(new Menu()).start();
+
             } catch (IOException e) {
                 e.printStackTrace();
                 return;
