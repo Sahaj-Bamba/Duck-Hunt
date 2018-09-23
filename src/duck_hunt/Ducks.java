@@ -21,7 +21,16 @@ public class Ducks {
     public String pic_location;
     public String name;
     public boolean is_alive;
+    private int entry_frame;
     public int size;
+    
+    public int get_entry_frame(){
+        return entry_frame;
+    }
+    
+    public void set_entry_frame( int x){
+        this.entry_frame = x;
+    }
     
     Ducks(double angle , double speed , int randomability , int HP , int LT , String b , String p , String name){
         this.angle = angle;
