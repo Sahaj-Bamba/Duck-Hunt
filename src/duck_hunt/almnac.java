@@ -91,7 +91,7 @@ public class almnac extends GraphicsProgram{
                 //      Set  Size
                 
         Menu1_1.setSize(200*screen_width_fraction,200*screen_height_fraction);
-        Menu1_2.setSize(200*screen_width_fraction,200*screen_height_fraction);
+        Menu1_2.setSize(150*screen_width_fraction,150*screen_height_fraction);
         Menu1_3.setSize(200*screen_width_fraction,200*screen_height_fraction);
         Menu1_4.setSize(200*screen_width_fraction,200*screen_height_fraction);
         
@@ -118,7 +118,7 @@ public class almnac extends GraphicsProgram{
                 //      Set  Locations
         
         Menu1_1.setLocation(400*screen_width_fraction,20*screen_height_fraction);
-        Menu1_2.setLocation(1200*screen_width_fraction,20*screen_height_fraction);
+        Menu1_2.setLocation(1250*screen_width_fraction,20*screen_height_fraction);
         Menu1_3.setLocation(400*screen_width_fraction,720*screen_height_fraction);
         Menu1_4.setLocation(1200*screen_width_fraction,720*screen_height_fraction);
         
@@ -129,21 +129,21 @@ public class almnac extends GraphicsProgram{
         Topic.setLocation(650*screen_width_fraction,160*screen_height_fraction);
 
         Description.setLocation(630*screen_width_fraction,550*screen_height_fraction);
-        Property1.setLocation(960*screen_width_fraction,380*screen_height_fraction);
-        Property2.setLocation(960*screen_width_fraction,380*screen_height_fraction);
-        Property3.setLocation(960*screen_width_fraction,380*screen_height_fraction);
+        Property1.setLocation(940*screen_width_fraction,360*screen_height_fraction);
+        Property2.setLocation(940*screen_width_fraction,400*screen_height_fraction);
+        Property3.setLocation(940*screen_width_fraction,440*screen_height_fraction);
         Name.setLocation(950*screen_width_fraction,280*screen_height_fraction);
 
         //p.setLocation(1200,720);
                 
-        for(int i=0;i<5;i++){
-            star[i].setLocation((1160+i*22)*screen_width_fraction,380*screen_height_fraction);
+        for(int i=0;i<2;i++){
+            star[i].setLocation((1120+i*35)*screen_width_fraction,330*screen_height_fraction);
         }
-        for(int i=5;i<10;i++){
-            star[i].setLocation((1160+i*22)*screen_width_fraction,380*screen_height_fraction);
+        for(int i=5;i<7;i++){
+            star[i].setLocation((945+i*35)*screen_width_fraction,370*screen_height_fraction);
         }
-        for(int i=10;i<15;i++){
-            star[i].setLocation((1160+i*22)*screen_width_fraction,380*screen_height_fraction);
+        for(int i=10;i<12;i++){
+            star[i].setLocation((772+i*35)*screen_width_fraction,410*screen_height_fraction);
         }
         
         
@@ -193,6 +193,9 @@ public class almnac extends GraphicsProgram{
     @Override
     public void mouseClicked(MouseEvent e){
         
+        for(int i=0;i<15;i++){
+            remove(star[i]);
+        }
         if(Menu1_1.contains(e.getX(),e.getY())){
             
             Main.setColor(Color.RED);
@@ -207,13 +210,13 @@ public class almnac extends GraphicsProgram{
             Main_image.setImage(Red.pic_location);
             
         
-            for(int i=0;i<5;i++){
+            for(int i=0;i<0;i++){
                 add(star[i]);
             }
-            for(int i=0;i<5;i++){
+            for(int i=5;i<6;i++){
                 add(star[i]);
             }
-            for(int i=0;i<5;i++){
+            for(int i=10;i<11;i++){
                 add(star[i]);
             }
 
@@ -234,13 +237,13 @@ public class almnac extends GraphicsProgram{
             
             Main_image.setImage(Yellow.pic_location);
     
-            for(int i=0;i<5;i++){
+            for(int i=0;i<2;i++){
                 add(star[i]);
             }
-            for(int i=5;i<10;i++){
+            for(int i=5;i<6;i++){
                 add(star[i]);
             }
-            for(int i=10;i<15;i++){
+            for(int i=10;i<10;i++){
                 add(star[i]);
             }
             
@@ -259,13 +262,13 @@ public class almnac extends GraphicsProgram{
             
             Main_image.setImage(Blue.pic_location);
     
-            for(int i=0;i<5;i++){
+            for(int i=0;i<1;i++){
                 add(star[i]);
             }
-            for(int i=0;i<5;i++){
+            for(int i=5;i<5;i++){
                 add(star[i]);
             }
-            for(int i=0;i<5;i++){
+            for(int i=10;i<12;i++){
                 add(star[i]);
             }
             
@@ -284,13 +287,13 @@ public class almnac extends GraphicsProgram{
             
             Main_image.setImage(Black.pic_location);
     
-            for(int i=0;i<5;i++){
+            for(int i=0;i<0;i++){
                 add(star[i]);
             }
-            for(int i=0;i<5;i++){
+            for(int i=5;i<7;i++){
                 add(star[i]);
             }
-            for(int i=0;i<5;i++){
+            for(int i=10;i<11;i++){
                 add(star[i]);
             }
             
