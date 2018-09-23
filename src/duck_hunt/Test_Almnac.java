@@ -7,7 +7,7 @@ package duck_hunt;
 
 /**
  *
- * @author admin
+ * @author adminssa
  */
 public class Test_Almnac {
     public static void main(String[] args){
