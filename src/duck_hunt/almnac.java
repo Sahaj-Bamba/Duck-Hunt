@@ -72,7 +72,7 @@ public class almnac extends GraphicsProgram{
         Menu1_4 = new GImage(Black.pic_location);
     
         for(int i=0;i<15;i++){
-            star[i] = new GImage("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\star1.jpg");
+            star[i] = new GImage("Images\\Images\\star1.jpg");
         }
         
         Main_image = new GImage("");

@@ -160,7 +160,7 @@ public class StartGame extends GraphicsProgram
     */
     //          Images for different rects
     
-    GImage _level1 = new GImage("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\level1.gif");
+    GImage _level1 = new GImage("Images\\Images\\level1.gif");
     
     GImage _gun1 = new GImage(ak.pic_location+"_1_1.png");
     GImage _gun2 = new GImage(shotgun.pic_location+"_1_1.png");
@@ -174,7 +174,7 @@ public class StartGame extends GraphicsProgram
     Guns __gun4 = new Guns(sniper);
     Guns __gun = new Guns(ak);
     
-    GImage _pointer = new GImage("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Images\\Pointers\\1.png");
+    GImage _pointer = new GImage("Images\\Images\\Pointers\\1.png");
     
     @Override
     public void init(){
