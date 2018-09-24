@@ -39,6 +39,8 @@ public class almnac extends GraphicsProgram{
     GImage Main_image = null;
         
     GRect Main = null;
+    GRect back = null;
+    
     
     GLabel Topic = null;
     GLabel Description = null;
@@ -78,7 +80,9 @@ public class almnac extends GraphicsProgram{
         Main_image = new GImage("");
         
         Main = new GRect(600*screen_width_fraction,500*screen_height_fraction);
-                
+        
+        back = new  GRect(1900*screen_width_fraction,1000*screen_height_fraction);         
+        
         Topic = new GLabel("Almnac");
         Description = new GLabel("");
         Property1 = new GLabel("");
@@ -105,6 +109,7 @@ public class almnac extends GraphicsProgram{
        // Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
 
         Main.setSize(600*screen_width_fraction, 500*screen_height_fraction);
+        back.setSize(1900*screen_width_fraction, 1000*screen_height_fraction);
         
         Topic.setFont((new Font("Colonna MT", Font.BOLD, (int)(150*screen_width_fraction))));
         
@@ -125,6 +130,8 @@ public class almnac extends GraphicsProgram{
         Main_image.setLocation(600*screen_width_fraction,220*screen_height_fraction);
         
         Main.setLocation(600*screen_width_fraction, 220*screen_height_fraction);
+        
+        back.setLocation(0,0);
         
         Topic.setLocation(650*screen_width_fraction,160*screen_height_fraction);
 
@@ -152,6 +159,9 @@ public class almnac extends GraphicsProgram{
         Main.setColor(Color.green);
         Main.setFilled(true);
         
+        back.setColor(Color.MAGENTA);
+        back.setFilled(true);
+        
         Topic.setColor(Color.blue);
         
         Description.setColor(Color.CYAN);
@@ -164,13 +174,14 @@ public class almnac extends GraphicsProgram{
         //p.setFilled(true);
                 
                 //      Add  Everything on the screen
-                
+        add(back);        
         add(Menu1_1);
         add(Menu1_2);
         add(Menu1_3);
         add(Menu1_4);
         
         add(Main);
+        
                 
         add(Topic);
         
