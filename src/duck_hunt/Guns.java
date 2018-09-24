@@ -17,6 +17,15 @@ public class Guns {
     public int Clip_size;                                               //      number of bullets    
     public String pic_location;
     private String sound;
+    private int previous_shoot = 0;
+    
+    public int get_previous_shoot(){
+        return this.previous_shoot;
+    }
+    
+    public void set_previous_shoot(int x){
+        this.previous_shoot = x;
+    }
     
     Guns(int a,int b,int c,int d,String e, String sd){
         
