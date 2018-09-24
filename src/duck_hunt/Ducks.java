@@ -22,7 +22,17 @@ public class Ducks {
     public String name;
     public boolean is_alive;
     private int entry_frame;
-    public int size;
+    private int size;
+    private int score;
+    public int width_dec;
+    
+    public int get_score(){
+        return this.score;
+    }
+    
+    public void set_score(int x){
+        this.score = x;
+    }
     
     public int get_entry_frame(){
         return entry_frame;
@@ -32,7 +42,15 @@ public class Ducks {
         this.entry_frame = x;
     }
     
-    Ducks(double angle , double speed , int randomability , int HP , int LT , String b , String p , String name){
+    public void set_size(int s){
+        this.size = s;
+    }
+    
+    public int get_size(){
+        return this.size;
+    }
+    
+    Ducks(double angle , double speed , int randomability , int HP , int LT , String b , String p , String name , int sc){
         this.angle = angle;
         this.speed = speed;
         this.randomability = randomability;
@@ -42,7 +60,9 @@ public class Ducks {
         this.pic_location = p;
         this.name = name;
         this.is_alive = true;
-        this.size = 100;
+        this.size = 200;
+        this.width_dec = 20;
+        this.score = sc;
     }
 
     Ducks(Ducks a) {
@@ -56,8 +76,9 @@ public class Ducks {
         this.name = a.name;
         this.is_alive = true;
         this.size = a.size;
+        this.score = a.score;
+        this.width_dec = a.width_dec;
     }
-    
     
     
 }
