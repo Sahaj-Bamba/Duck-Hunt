@@ -5,6 +5,8 @@
  */
 package duck_hunt;
 
+import java.util.Date;
+
 /**
  *
  * @author admin
@@ -25,6 +27,33 @@ public class Ducks {
     private int size;
     private int score;
     public int width_dec;
+    private boolean has_left = false;
+    private int type ;
+    private Date entry_date ;
+    
+    public Date get_entry_date(){
+        return entry_date;
+    }
+    
+    public void set_entry_date(Date de){
+        this.entry_date = de;
+    }
+    
+    public int get_type(){
+        return this.type;
+    }
+    
+    public void set_type(int t){
+        this.type = t;
+    }
+    
+    public void set_has_left(boolean x){
+        this.has_left = x;
+    }
+    
+    public boolean get_has_left(){
+        return this.has_left;
+    }
     
     public int get_score(){
         return this.score;
@@ -50,7 +79,7 @@ public class Ducks {
         return this.size;
     }
     
-    Ducks(double angle , double speed , int randomability , int HP , int LT , String b , String p , String name , int sc){
+    Ducks(double angle , double speed , int randomability , int HP , int LT , String b , String p , String name , int sc , int type){
         this.angle = angle;
         this.speed = speed;
         this.randomability = randomability;
@@ -63,9 +92,13 @@ public class Ducks {
         this.size = 200;
         this.width_dec = 20;
         this.score = sc;
+        this.has_left = false;
+        this.type = type;
     }
 
     Ducks(Ducks a) {
+        this.type = a.type;
+        this.has_left = a.has_left;
         this.angle = a.angle;
         this.speed = a.speed;
         this.randomability = a.randomability;

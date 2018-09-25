@@ -24,11 +24,11 @@ public class Duck_hunt {
     static String labelText; 
     
     Duck_hunt(){
-    //    labelText = String.format("<html><div style=\"width:%dpx;\">%s</div><html>", 10, );
+    
            
     }
     
-    public static Player gamer =null;
+    public static Player gamer = new Player();
     
     //          Main Game Variables
     
@@ -37,11 +37,11 @@ public class Duck_hunt {
     
         //float angle , float speed , int randomability , int HP , int LT , String b , String p , String name
 
-    public static Ducks Red = new Ducks(1.0,2.0,2,2,3,"On an island occupied by the cheeriest birds imaginable, Red is a bit of an outcast. His cynical outlook has kept him at odds with the other birds,  but a bit of cynicism might be just what they need","Images\\Menu_1.jpg","The Red",10);
-    public static Ducks Blue = new Ducks(1.0,4.0,300,20,720,"Why am I blue people usually ask me and my answer to them is because I am so cool. I am not bragging I really am cool. I listen to none since I am better then them all. I keep moving and changing directions as much as I want. That means almost infinitely. ","Images\\Menu_3.jpg","Blues",10);
-    public static Ducks Yellow = new Ducks(1.0,2.0,2,2,3,"Chuck is <br> constantly running at 100 mph and that includes his mouth as well . His impulsive nature often gets him into trouble. Lukily he is fast enough to escape from the situation. Chuck says I am not fast I am just walking its you who is slow . ","Images\\Menu_2.png","Chuck",10);
-    public static Ducks Black = new Ducks(1.0,2.0,2,2,3,"Generally Speaking Bomb is the Chillest Bird you will ever meet. However get him worked up and he has a tendency to go Off - explosively speaking. This can have its advantages, but Bomb struggles to control his power.","Images\\Menu_4.jpg","Bomb",10);
-
+    
+    public static Ducks Red = new Ducks(1.0,7.0,6*1000,80,25*1000,"On an island occupied by the cheeriest birds imaginable, Red is a bit of an outcast. His cynical outlook has kept him at odds with the other birds,  but a bit of cynicism might be just what they n"+ "eed","Images\\Menu_1.jpg","The Red",10,0);
+    public static Ducks Blue = new Ducks(1.0,5.0,4*1000,50,18*1000,"Why am I blue people usually ask me and my answer to them is because I am so cool. I am not bragging I really am cool. I listen to none since I am better then them all. I keep moving and changing directions as much as I want. That means almost infinitely. ","Images\\Menu_3.jpg","Blues",10,2);
+    public static Ducks Yellow = new Ducks(1.0,10.0,8*1000,100,12*1000,"Chuck is constantly running at 100 mph and that includes his mouth as well . His impulsive nature often gets him into trouble. Lukily he is fast enough to escape from the situation. Chuck says I am not fast I am just walking its you who is slow . ","Images\\Menu_2.png","Chuck",10,1);
+    public static Ducks Black = new Ducks(1.0,12.0,2,2,3,"Generally Speaking Bomb is the Chillest Bird you will ever meet. However get him worked up and he has a tendency to go Off - explosively speaking. This can have its advantages, but Bomb struggles to control his power.","Images\\Menu_4.jpg","Bomb",10,3);
     
     //          Guns
     
@@ -53,10 +53,10 @@ public class Duck_hunt {
     public String pic_location;
     */
     
-    public static Guns ak = new Guns(1,1,1,1,"Images\\Images\\Guns\\1","Images\\Songs\\1.wav");    
-    public static Guns shotgun = new Guns(1,1,1,1,"Images\\Images\\Guns\\2","Images\\Songs\\2.wav");        
-    public static Guns laser = new Guns(1,1,1,1,"Images\\Images\\Guns\\3","Images\\Songs\\3.wav");    
-    public static Guns sniper = new Guns(1,1,1,1,"Images\\Images\\Guns\\4","Images\\Songs\\4.wav");    
+    public static Guns ak = new Guns(200,1,25,1,"Images\\Images\\Guns\\1","Images\\Songs\\1.wav");    
+    public static Guns shotgun = new Guns(700,1,40,1,"Images\\Images\\Guns\\2","Images\\Songs\\2.wav");        
+    public static Guns laser = new Guns(10,1,5,1,"Images\\Images\\Guns\\3","Images\\Songs\\3.wav");    
+    public static Guns sniper = new Guns(1000,1,60,1,"Images\\Images\\Guns\\4","Images\\Songs\\4.wav");    
     
     //      Screen Size for system independence
     
@@ -84,6 +84,8 @@ public class Duck_hunt {
     public static String WhoAmI ;                                     //  Server/Client
     public static String WhoAmICalled ;                               //  My name
     public static String ChattedMessage;
+    
+    
     
     public static void main(String[] args) {
         

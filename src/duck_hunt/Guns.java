@@ -5,6 +5,8 @@
  */
 package duck_hunt;
 
+import java.util.Date;
+
 /**
  *
  * @author admin
@@ -18,6 +20,15 @@ public class Guns {
     public String pic_location;
     private String sound;
     private int previous_shoot = 0;
+    private Date prev_shoot_date = new Date();
+    
+    public Date get_prev_shoot_date(){
+        return this.prev_shoot_date;
+    }
+    
+    public void set_prev_shoot_date(Date de){
+        this.prev_shoot_date = de;
+    }
     
     public int get_previous_shoot(){
         return this.previous_shoot;

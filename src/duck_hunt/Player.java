@@ -13,6 +13,7 @@ public class Player {
     private int id;
     //private String password;
     private int gems;
+    private String pointer_pic;
     
     public Player(String na,int sc,int id,int gems) 
     {
@@ -22,11 +23,23 @@ public class Player {
         this.gems = gems;
         this.id = id;
         //this.password = pass;
-        
+    
+              
     }
 
     Player() {
+        this.name = "Gamer";
+        this.score = 0;
+        this.gems = 0;
+        this.pointer_pic = "1";
+    }
     
+    public void set_pointer_pic(String x){
+        this.pointer_pic = x;
+    }
+    
+    public String get_pointer_pic(){
+        return this.pointer_pic;
     }
     
     public int get_score(){
