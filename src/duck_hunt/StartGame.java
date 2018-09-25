@@ -130,10 +130,10 @@ public class StartGame extends GraphicsProgram
     
     int frame = 0;
     int active_gun = 0;
-    private final int fps = 60;
+    private final int fps = 120;
     
     
-    public int number_of_birds = 10;
+    public int number_of_birds = 4;
     public Ducks ducks[] = new Ducks[number_of_birds];
     public GImage ducks_pic[] = new GImage[number_of_birds];
     public int round_num = 0;
