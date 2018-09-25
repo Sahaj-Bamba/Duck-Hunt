@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package duck_hunt;
-import java.awt.*;
 
 public class Player {
     //public Color colour;
@@ -14,6 +14,45 @@ public class Player {
     //private String password;
     private int gems;
     private String pointer_pic;
+    private int red_kill = 0;
+    private int blue_kill = 0;
+    private int yellow_kill = 0;
+    
+    public String get_name(){
+        return this.name;
+    }
+    
+    private void set_name(String x){
+        this.name = x;
+    }
+    
+    public void kill_inc(int x){
+        switch(x){
+            case 0:
+                red_kill++;
+                break;
+            case 1:
+                yellow_kill++;
+                break;
+            case 2:
+                blue_kill++;
+                break;
+        }
+    }
+    
+    public int get_kill(int x){
+        switch(x){
+            case 0:
+                return (red_kill);
+                
+            case 1:
+                return yellow_kill;
+            case 2:
+                return blue_kill;
+                
+            default: return -1;
+        }    
+    }
     
     public Player(String na,int sc,int id,int gems) 
     {

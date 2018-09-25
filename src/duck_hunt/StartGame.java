@@ -126,6 +126,31 @@ public class StartGame extends GraphicsProgram
     Color[] colors;                                     // Array of colors for flash
 
     
+            //          Scoring part 
+    
+    GLabel player_name = new GLabel("");
+    GImage player_red_duck = new GImage(Red.pic_location);
+    GImage player_blue_duck = new GImage(Blue.pic_location);
+    GImage player_yellow_duck = new GImage(Yellow.pic_location);
+    GLabel player_red_kill = new GLabel("");
+    GLabel player_blue_kill = new GLabel("");
+    GLabel player_yellow_kill = new GLabel("");
+
+    private void set_loc_add(){
+        player_name.setLabel(gamer.get_name());
+    }
+
+    private void update_scoring(){
+        
+        player_red_kill.setLabel(""+gamer.get_kill(0));
+        player_yellow_kill.setLabel(""+gamer.get_kill(1));
+        player_blue_kill.setLabel(""+gamer.get_kill(2));
+        
+    }
+    
+            
+    
+    
     //      Public variables must be transported to Duck-Hunt class
     
     //          Game control Variables
@@ -381,13 +406,16 @@ public class StartGame extends GraphicsProgram
         addall();
         
         frame = 0;
+        set_loc_add();
         while(true){
             
         move_all();
         check_collision();
         check_death();
         check_has_left();
+        update_scoring();
         frame++;
+ 
         pause(1000/fps);
         
         }
@@ -467,6 +495,7 @@ public class StartGame extends GraphicsProgram
                 ducks[i].is_alive = false;
                 Duck_hunt.gamer.set_score(Duck_hunt.gamer.get_score()+ducks[i].get_score());
                 remove(ducks_pic[i]);
+                gamer.kill_inc(ducks[i].get_type());
                 System.out.println(Duck_hunt.gamer.get_score());
             }
         }
