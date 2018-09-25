@@ -40,6 +40,7 @@ import static duck_hunt.Duck_hunt.screen_width_fraction;
 import static duck_hunt.Duck_hunt.shotgun;
 import static duck_hunt.Duck_hunt.sniper;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -137,6 +138,45 @@ public class StartGame extends GraphicsProgram
     GLabel player_yellow_kill = new GLabel("");
 
     private void set_loc_add(){
+         
+        // to set Loaction
+        player_name.setLocation((int)(1000.0*screen_width_fraction) , (int)(screen_height_fraction*100.0));
+        player_red_duck.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*110.0);
+        player_blue_duck.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*120.0);
+        player_yellow_duck.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*130);
+        player_red_kill.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*140);
+        player_blue_kill.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*150);
+        player_yellow_kill.setLocation((int)(1000.0*screen_width_fraction), (int)(screen_height_fraction)*160);
+         
+        // To set Text Field
+        player_name.setLabel(gamer.get_name());
+        player_red_kill.setLabel(""+gamer.get_kill(0));
+        player_yellow_kill.setLabel(""+gamer.get_kill(1));
+        player_blue_kill.setLabel(""+gamer.get_kill(2));
+        
+        
+        
+      
+        
+        // To set the image size
+        player_red_duck.setSize(20*screen_width_fraction, 20*screen_height_fraction);
+        player_blue_duck.setSize(20*screen_width_fraction, 20*screen_height_fraction);
+        player_yellow_duck.setSize(20*screen_width_fraction,20*screen_height_fraction);
+        
+        //  To set Font 
+        player_name.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
+        player_red_kill.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
+        player_blue_kill.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
+        player_yellow_kill.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));  
+        
+        add(player_name);
+        add(player_red_duck);
+        add(player_blue_duck);
+        add(player_yellow_duck);
+        add(player_red_kill);
+        add(player_blue_kill);
+        add(player_yellow_kill);        
+                
         player_name.setLabel(gamer.get_name());
     }
 
@@ -388,7 +428,7 @@ public class StartGame extends GraphicsProgram
          initialisations();
                  
         //FL("Game Begins  ");
-        
+         
         /*
         System.out.println("hi");
             ak_sd.start();
@@ -407,6 +447,18 @@ public class StartGame extends GraphicsProgram
         
         frame = 0;
         set_loc_add();
+        
+       // To get location of a man.
+        GRect rc = new GRect(40,90);
+        rc.setColor(Color.red);
+        rc.setLocation(660,470);
+        
+        //To get location of three man
+        GRect rc1 = new GRect(70,60);
+        rc1.setColor(Color.red);
+        rc1.setLocation(420,510);
+        
+        
         while(true){
             
         move_all();
@@ -417,7 +469,8 @@ public class StartGame extends GraphicsProgram
         frame++;
  
         pause(1000/fps);
-        
+        add(rc);
+        add(rc1);
         }
     }
 
@@ -432,6 +485,8 @@ public class StartGame extends GraphicsProgram
         add(Gun2);
         add(Gun3);
         add(Gun4);
+        
+      
     
 //        add(Gun);
         
