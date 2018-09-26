@@ -209,7 +209,7 @@ public class StartGame extends GraphicsProgram
 
     
     
-    public int number_of_birds = 10;
+    public int number_of_birds = 50;
     public Ducks ducks[] = new Ducks[number_of_birds];
     public GImage ducks_pic[] = new GImage[number_of_birds];
     public int round_num = 0;
@@ -222,7 +222,7 @@ public class StartGame extends GraphicsProgram
     GRect level2 = new GRect(1800*screen_width_fraction,200*screen_height_fraction);                        //      mid
     GRect level3 = new GRect(1800*screen_width_fraction,200*screen_height_fraction);                        //      graund base
     GRect Gun = new GRect(200*screen_width_fraction,400*screen_height_fraction);
-    GRect Gun1 = new GRect(200*screen_width_fraction,200*screen_height_fraction);
+    GRect Gun1 = new GRect(200*screen_width_fraction,2010*screen_height_fraction);
     GRect Gun2 = new GRect(200*screen_width_fraction,200*screen_height_fraction);
     GRect Gun3 = new GRect(200*screen_width_fraction,200*screen_height_fraction);
     GRect Gun4 = new GRect(200*screen_width_fraction,200*screen_height_fraction);

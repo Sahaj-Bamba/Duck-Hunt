@@ -224,7 +224,7 @@ public class InnerPurchase extends javax.swing.JFrame {
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
 
-        this.setState(JFrame.ICONIFIED); // To Minimize it.
+        //this.setState(JFrame.ICONIFIED); // To Minimize it.
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
