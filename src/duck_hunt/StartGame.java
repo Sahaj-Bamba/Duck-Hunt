@@ -140,15 +140,15 @@ public class StartGame extends GraphicsProgram
     private void set_loc_add(){
          
         // to set Loaction
-        player_name.setLocation((int)(1000.0*screen_width_fraction) , (int)(screen_height_fraction*100.0));
-        player_red_duck.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*110.0);
-        player_blue_duck.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*120.0);
-        player_yellow_duck.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*130);
-        player_red_kill.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*140);
-        player_blue_kill.setLocation((int)(1000.0*screen_width_fraction),(int)(screen_height_fraction)*150);
-        player_yellow_kill.setLocation((int)(1000.0*screen_width_fraction), (int)(screen_height_fraction)*160);
+        player_name.setLocation((1300.0*screen_width_fraction) , (screen_height_fraction*850.0));
+        player_red_duck.setLocation((1570.0*screen_width_fraction),(screen_height_fraction)*810.0);
+        player_blue_duck.setLocation((1500.0*screen_width_fraction),(screen_height_fraction)*810.0);
+        player_yellow_duck.setLocation((1640.0*screen_width_fraction),(screen_height_fraction)*810.0);
+        player_red_kill.setLocation((1565.0*screen_width_fraction),(screen_height_fraction)*840);
+        player_blue_kill.setLocation((1495.0*screen_width_fraction),(screen_height_fraction)*840);
+        player_yellow_kill.setLocation((1635.0*screen_width_fraction),(screen_height_fraction)*840);
          
-        // To set Text Field
+        // To set Text Field 
         player_name.setLabel(gamer.get_name());
         player_red_kill.setLabel(""+gamer.get_kill(0));
         player_yellow_kill.setLabel(""+gamer.get_kill(1));
@@ -159,16 +159,22 @@ public class StartGame extends GraphicsProgram
       
         
         // To set the image size
-        player_red_duck.setSize(20*screen_width_fraction, 20*screen_height_fraction);
-        player_blue_duck.setSize(20*screen_width_fraction, 20*screen_height_fraction);
-        player_yellow_duck.setSize(20*screen_width_fraction,20*screen_height_fraction);
+        player_red_duck.setSize(50*screen_width_fraction, 50*screen_height_fraction);
+        player_blue_duck.setSize(50*screen_width_fraction, 50*screen_height_fraction);
+        player_yellow_duck.setSize(50*screen_width_fraction,50*screen_height_fraction);
         
         //  To set Font 
-        player_name.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
-        player_red_kill.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
-        player_blue_kill.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
-        player_yellow_kill.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));  
+        player_name.setFont((new Font("Serif", Font.BOLD,(int)(40*screen_width_fraction))));
+        player_red_kill.setFont((new Font("Serif", Font.BOLD,(int)(30*screen_width_fraction))));
+        player_red_kill.setColor(Color.RED);
+        player_blue_kill.setFont((new Font("Serif", Font.BOLD,(int)(30*screen_width_fraction))));
+        player_blue_kill.setColor(Color.BLUE);
+        player_yellow_kill.setFont((new Font("Serif", Font.BOLD,(int)(30*screen_width_fraction))));
+        player_yellow_kill.setColor(Color.yellow);
         
+        
+        player_name.setColor(Color.red);
+                
         add(player_name);
         add(player_red_duck);
         add(player_blue_duck);
@@ -199,7 +205,7 @@ public class StartGame extends GraphicsProgram
     int active_gun = 0;
 
 
-    private final int fps = 310;
+    private final int fps = 35;
 
     
     
@@ -369,25 +375,25 @@ public class StartGame extends GraphicsProgram
         
         //      Adhusting different zones or levels
         
-        level1.setLocation(0,0);
-        level2.setLocation(0,750*screen_height_fraction);
-        level3.setLocation(0,750*screen_height_fraction);
-        Gun.setLocation(600,550*screen_height_fraction);
-        Gun1.setLocation(0,750*screen_height_fraction);
-        Gun2.setLocation(200,750*screen_height_fraction);
-        Gun3.setLocation(400,750*screen_height_fraction);
-        Gun4.setLocation(600,750*screen_height_fraction);
+        level1.setLocation(0*screen_width_fraction,0*screen_height_fraction);
+        level2.setLocation(0*screen_width_fraction,750*screen_height_fraction);
+        level3.setLocation(0*screen_width_fraction,750*screen_height_fraction);
+        Gun.setLocation(600*screen_width_fraction,550*screen_height_fraction);
+        Gun1.setLocation(0*screen_width_fraction,750*screen_height_fraction);
+        Gun2.setLocation(200*screen_width_fraction,750*screen_height_fraction);
+        Gun3.setLocation(400*screen_width_fraction,750*screen_height_fraction);
+        Gun4.setLocation(600*screen_width_fraction,750*screen_height_fraction);
         
-        Pointer.setLocation(0,0);
+        Pointer.setLocation(0*screen_width_fraction,0*screen_height_fraction);
         
-        _level1.setLocation(0,0);
+        _level1.setLocation(0*screen_width_fraction,0*screen_height_fraction);
         
         
-        _gun.setLocation(600,550*screen_height_fraction);
-        _gun1.setLocation(0,750*screen_height_fraction);
-        _gun2.setLocation(200,750*screen_height_fraction);
-        _gun3.setLocation(400,750*screen_height_fraction);
-        _gun4.setLocation(600,750*screen_height_fraction);
+        _gun.setLocation(600*screen_width_fraction,550*screen_height_fraction);
+        _gun1.setLocation(0*screen_width_fraction,750*screen_height_fraction);
+        _gun2.setLocation(200*screen_width_fraction,750*screen_height_fraction);
+        _gun3.setLocation(400*screen_width_fraction,750*screen_height_fraction);
+        _gun4.setLocation(600*screen_width_fraction,750*screen_height_fraction);
         
         _pointer.setLocation(0,0);
         
@@ -419,7 +425,10 @@ public class StartGame extends GraphicsProgram
         
         
     }
-    
+    // declare grect for location
+         GRect rc = new GRect(40*screen_width_fraction,105*screen_height_fraction);
+         GRect rc1 = new GRect(80*screen_width_fraction,70*screen_height_fraction);
+         GRect rc2 = new GRect (500*screen_width_fraction ,150*screen_height_fraction);
     @Override
     public void run(){
 //        init();
@@ -446,17 +455,27 @@ public class StartGame extends GraphicsProgram
         addall();
         
         frame = 0;
-        set_loc_add();
+           // To get location of a man.
         
-       // To get location of a man.
-        GRect rc = new GRect(40,90);
         rc.setColor(Color.red);
-        rc.setLocation(660,470);
+        rc.setLocation(930*screen_width_fraction,675*screen_height_fraction);
         
         //To get location of three man
-        GRect rc1 = new GRect(70,60);
+      
         rc1.setColor(Color.red);
-        rc1.setLocation(420,510);
+        rc1.setLocation(600*screen_width_fraction,720*screen_height_fraction);
+        
+        //to Set Score Background
+            
+     
+        rc2.setColor(Color.GRAY);
+        rc2.setFilled(true);
+        rc2.setLocation(1275*screen_width_fraction,800*screen_height_fraction);
+      
+        set_loc_add();
+        
+      
+                 
         
         
         while(true){
@@ -469,8 +488,7 @@ public class StartGame extends GraphicsProgram
         frame++;
  
         pause(1000/fps);
-        add(rc);
-        add(rc1);
+        
         }
     }
 
@@ -498,7 +516,9 @@ public class StartGame extends GraphicsProgram
         
         add(_level1);
         
-
+add(rc);
+        add(rc1);
+        add(rc2);
         for(int i=0; i<number_of_birds; i++){
             if(ducks[i].is_alive)
             add(ducks_pic[i]);
@@ -516,6 +536,7 @@ public class StartGame extends GraphicsProgram
         
         
         add(_pointer);
+        
         
         
         
@@ -582,12 +603,12 @@ public class StartGame extends GraphicsProgram
         for(int i=0; i<number_of_birds; i++){
             if(ducks[i].is_alive)
             if(!ducks[i].get_has_left())
-            if(ducks_pic[i].getLocation().getX()>1600||ducks_pic[i].getLocation().getX()<200||ducks_pic[i].getLocation().getY()>600||ducks_pic[i].getLocation().getY()<10){
+            if(ducks_pic[i].getLocation().getX()>(1600*screen_width_fraction)||ducks_pic[i].getLocation().getX()<(200*screen_width_fraction)||ducks_pic[i].getLocation().getY()>(600*screen_height_fraction)||ducks_pic[i].getLocation().getY()<(10*screen_height_fraction)){
                 y =(int) (Math.random() * 12);
                 z= (int) (Math.random() * 3);
                 int x=ducks[i].get_type();
                 
-                if(ducks_pic[i].getLocation().getX() > 1600){
+                if(ducks_pic[i].getLocation().getX() > (1600*screen_width_fraction)){
                     switch(z){
                         case 0: r = 155;
                             break;
@@ -598,7 +619,7 @@ public class StartGame extends GraphicsProgram
                     }
                 }
                     
-                if(ducks_pic[i].getLocation().getX() < 200){
+                if(ducks_pic[i].getLocation().getX() < (200*screen_width_fraction)){
                     switch(z){
                         case 0: r=25;
                             break;
@@ -609,7 +630,7 @@ public class StartGame extends GraphicsProgram
                     }
                 }
                     
-                if(ducks_pic[i].getLocation().getY() > 600){
+                if(ducks_pic[i].getLocation().getY() > (600*screen_height_fraction)){
                     switch(z){
                         case 0: r=50;
                             break;
@@ -620,7 +641,7 @@ public class StartGame extends GraphicsProgram
                     }
                 }
                     
-                if(ducks_pic[i].getLocation().getY() < 10){
+                if(ducks_pic[i].getLocation().getY() < (10*screen_height_fraction)){
                     switch(z){
                         case 0: r=270;
                             break;
@@ -648,7 +669,8 @@ public class StartGame extends GraphicsProgram
     
     @Override
     public void keyPressed(KeyEvent e){
-        
+        System.out.println(player_blue_duck.getLocation().getY());
+        System.out.println(rc2.getLocation().getY());
         switch(e.getKeyCode()){
             case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D:
