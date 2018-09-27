@@ -113,5 +113,22 @@ public class Ducks {
         this.width_dec = a.width_dec;
     }
     
+    public void setter_obj (Ducks a) {
+        this.type = a.type;
+        this.has_left = a.has_left;
+        this.angle = a.angle;
+        this.speed = a.speed;
+        this.randomability = a.randomability;
+        this.hitpoints = a.hitpoints;
+        this.bio = a.bio;
+        this.leavetime = a.leavetime;
+        this.pic_location = a.pic_location;
+        this.name = a.name;
+        this.is_alive = true;
+        this.size = a.size;
+        this.score = a.score;
+        this.width_dec = a.width_dec;
+    }
+    
     
 }

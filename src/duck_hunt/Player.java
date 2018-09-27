@@ -22,7 +22,7 @@ public class Player {
         return this.name;
     }
     
-    private void set_name(String x){
+    public void set_name(String x){
         this.name = x;
     }
     
@@ -39,6 +39,12 @@ public class Player {
                 break;
         }
     }
+    
+    /*
+    public void set_name(String x){
+        this.name = x;
+    }
+    */
     
     public int get_kill(int x){
         switch(x){
@@ -63,6 +69,18 @@ public class Player {
         this.id = id;
         //this.password = pass;
     
+              
+    }
+    
+    public void setter (String na,int sc,int id,int gems) 
+    {
+        
+        this.name = na;
+        this.score = sc;
+        this.gems = gems;
+        this.id = id;
+        //this.password = pass;
+        
               
     }
 

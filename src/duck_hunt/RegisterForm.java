@@ -5,9 +5,13 @@
  */
 package duck_hunt;
 
-import java.sql.Connection;
+import static duck_hunt.Duck_hunt.gamer;
+import static duck_hunt.Duck_hunt.sqe;
+import static duck_hunt.Duck_hunt.is_logged_in;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -115,6 +119,11 @@ public class RegisterForm extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("David Libre", 3, 15)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButtonRegister.setBackground(new java.awt.Color(0, 0, 204));
         jButtonRegister.setFont(new java.awt.Font("David Libre", 3, 15)); // NOI18N
@@ -204,101 +213,155 @@ public class RegisterForm extends javax.swing.JFrame {
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
 
-        System.exit(0);
+        this.setVisible(false);
+        this.dispose();
+        new Menu().start();
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
 
+        
+        
+        ResultSet rs = sqe.select("SELECT `Name`, `Password` FROM `player` WHERE Name ='"+ name.getText() +"' ;");
+        
+        //if(rs)
+        try {
+            if(!rs.next()){
+                sqe.update("INSERT INTO player (Name , Password) VALUES ('" + name.getText() + "' , '" + pass.getText() + "' ) ;");
+                System.out.println("yu1");
+                ResultSet rs2 = sqe.select("SELECT * FROM player WHERE Name ='"+name.getText()+"' ;" );
+                System.out.println("yu2");
+                rs2.next();
+                is_logged_in = true;
+                System.out.println("yu3");
+                System.out.println(rs2.getString("Name"));
+                System.out.println(rs2.getInt("Score"));
+                System.out.println(rs2.getInt("id"));
+                System.out.println(rs2.getInt("Gems"));
+                gamer.setter(rs2.getString("Name"),rs2.getInt("Score"),rs2.getInt("id"),rs2.getInt("Gems"));
+                System.out.println("yu4");
+                
+                this.setVisible(false);
+                this.dispose();
+                
+                Menu menu = new Menu();
+                System.out.println("yu5");
+                menu.run();
+                System.out.println("hijo");
+                
+                //Menu menu = new Menu();
+                //println("             Made By     \n\n         SAHAJ BAMBA\n          VIVEK KUMAR MEENA  ");
+                //menu.run();
+
+            }
+            else{
+                new Error().run(" User name already exist .");
+                pass.setText("");
+                name.setText("");
+            }
+            
+            
+            /*
             //String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
             //String DB_URL = "jdbc:mysql://localhost/EMP";
 
             //  Database credentials
             String USER = "root";
             String PASS = "Gen123@";
-
+            
             
             Connection conn = null;
             Statement stmt = null;
             
             try{
             
-                //STEP 2: Register JDBC driver
-                
-                //Class.forName("com.mysql.jdbc.Driver");
-             
-                //STEP 3: Open a connection
-               
-                try{
-                    System.out.println("Connecting to database...");
-                    conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/duckhunt", USER , PASS );
-               
-                }
-                catch(SQLException e){
-                   System.out.println(e);
-                   System.err.println("Joker");   
-                }
-
-               //STEP 4: Execute a query
-               
-                System.out.println("Creating statement...");
-                
-                stmt = conn.createStatement();
-                String sql;
-                sql = "INSERT INTO player (Name , Password) VALUES ('" + name.getText() + "' , '" + pass.getText() + "' ) ;";         // Enter the query here
-                System.out.println(sql);
-                stmt.executeUpdate(sql);
-    
-            /*    
-                
-                
-                ResultSet rs = stmt.executeQuery(sql);
-
-               //STEP 5: Extract data from result set
-               
-               while(rs.next()){
-                //Retrieve by column name
-                int id  = rs.getInt("id");
-                int age = rs.getInt("age");
-                String first = rs.getString("first");
-                String last = rs.getString("last");
-
-                //Display values
-                System.out.print("ID: " + id);
-                System.out.print(", Age: " + age);
-                System.out.print(", First: " + first);
-                System.out.println(", Last: " + last);
-             }
-                
-             */
-             //STEP 6: Clean-up environment
-             
-             stmt.close();
-             conn.close();
-             
-          }catch(SQLException se){
-             //Handle errors for JDBC
-             se.printStackTrace();
-          }catch(Exception e){
-             //Handle errors for Class.forName
-             e.printStackTrace();
-          }finally{
-             //finally block used to close resources
-             try{
-                if(stmt!=null)
-                   stmt.close();
-             }catch(SQLException se2){
-             }// nothing we can do
-             try{
-                if(conn!=null)
-                   conn.close();
-             }catch(SQLException se){
-                se.printStackTrace();
-             }//end finally try
-        }//end try
-        System.out.println("Goodbye!");
-    
-        // TODO add your handling code here:
+            //STEP 2: Register JDBC driver
+            
+            //Class.forName("com.mysql.jdbc.Driver");
+            
+            //STEP 3: Open a connection
+            
+            try{
+            System.out.println("Connecting to database...");
+            conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/duckhunt", USER , PASS );
+            
+            }
+            catch(SQLException e){
+            System.out.println(e);
+            System.err.println("Joker");
+            }
+            
+            //STEP 4: Execute a query
+            
+            System.out.println("Creating statement...");
+            
+            stmt = conn.createStatement();
+            String sql;
+            sql = "INSERT INTO player (Name , Password) VALUES ('" + name.getText() + "' , '" + pass.getText() + "' ) ;";         // Enter the query here
+            System.out.println(sql);
+            stmt.executeUpdate(sql);
+            */
+            /*
+            
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            //STEP 5: Extract data from result set
+            
+            while(rs.next()){
+            //Retrieve by column name
+            int id  = rs.getInt("id");
+            int age = rs.getInt("age");
+            String first = rs.getString("first");
+            String last = rs.getString("last");
+            
+            //Display values
+            System.out.print("ID: " + id);
+            System.out.print(", Age: " + age);
+            System.out.print(", First: " + first);
+            System.out.println(", Last: " + last);
+            }
+            
+            */
+            //STEP 6: Clean-up environment
+            /*
+            stmt.close();
+            conn.close();
+            
+            }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+            }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+            }finally{
+            //finally block used to close resources
+            try{
+            if(stmt!=null)
+            stmt.close();
+            }catch(SQLException se2){
+            }// nothing we can do
+            try{
+            if(conn!=null)
+            conn.close();
+            }catch(SQLException se){
+            se.printStackTrace();
+            }//end finally try
+            }//end try
+            System.out.println("Goodbye!");
+            */
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            //Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        this.setVisible(false);
+        this.dispose();
+        new Menu().start();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -28,7 +28,7 @@ public class Duck_hunt {
            
     }
     
-    public static Player gamer = new Player();
+    //public static Player gamer = new Player();
     
     //          Main Game Variables
     
@@ -87,6 +87,11 @@ public class Duck_hunt {
     public static String ChattedMessage;
     
     
+    //      main game real use variables
+    
+    public static boolean is_logged_in = false;
+    public static Sql_query_executer sqe = new Sql_query_executer("root","Gen123@","jdbc:mysql://localhost:3306/duckhunt");
+    public static Player gamer =new Player();
     
     public static void main(String[] args) {
         

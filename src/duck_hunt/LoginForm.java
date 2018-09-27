@@ -5,12 +5,13 @@
  */
 
 package duck_hunt;
-
 import static duck_hunt.Duck_hunt.gamer;
-import java.sql.Connection;
+import static duck_hunt.Duck_hunt.is_logged_in;
+import static duck_hunt.Duck_hunt.sqe;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -262,98 +263,117 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-            //String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+        
+        ResultSet rs = sqe.select("SELECT UserId, Name, Password, Score, Gems FROM player WHERE name = '"+ name.getText() + "' AND Password = '" + pass.getText() + "' ;" );
+        
+        try {
+            if(rs.next()){
+                is_logged_in = true;
+                gamer.setter(name.getText(),rs.getInt("Score"),rs.getInt("id"),rs.getInt("Gems"));
+                this.setVisible(false);
+                this.dispose();
+            }
+            else{
+                new Error().run("Incorrect credentials ");
+                pass.setText("");
+                name.setText("");
+            }
+            
+            //String JDBC_DRIVER = "com.mysql.jdbc.Driver";
             //String DB_URL = "jdbc:mysql://localhost/EMP";
 
             //  Database credentials
+            /*
             String USER = "root";
             String PASS = "Gen123@";
-
+            
             
             Connection conn = null;
             Statement stmt = null;
             
             try{
             
-                //STEP 2: Register JDBC driver
-                
-                //Class.forName("com.mysql.jdbc.Driver");
-             
-                //STEP 3: Open a connection
-               
-                try{
-                    System.out.println("Connecting to database...");
-                    conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/duckhunt", USER , PASS );
-               
-                }
-                catch(SQLException e){
-                   System.out.println(e);
-                   System.err.println("Joker");   
-                }
-
-               //STEP 4: Execute a query
-               
-                System.out.println("Creating statement...");
-                
-                stmt = conn.createStatement();
-                String sql;
-                sql = "SELECT UserId, Name, Password, Score, Gems FROM player WHERE name = '"+ name.getText() + "' AND Password = '" + pass.getText() + "' ;" ;         // Enter the query here
-                
-                ResultSet rs = stmt.executeQuery(sql);
-                
-                if(rs.next() ){
-                    gamer = new Player(rs.getString("Name"),rs.getInt("Score"),rs.getInt("UserId"),rs.getInt("Gems"));
-                }
-    
-            /*    
-                
-                
-                ResultSet rs = stmt.executeQuery(sql);
-
-               //STEP 5: Extract data from result set
-               
-               while(rs.next()){
-                //Retrieve by column name
-                int id  = rs.getInt("id");
-                int age = rs.getInt("age");
-                String first = rs.getString("first");
-                String last = rs.getString("last");
-
-                //Display values
-                System.out.print("ID: " + id);
-                System.out.print(", Age: " + age);
-                System.out.print(", First: " + first);
-                System.out.println(", Last: " + last);
-             }
-                
-             */
-             //STEP 6: Clean-up environment
-             rs.close();
-             stmt.close();
-             conn.close();
-             
-          }catch(SQLException se){
-             //Handle errors for JDBC
-             se.printStackTrace();
-          }catch(Exception e){
-             //Handle errors for Class.forName
-             e.printStackTrace();
-          }finally{
-             //finally block used to close resources
-             try{
-                if(stmt!=null)
-                   stmt.close();
-             }catch(SQLException se2){
-             }// nothing we can do
-             try{
-                if(conn!=null)
-                   conn.close();
-             }catch(SQLException se){
-                se.printStackTrace();
-             }//end finally try
-        }//end try
-        System.out.println("Goodbye!");
-    
+            //STEP 2: Register JDBC driver
+            
+            //Class.forName("com.mysql.jdbc.Driver");
+            
+            //STEP 3: Open a connection
+            
+            try{
+            System.out.println("Connecting to database...");
+            conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/duckhunt", USER , PASS );
+            
+            }
+            catch(SQLException e){
+            System.out.println(e);
+            System.err.println("Joker");
+            }
+            
+            //STEP 4: Execute a query
+            
+            System.out.println("Creating statement...");
+            
+            stmt = conn.createStatement();
+            String sql;
+            sql = "SELECT UserId, Name, Password, Score, Gems FROM player WHERE name = '"+ name.getText() + "' AND Password = '" + pass.getText() + "' ;" ;         // Enter the query here
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            if(rs.next() ){
+            gamer = new Player(rs.getString("Name"),rs.getInt("Score"),rs.getInt("UserId"),rs.getInt("Gems"));
+            }
+            */
+            /*
+            
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            //STEP 5: Extract data from result set
+            
+            while(rs.next()){
+            //Retrieve by column name
+            int id  = rs.getInt("id");
+            int age = rs.getInt("age");
+            String first = rs.getString("first");
+            String last = rs.getString("last");
+            
+            //Display values
+            System.out.print("ID: " + id);
+            System.out.print(", Age: " + age);
+            System.out.print(", First: " + first);
+            System.out.println(", Last: " + last);
+            }
+            
+            */
+            //STEP 6: Clean-up environment
+            /*     rs.close();
+            stmt.close();
+            conn.close();
+            */
+            /* }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+            }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+            }finally{
+            //finally block used to close resources
+            try{
+            if(stmt!=null)
+            stmt.close();
+            }catch(SQLException se2){
+            }// nothing we can do
+            try{
+            if(conn!=null)
+            conn.close();
+            }catch(SQLException se){
+            se.printStackTrace();
+            }//end finally try
+            }//end try
+            System.out.println("Goodbye!");
+        */  } catch (SQLException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

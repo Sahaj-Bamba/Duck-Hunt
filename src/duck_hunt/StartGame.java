@@ -50,7 +50,54 @@ public class StartGame extends GraphicsProgram
         //          Flash Part
     
     int angles_allowed[]={0,25,50,90,115,155,180,205,230,270,310,335};
-
+    int round = 1;
+    int bos_round = 3;
+    //int ducks_left;
+    int delay_after_all_left = 2000;
+    boolean is_bypass = false;
+    private boolean is_over = false;
+    
+    
+    private void round_over(){
+        
+        int f=0;
+        for(int i=0;i<number_of_birds;i++){
+            if(!ducks[i].is_alive || ducks[i].get_has_left())
+                f++;
+        }
+        if(f >= number_of_birds){
+           System.out.println("round over");
+            bypasser();
+            //pause(delay_after_all_left);
+            is_over = true;
+        }
+        
+    }
+    
+    public void bypasser(){
+        Date ds = new Date();
+        System.out.println("int bypasser starting");
+        while(true){
+        long de = new Date().getTime() - ds.getTime();
+        if(de>5000)
+            break;
+        move_all();
+        //check_collision();
+        check_death();
+        //check_has_left();
+        update_scoring();
+        //round_over();
+    
+        //frame++;
+ 
+        pause(1000/fps);
+        //add(rc);
+        //add(rc1);
+        }
+        System.out.println("bypasser end");
+    }
+    
+    
     public void FL(String a)
     {
 
@@ -195,15 +242,15 @@ public class StartGame extends GraphicsProgram
     
     //          Game control Variables
     
-    int frame = 0;
+    long frame = 0;
     int active_gun = 0;
 
 
-    private final int fps = 310;
+    private final int fps = 45;
 
     
     
-    public int number_of_birds = 50;
+    public static int number_of_birds = 10;
     public Ducks ducks[] = new Ducks[number_of_birds];
     public GImage ducks_pic[] = new GImage[number_of_birds];
     public int round_num = 0;
@@ -292,7 +339,7 @@ public class StartGame extends GraphicsProgram
 
             
         setSize((int)(game_width*screen_width_fraction),(int)(game_height*screen_height_fraction));
-        setLocation(1222220,112222220);
+        //setLocation(1222220,112222220);
         
         
         for(int i=0;i<number_of_birds;i++){
@@ -443,8 +490,16 @@ public class StartGame extends GraphicsProgram
         */
         
         System.out.println("hello");
+        /*
+        add(level1);
+        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        pause(1000);
+        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        pause(1000);
+        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        pause(1000);
         addall();
-        
+        */
         frame = 0;
         set_loc_add();
         
@@ -458,7 +513,78 @@ public class StartGame extends GraphicsProgram
         rc1.setColor(Color.red);
         rc1.setLocation(420,510);
         
+        while(true){
+    
+            
+        add(_level1);
+        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        pause(2000);
+        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        pause(2000);
+        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        pause(2000);
+        addall();
         
+        
+        
+            //init();
+            
+
+            for(int i=0;i<number_of_birds;i++){
+            
+            int x =(int) (Math.random() * 4);
+            //x=1;          //  for testing
+            int y =(int) (Math.random() * angles_allowed.length);
+            
+            switch (x) {
+                case 0:
+                    ducks[i].setter_obj(Red);
+                    ducks_pic[i].setImage(Red.pic_location);
+                    
+                    break;
+                case 1:
+                    ducks[i].setter_obj(Yellow);
+                    ducks_pic[i].setImage(Yellow.pic_location);
+                    break;
+                case 2:
+                    ducks[i].setter_obj(Blue);
+                    ducks_pic[i].setImage(Blue.pic_location);
+                    break;
+                case 3:
+                    ducks[i].setter_obj(Black);
+                    ducks_pic[i].setImage(Black.pic_location);
+                    break;
+                default:
+                    break;
+            }
+            
+            ducks[i].set_entry_date(new Date());
+            
+            ducks[i].angle=angles_allowed[y];
+            ducks_pic[i] = new GImage("Images\\Images\\"+(x+1)+"\\"+(int)ducks[i].angle+".png");
+        }
+        
+        
+    for(int i=0; i<number_of_birds; i++){
+        ducks_pic[i].setSize(ducks[i].get_size(),ducks[i].get_size());
+    }
+
+        //          Start all threads for initial and suspend
+       
+
+        //          Seting initial location of birds
+        
+        for(int i=0;i<number_of_birds;i++){
+            
+            int x =(int) ((Math.random() * 1300) + 200);
+            int y = (int) ((Math.random() * 600) + 50);
+            
+            ducks_pic[i].setLocation( x, y);
+            
+        }
+
+  
+            
         while(true){
             
         move_all();
@@ -466,15 +592,30 @@ public class StartGame extends GraphicsProgram
         check_death();
         check_has_left();
         update_scoring();
+        round_over();
+    
         frame++;
  
         pause(1000/fps);
         add(rc);
         add(rc1);
+        
+        if(is_over){
+            System.out.println("inside is over");
+            is_over = false;
+            break;
         }
+            
+        }
+        
+            System.out.println("out of inner loop");
+        //init();
+        round_num++;
+        //removeAll();
+        
     }
 
-    
+    }
     public void addall(){
         
         add(level2);
@@ -789,11 +930,5 @@ public class StartGame extends GraphicsProgram
     }
 
 }
-
-
-
-
-
-
 
 
