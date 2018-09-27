@@ -33,9 +33,10 @@ public class Menu extends DialogProgram implements Runnable
         
         while (true)
         {
-            cnt=readInt("\n\n\tDUCK HUNT \n\n1- Single Player \n2- Two Player\n3- Chat\n4- Connect\n5-Settings\n6- Almnac \n7- How to Play\n8- Credits \n9- In app purchases \n10- Login/Signup\n11- Quit");
-            if(cnt>0&&cnt<12){
-                /*if(!(is_logged_in)){
+            cnt=readInt("\n\n\tDUCK HUNT \n\n1- Single Player \n2- Chat\n3- Connect\n4-Settings\n5- Almnac \n6- How to Play\n7- Credits \n8- Login/Signup\n9- Quit");
+            if(cnt>0&&cnt<10){
+                /*
+                if(!(is_logged_in)){
                     if(cnt==6||cnt==7||cnt==8||cnt==10||cnt==11)
                         break;
                     else{
@@ -54,26 +55,25 @@ public class Menu extends DialogProgram implements Runnable
             case 1: temp1.start();
                 break;
             case 2: 
-                break;
+            
             case 3: 
                 
-            case 4: 
+            
                 new __Chatbox().main(args);
                 break;
-            case 5:temp5.start();
+            case 4:temp5.start();
                 break;
-            case 6:almn.start();
+            case 5:almn.start();
                 break;
-            case 7:temp7.start();
+            case 6:temp7.start();
                 break;
-            case 8:temp8.start();
+            case 7:temp8.start();
                 break;
-            case 9:
-                break;
-            case 10: new LoginForm().main(args);
+            case 8:
+                
+             new LoginForm().main(args);
                     break;
-            case 11: System.exit(0);
+            case 9: System.exit(0);
         }
     }
-    
 }

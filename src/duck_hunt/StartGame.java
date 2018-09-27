@@ -843,6 +843,11 @@ public class StartGame extends GraphicsProgram
             if(ducks[i].is_alive == true)
             if(ducks[i].hitpoints <= 0){
                 ducks[i].is_alive = false;
+                if(ducks[i].get_type()==3){
+                    new Error().run(" Black ducks are holy there death has lead to your funeral.  ");
+                  System.exit(0);
+                }
+                    
                 Duck_hunt.gamer.set_score(Duck_hunt.gamer.get_score()+ducks[i].get_score());
                 remove(ducks_pic[i]);
                 gamer.kill_inc(ducks[i].get_type());
@@ -1097,5 +1102,3 @@ public class StartGame extends GraphicsProgram
     }
 
 }
-
-
