@@ -62,7 +62,7 @@ public class Player {
     
     public Player(String na,int sc,int id,int gems) 
     {
-        
+        this.name = "Gamer";
         this.name = na;
         this.score = sc;
         this.gems = gems;

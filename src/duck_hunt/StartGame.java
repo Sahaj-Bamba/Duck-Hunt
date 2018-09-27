@@ -50,12 +50,14 @@ public class StartGame extends GraphicsProgram
         //          Flash Part
     
     int angles_allowed[]={0,25,50,90,115,155,180,205,230,270,310,335};
-    int round = 1;
+    int round = 0;
     int bos_round = 3;
     //int ducks_left;
     int delay_after_all_left = 2000;
     boolean is_bypass = false;
     private boolean is_over = false;
+    int original_num_birds ; 
+    int boss_active =0;
     
     
     private void round_over(){
@@ -252,11 +254,8 @@ public class StartGame extends GraphicsProgram
     int active_gun = 0;
 
 
-<<<<<<< HEAD
-    private final int fps = 45;
-=======
+
     private final int fps = 35;
->>>>>>> 135dcade22ee460ec775b9fc127f68b965cb8cfc
 
     
     
@@ -273,9 +272,9 @@ public class StartGame extends GraphicsProgram
     GRect level2 = new GRect(1800*screen_width_fraction,200*screen_height_fraction);                        //      mid
     GRect level3 = new GRect(1800*screen_width_fraction,200*screen_height_fraction);                        //      graund base
     GRect Gun = new GRect(200*screen_width_fraction,400*screen_height_fraction);
-    GRect Gun1 = new GRect(200*screen_width_fraction,2010*screen_height_fraction);
+    GRect Gun1 = new GRect(200*screen_width_fraction,101*screen_height_fraction);
     GRect Gun2 = new GRect(200*screen_width_fraction,200*screen_height_fraction);
-    GRect Gun3 = new GRect(200*screen_width_fraction,200*screen_height_fraction);
+    GRect Gun3 = new GRect(200*screen_width_fraction,100*screen_height_fraction);
     GRect Gun4 = new GRect(200*screen_width_fraction,200*screen_height_fraction);
     GPoint last_pos = new GPoint();
     GOval Pointer = new GOval(50*screen_width_fraction,50*screen_height_fraction);
@@ -326,7 +325,7 @@ public class StartGame extends GraphicsProgram
     
     }
    
-    GImage _pointer = new GImage("Images\\Images\\Pointers\\" + gamer.get_pointer_pic() + ".png");
+    GImage _pointer = new GImage("Images\\Images\\Pointers\\" + (active_gun+1) + ".png");
     
     
     
@@ -395,9 +394,9 @@ public class StartGame extends GraphicsProgram
         
     _level1.setSize(1800*screen_width_fraction,950*screen_height_fraction);                        //      gamezone
     
-    _gun1.setSize(200*screen_width_fraction,200*screen_height_fraction); 
+    _gun1.setSize(200*screen_width_fraction,100*screen_height_fraction); 
     _gun2.setSize(200*screen_width_fraction,200*screen_height_fraction); 
-    _gun3.setSize(200*screen_width_fraction,200*screen_height_fraction); 
+    _gun3.setSize(200*screen_width_fraction,100*screen_height_fraction); 
     _gun4.setSize(200*screen_width_fraction,200*screen_height_fraction); 
     
     _gun.setSize(300*screen_width_fraction,400*screen_height_fraction); 
@@ -484,10 +483,10 @@ public class StartGame extends GraphicsProgram
     public void run(){
 //        init();
         
-
+    original_num_birds = number_of_birds;
          initialisations();
                  
-        //FL("Game Begins  ");
+        FL("Game Begins  ");
          
         /*
         System.out.println("hi");
@@ -530,7 +529,8 @@ public class StartGame extends GraphicsProgram
         rc2.setColor(Color.GRAY);
         rc2.setFilled(true);
         rc2.setLocation(1275*screen_width_fraction,800*screen_height_fraction);
-      
+        //add(rc2);
+            
         set_loc_add();
         
       
@@ -552,7 +552,7 @@ public class StartGame extends GraphicsProgram
         
             //init();
             
-
+/*
             for(int i=0;i<number_of_birds;i++){
             
             int x =(int) (Math.random() * 4);
@@ -592,6 +592,9 @@ public class StartGame extends GraphicsProgram
         ducks_pic[i].setSize(ducks[i].get_size(),ducks[i].get_size());
     }
 
+            System.out.println("size setted");
+            System.out.println(ducks[0].get_size());
+    
         //          Start all threads for initial and suspend
        
 
@@ -605,10 +608,12 @@ public class StartGame extends GraphicsProgram
             ducks_pic[i].setLocation( x, y);
             
         }
+        */
 
   
             
         while(true){
+          
             
         move_all();
         check_collision();
@@ -620,17 +625,14 @@ public class StartGame extends GraphicsProgram
         frame++;
  
         pause(1000/fps);
-<<<<<<< HEAD
-        add(rc);
-        add(rc1);
+
+        //add(rc);
+        //add(rc1);
         
         if(is_over){
             System.out.println("inside is over");
             is_over = false;
             break;
-=======
-        
->>>>>>> 135dcade22ee460ec775b9fc127f68b965cb8cfc
         }
             
         }
@@ -639,6 +641,127 @@ public class StartGame extends GraphicsProgram
         //init();
         round_num++;
         //removeAll();
+        if(round_num%bos_round==0){
+            
+            number_of_birds = 4;
+            boss_active = 1;
+           ducks[0].setter_obj(Red);
+           ducks[2].setter_obj(Blue);
+           ducks[1].setter_obj(Yellow);
+            ducks[3].setter_obj(Black);
+            ducks_pic[0].setImage("Images\\Images\\boss\\1\\0.png");
+            ducks_pic[2].setImage("Images\\Images\\boss\\3\\0.png");
+            ducks_pic[1].setImage("Images\\Images\\boss\\2\\0.png");
+            ducks_pic[3].setImage("Images\\Images\\boss\\4\\0.png");
+            
+            
+            for(int i=0;i<number_of_birds;i++){
+           
+            ducks[i].set_entry_date(new Date());
+            
+            int y =(int) (Math.random() * angles_allowed.length);
+            ducks[i].angle=angles_allowed[y];
+            ducks_pic[i] = new GImage("Images\\Images\\boss\\"+(i+1)+"\\"+(int)ducks[i].angle+".png");
+            
+            
+            
+           } 
+            
+            
+            
+            ducks[0].hitpoints = 160;
+            ducks[0].speed = 10;
+            ducks[0].leavetime = 35*1000;
+            ducks[0].set_size((int) (400*screen_width_fraction));
+            ducks[0].set_has_left(false);
+            ducks[0].set_entry_date(new Date());
+            
+            ducks[1].hitpoints = 200;
+            ducks[1].speed = 15;
+            ducks[1].leavetime = 40*1000;
+            ducks[1].set_size((int) (400*screen_width_fraction));
+            ducks[1].set_has_left(false);
+            ducks[1].set_entry_date(new Date());
+            
+            ducks[2].hitpoints = 100;
+            ducks[2].speed = 8;
+            ducks[2].leavetime = 25*1000;
+            ducks[2].set_size((int) (400*screen_width_fraction));
+            ducks[2].set_has_left(false);
+            ducks[2].set_entry_date(new Date());
+            
+            
+        for(int i=0;i<number_of_birds;i++){
+            ducks_pic[i].setSize(ducks[i].get_size(),ducks[i].get_size());
+            int x =(int) ((Math.random() * 1300) + 200);
+            int y = (int) ((Math.random() * 600) + 50);
+            
+            ducks_pic[i].setLocation( x, y);
+            
+        }
+           
+            continue;
+        }
+       boss_active = 0;
+       
+       number_of_birds = original_num_birds;
+        for(int i=0;i<number_of_birds;i++){
+            
+            int x =(int) (Math.random() * 4);
+            //x=1;          //  for testing
+            int y =(int) (Math.random() * angles_allowed.length);
+            
+            switch (x) {
+                case 0:
+                    ducks[i].setter_obj(Red);
+                    ducks_pic[i].setImage(Red.pic_location);
+                    
+                    break;
+                case 1:
+                    ducks[i].setter_obj(Yellow);
+                    ducks_pic[i].setImage(Yellow.pic_location);
+                    break;
+                case 2:
+                    ducks[i].setter_obj(Blue);
+                    ducks_pic[i].setImage(Blue.pic_location);
+                    break;
+                case 3:
+                    ducks[i].setter_obj(Black);
+                    ducks_pic[i].setImage(Black.pic_location);
+                    break;
+                default:
+                    break;
+            }
+            
+            ducks[i].set_entry_date(new Date());
+            
+            ducks[i].angle=angles_allowed[y];
+            ducks_pic[i] = new GImage("Images\\Images\\"+(x+1)+"\\"+(int)ducks[i].angle+".png");
+        }
+        
+        
+    for(int i=0; i<number_of_birds; i++){
+        ducks_pic[i].setSize(ducks[i].get_size(),ducks[i].get_size());
+    }
+
+            System.out.println("size setted");
+            System.out.println(ducks[0].get_size());
+    
+        //          Start all threads for initial and suspend
+       
+
+        //          Seting initial location of birds
+        
+        for(int i=0;i<number_of_birds;i++){
+            
+            int x =(int) ((Math.random() * 1300) + 200);
+            int y = (int) ((Math.random() * 600) + 50);
+            
+            ducks_pic[i].setLocation( x, y);
+            
+        }
+        
+
         
     }
 
@@ -661,14 +784,15 @@ public class StartGame extends GraphicsProgram
 //        add(Pointer);
         
         
+//add(rc);
+       // add(rc1);
         
         
         
         add(_level1);
         
-add(rc);
-        add(rc1);
         add(rc2);
+        set_loc_add();
         for(int i=0; i<number_of_birds; i++){
             if(ducks[i].is_alive)
             add(ducks_pic[i]);
@@ -805,9 +929,11 @@ add(rc);
                 
                 
                 ducks[i].angle = r;
-                
+                if(boss_active == 0)
                 ducks_pic[i].setImage("Images\\Images\\"+(x+1)+"\\"+(int)ducks[i].angle+".png");
-                
+                else{
+                    ducks_pic[i].setImage("Images\\Images\\boss\\"+(x+1)+"\\"+(int)ducks[i].angle+".png");
+                }
                 ducks_pic[i].setSize(ducks[i].get_size(),ducks[i].get_size());
                 move_all();
                 
@@ -836,11 +962,14 @@ add(rc);
         if(active_gun>3)
             active_gun=0;
         
+        remove(_pointer);
         remove(_gun);
         _gun.setImage("Images\\Images\\Guns\\"+(active_gun+1)+"_2_1"+".png");
+        _pointer.setImage("Images\\Images\\Pointers\\" + (active_gun+1) + ".png");
+        _pointer.setSize(50, 50);
         _gun.setSize(300*screen_width_fraction,400*screen_height_fraction); 
         add(_gun);
-        
+        add(_pointer);
         System.out.println(active_gun);
     }
     
@@ -896,6 +1025,13 @@ add(rc);
         if(dt.getTime()-__gun[active_gun].get_prev_shoot_date().getTime() < __gun[active_gun].Delay){
             return;
         }
+        
+        if(rc.contains(e.getX(),e.getY()) || rc1.contains(e.getX(),e.getY()))
+        {
+        new Error().run("How dare you kill a fellow human you murderer ?");
+        System.exit(0);
+        //new Menu().run();
+    }
         
         /*
         if(frame - __gun[active_gun].get_previous_shoot() < __gun[active_gun].Delay){
