@@ -255,7 +255,7 @@ public class StartGame extends GraphicsProgram
 
 
 
-    private final int fps = 35;
+    private final int fps = 45;
 
     
     
@@ -540,11 +540,11 @@ public class StartGame extends GraphicsProgram
     
             
         add(_level1);
-        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        new playwav("Images\\Songs\\buz.wav").start();
         pause(2000);
-        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        new playwav("Images\\Songs\\buz.wav").start();
         pause(2000);
-        new playwav("C:\\Users\\admin\\Desktop\\Avishkar\\Cyber Quest\\Softblitz\\Duck_hunt\\Images\\Songs\\buz.wav").start();
+        new playwav("Images\\Songs\\buz.wav").start();
         pause(2000);
         addall();
         

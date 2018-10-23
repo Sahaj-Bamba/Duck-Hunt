@@ -16,8 +16,8 @@ public class setting_1 extends DialogProgram{
     @Override
     public void run(){
         do{
-            cnt=readInt("\n\nEnter the number of birds in each round between 5 and 20");
-        }while(cnt<5||cnt>20);
+            cnt=readInt("\n\nEnter the number of birds in each round between 5 and 100");
+        }while(cnt<5||cnt>100);
         number_of_birds = cnt;
         new Menu().run();
     }
