@@ -39,3 +39,4 @@
 10) In app purchases 
 11) Eggs transformation on duck death
 12) Be the Top Hunter in the World
+13) Make chat box multi client.
