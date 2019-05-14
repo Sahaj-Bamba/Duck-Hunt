@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package duck_hunt;
+import duck_hunt.extra.almnac;
+import duck_hunt.extra.setting_1;
 import acm.program.DialogProgram;
 
 /**

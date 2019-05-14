@@ -6,6 +6,7 @@
 
 package duck_hunt;
 
+import duck_hunt.utilities.Sql_query_executer;
 import java.awt.Toolkit;
 
 /**
@@ -112,8 +113,10 @@ public class Duck_hunt {
 
         
         Duck_hunt.animation();
+        
         Menu menu = new Menu();
         menu.run();
+    
     }
     
     public static void animation(){

@@ -5,6 +5,9 @@
  */
 package duck_hunt;
 
+import duck_hunt.extra.Settings;
+import duck_hunt.extra.almnac;
+
 /**
  *
  * @author user

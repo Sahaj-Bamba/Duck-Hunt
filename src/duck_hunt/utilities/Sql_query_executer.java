@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duck_hunt;
+
+package duck_hunt.utilities;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static java.util.jar.Pack200.Packer.PASS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  *
  * @author user
  */
+
 public class Sql_query_executer {
     
     private String user ;
@@ -43,7 +44,7 @@ public class Sql_query_executer {
         try {
             return this.stm.executeQuery(sql);
         } catch (SQLException ex) {
-            //Logger.getLogger(Sql_query_executer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Sql_query_executer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

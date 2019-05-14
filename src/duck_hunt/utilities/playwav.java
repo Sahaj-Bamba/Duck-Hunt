@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duck_hunt;
+package duck_hunt.utilities;
 
 /**
  *
@@ -15,9 +15,10 @@ import java.util.logging.Logger;
 import sun.audio.*;
 public class playwav extends Thread
 {
+    
     private InputStream in;
     private AudioStream au;
-    private String song;
+    //private String song;
 
     public playwav(String s) {
         try {
@@ -35,9 +36,9 @@ public class playwav extends Thread
     @Override
     public void run(){
         
-        while(true){
-        AudioPlayer.player.start(au);
-        }
+        //while(true){
+            AudioPlayer.player.start(au);
+        //}
         
     }
 

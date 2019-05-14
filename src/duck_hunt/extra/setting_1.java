@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duck_hunt;
+package duck_hunt.extra;
 import static duck_hunt.StartGame.number_of_birds;
 import acm.program.DialogProgram;
+import duck_hunt.Menu;
 
 /**
  *

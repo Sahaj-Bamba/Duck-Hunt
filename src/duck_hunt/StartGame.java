@@ -21,6 +21,7 @@ package duck_hunt;
  * and open the template in the editor.
  */
 
+import duck_hunt.utilities.playwav;
 import java.util.Date;
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
