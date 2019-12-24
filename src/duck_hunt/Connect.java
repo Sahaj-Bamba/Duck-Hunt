@@ -5,9 +5,6 @@
  */
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.menu;
-
-
 
 /**
  *

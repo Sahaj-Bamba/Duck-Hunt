@@ -5,8 +5,7 @@
  */
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.chatwindow;
-import static duck_hunt.Duck_hunt.client;
+import static duck_hunt.Restart.Duck_hunt.client;
 import static java.lang.Integer.parseInt;
 
 /**

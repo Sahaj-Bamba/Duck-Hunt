@@ -38,7 +38,7 @@ public class Guns {
         this.previous_shoot = x;
     }
     
-    Guns(int a,int b,int c,int d,String e, String sd){
+    public Guns(int a, int b, int c, int d, String e, String sd){
         
         this.Delay=a;
         this.Reload=b;

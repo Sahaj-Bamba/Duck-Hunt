@@ -84,7 +84,7 @@ public class Player {
               
     }
 
-    Player() {
+    public Player() {
         this.name = "Gamer";
         this.score = 0;
         this.gems = 0;

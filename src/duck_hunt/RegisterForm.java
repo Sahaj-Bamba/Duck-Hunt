@@ -5,14 +5,9 @@
  */
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.gamer;
-import static duck_hunt.Duck_hunt.sqe;
-import static duck_hunt.Duck_hunt.is_logged_in;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
+import javax.swing.*;
+
+//import static duck_hunt.Restart.Duck_hunt.sqe;
 
 /**
  *
@@ -220,7 +215,7 @@ public class RegisterForm extends javax.swing.JFrame {
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
 
-        
+        /*
         
         ResultSet rs = sqe.select("SELECT `Name`, `Password` FROM `player` WHERE Name ='"+ name.getText() +"' ;");
         
@@ -260,7 +255,7 @@ public class RegisterForm extends javax.swing.JFrame {
                 name.setText("");
             }
             
-            
+          */
             /*
             //String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
             //String DB_URL = "jdbc:mysql://localhost/EMP";
@@ -351,9 +346,9 @@ public class RegisterForm extends javax.swing.JFrame {
             System.out.println("Goodbye!");
             */
             // TODO add your handling code here:
-        } catch (SQLException ex) {
+        /*} catch (SQLException ex) {
             //Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -366,7 +361,7 @@ public class RegisterForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

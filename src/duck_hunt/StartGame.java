@@ -21,36 +21,24 @@ package duck_hunt;
  * and open the template in the editor.
  */
 
-import duck_hunt.utilities.playwav;
-import java.util.Date;
-import acm.graphics.GImage;
-import acm.graphics.GLabel;
-import acm.graphics.GOval;
-import acm.graphics.GPoint;
-import acm.graphics.GRect;
+import acm.graphics.*;
 import acm.program.GraphicsProgram;
-import static duck_hunt.Duck_hunt.gamer;
-import static duck_hunt.Duck_hunt.Black;
-import static duck_hunt.Duck_hunt.Blue;
-import static duck_hunt.Duck_hunt.Red;
-import static duck_hunt.Duck_hunt.Yellow;
-import static duck_hunt.Duck_hunt.ak;
-import static duck_hunt.Duck_hunt.laser;
-import static duck_hunt.Duck_hunt.screen_height_fraction;
-import static duck_hunt.Duck_hunt.screen_width_fraction;
-import static duck_hunt.Duck_hunt.shotgun;
-import static duck_hunt.Duck_hunt.sniper;
-import java.awt.Color;
-import java.awt.Font;
+import duck_hunt.Restart.Duck_hunt;
+import duck_hunt.utilities.playwav;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.util.Date;
+
+import static duck_hunt.Restart.Duck_hunt.*;
 
 public class StartGame extends GraphicsProgram 
 {
     
         //          Flash Part
     
-    int angles_allowed[]={0,25,50,90,115,155,180,205,230,270,310,335};
+    int[] angles_allowed ={0,25,50,90,115,155,180,205,230,270,310,335};
     int round = 0;
     int bos_round = 3;
     //int ducks_left;
@@ -261,8 +249,8 @@ public class StartGame extends GraphicsProgram
     
     
     public static int number_of_birds = 10;
-    public Ducks ducks[] = new Ducks[number_of_birds];
-    public GImage ducks_pic[] = new GImage[number_of_birds];
+    public Ducks[] ducks = new Ducks[number_of_birds];
+    public GImage[] ducks_pic = new GImage[number_of_birds];
     public int round_num = 0;
     
     
@@ -301,7 +289,7 @@ public class StartGame extends GraphicsProgram
     Guns __gun2 = new Guns(shotgun);
     Guns __gun3 = new Guns(laser);
     Guns __gun4 = new Guns(sniper);
-    Guns __gun[] = new Guns[4];
+    Guns[] __gun = new Guns[4];
     
     public void initialisations(){
         

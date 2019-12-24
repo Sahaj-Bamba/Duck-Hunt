@@ -5,15 +5,10 @@
  */
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.ChattedMessage;
-import static duck_hunt.Duck_hunt.WhoAmI;
-import static duck_hunt.Duck_hunt.flag_speak;
-import static duck_hunt.Duck_hunt.WhoAmICalled;
-import static duck_hunt.Duck_hunt.server_speak;
-import static duck_hunt.Duck_hunt.client_speak;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
+
+import static duck_hunt.Restart.Duck_hunt.*;
 
 /**
  *
@@ -38,7 +33,7 @@ public class ChatWindow extends javax.swing.JDialog{
         initComponents();
     }
 
-    ChatWindow() {
+    public ChatWindow() {
         initComponents();
     }
 

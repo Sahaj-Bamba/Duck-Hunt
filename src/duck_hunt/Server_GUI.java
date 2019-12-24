@@ -5,7 +5,7 @@
  */
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.server;
+import static duck_hunt.Restart.Duck_hunt.server;
 import static java.lang.Integer.parseInt;
 
 /**

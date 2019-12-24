@@ -5,10 +5,11 @@
  */
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.chatwindow;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+
+import static duck_hunt.Restart.Duck_hunt.chatwindow;
 
 /**
  *

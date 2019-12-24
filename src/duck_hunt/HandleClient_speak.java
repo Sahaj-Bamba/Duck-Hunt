@@ -4,16 +4,14 @@
  * and open the template in the editor.
  */
 package duck_hunt;
-import static duck_hunt.Duck_hunt.ChattedMessage;
-import static duck_hunt.Duck_hunt.WhoAmI;
-import static duck_hunt.Duck_hunt.client_speak;
-import static duck_hunt.Duck_hunt.flag_speak;
-import static duck_hunt.Duck_hunt.server_speak;
+
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static duck_hunt.Restart.Duck_hunt.*;
 
 /**
  *

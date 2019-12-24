@@ -1,16 +1,11 @@
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.WhoAmICalled;
-import static duck_hunt.Duck_hunt.WhoAmI;
-import static duck_hunt.Duck_hunt.chatwindow;
-import static duck_hunt.Duck_hunt.error;
-import static duck_hunt.Duck_hunt.menu;
-import static duck_hunt.Duck_hunt.server_hear;
-import static duck_hunt.Duck_hunt.server_speak;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import static duck_hunt.Restart.Duck_hunt.*;
 
 public class Server extends Thread implements Serializable{
         // s tell if server is on or not 
@@ -20,7 +15,7 @@ public class Server extends Thread implements Serializable{
     public String name;
     public String IP;
     
-    Server(int Port){
+    public Server(int Port){
         this.port = Port;
     }
     

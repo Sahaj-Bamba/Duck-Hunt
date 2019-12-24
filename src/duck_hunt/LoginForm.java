@@ -5,14 +5,10 @@
  */
 
 package duck_hunt;
-import static duck_hunt.Duck_hunt.gamer;
-import static duck_hunt.Duck_hunt.is_logged_in;
-import static duck_hunt.Duck_hunt.sqe;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
+
+import javax.swing.*;
+
+//import static duck_hunt.Restart.Duck_hunt.sqe;
 
 /**
  *
@@ -263,6 +259,8 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+
+        /*
         
         ResultSet rs = sqe.select("SELECT UserId, Name, Password, Score, Gems FROM player WHERE name = '"+ name.getText() + "' AND Password = '" + pass.getText() + "' ;" );
         
@@ -278,7 +276,7 @@ public class LoginForm extends javax.swing.JFrame {
                 pass.setText("");
                 name.setText("");
             }
-            
+          */
             //String JDBC_DRIVER = "com.mysql.jdbc.Driver";
             //String DB_URL = "jdbc:mysql://localhost/EMP";
 
@@ -371,15 +369,16 @@ public class LoginForm extends javax.swing.JFrame {
             }//end finally try
             }//end try
             System.out.println("Goodbye!");
-        */  } catch (SQLException ex) {
+        */ /* } catch (SQLException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        */
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

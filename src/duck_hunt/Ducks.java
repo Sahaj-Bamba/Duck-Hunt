@@ -79,7 +79,7 @@ public class Ducks {
         return this.size;
     }
     
-    Ducks(double angle , double speed , int randomability , int HP , int LT , String b , String p , String name , int sc , int type){
+    public Ducks(double angle, double speed, int randomability, int HP, int LT, String b, String p, String name, int sc, int type){
         this.angle = angle;
         this.speed = speed;
         this.randomability = randomability;

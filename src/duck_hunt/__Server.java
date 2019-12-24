@@ -7,11 +7,13 @@ package duck_hunt;
 
 
 //import static chatbox.Chatbox.chatwindow;
-import static duck_hunt.Duck_hunt.gamer;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import static duck_hunt.Restart.Duck_hunt.gamer;
 
 public class __Server implements Serializable{
     
@@ -68,7 +70,7 @@ public class __Server implements Serializable{
                 // new ChatWindow(socket).setVisible(true);
                 //chatwindow.start(socket);
                 
-                String a[] =null;
+                String[] a =null;
                 new __ChatWindow(socket);
                 
                 /*

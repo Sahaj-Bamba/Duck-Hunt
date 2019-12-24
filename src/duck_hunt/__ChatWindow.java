@@ -5,12 +5,13 @@
  */
 package duck_hunt;
 
-import static duck_hunt.Duck_hunt.gamer;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static duck_hunt.Restart.Duck_hunt.gamer;
 
 /**
  *
@@ -28,13 +29,13 @@ public class __ChatWindow extends javax.swing.JFrame {
     public __ChatWindow(Socket socket) {
         initComponents();
 
-        this.socket = socket;
+        __ChatWindow.socket = socket;
 
         try {
             System.out.println("trying out stream create");
             this.out=new ObjectOutputStream(socket.getOutputStream());
             System.out.println("output stream created");
-            new Thread(new __Listen(this.socket, "", this)).start();
+            new Thread(new __Listen(__ChatWindow.socket, "", this)).start();
             System.out.println("listen in paralle");
         } catch (IOException ex) {
             Logger.getLogger(__ChatWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -162,7 +163,7 @@ this.setVisible(true);
             System.out.println("trying out stream create");
             this.out=new ObjectOutputStream(socket.getOutputStream());
             System.out.println("output stream created");
-            new Thread(new __Listen(this.socket, "", this)).start();
+            new Thread(new __Listen(socket, "", this)).start();
             System.out.println("listen in paralle");
         } catch (IOException ex) {
             Logger.getLogger(__ChatWindow.class.getName()).log(Level.SEVERE, null, ex);

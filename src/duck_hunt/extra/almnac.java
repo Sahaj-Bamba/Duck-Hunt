@@ -9,15 +9,11 @@ import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
-import static duck_hunt.Duck_hunt.Black;
-import static duck_hunt.Duck_hunt.Blue;
-import static duck_hunt.Duck_hunt.Red;
-import static duck_hunt.Duck_hunt.Yellow;
-import static duck_hunt.Duck_hunt.screen_height_fraction;
-import static duck_hunt.Duck_hunt.screen_width_fraction;
-import java.awt.Color;
-import java.awt.Font;
+
+import java.awt.*;
 import java.awt.event.MouseEvent;
+
+import static duck_hunt.Restart.Duck_hunt.*;
 
 /**
  *
@@ -34,7 +30,7 @@ public class almnac extends GraphicsProgram{
     GImage Menu1_3 = null;
     GImage Menu1_4 = null;
     
-    GImage star[] = new GImage[15];
+    GImage[] star = new GImage[15];
   
     GImage Main_image = null;
         
