@@ -40,3 +40,31 @@
 11) Eggs transformation on duck death
 12) Be the Top Hunter in the World
 13) Make chat box multi client.
+
+
+# Special Instructions
+
+
+1) Use Design Patterns.
+2) Restart everything from beginning.
+3) Use Data-Gram Sockets for main game play.
+4) Optimise as much as possible.
+
+
+# Design Problems
+
+
+1) Optimization
+2) Server Client Interactions
+3) In App purchases
+4) Deployment
+5) Making it more engaging
+
+
+
+
+
+##
+## Restarting working on Project 24 December 2019
+
+
