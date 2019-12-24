@@ -6,6 +6,7 @@
 package duck_hunt;
 
 import acm.program.DialogProgram;
+import duck_hunt.Restart.Menu;
 
 /**
  *

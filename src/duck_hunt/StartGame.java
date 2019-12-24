@@ -24,7 +24,7 @@ package duck_hunt;
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
 import duck_hunt.Restart.Duck_hunt;
-import duck_hunt.utilities.playwav;
+import duck_hunt.Restart.utilities.playwav;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

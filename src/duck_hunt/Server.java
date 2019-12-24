@@ -1,5 +1,7 @@
 package duck_hunt;
 
+import duck_hunt.Restart.Menu;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.ServerSocket;
@@ -34,7 +36,7 @@ public class Server extends Thread implements Serializable{
         } catch (IOException e) {
             this.is_on = false;
             error.run(" Something went wrong please try again .");
-            menu.start();
+            //menu.start();
             System.out.print("njvsdkvsdnjsdv dslvknkjdsvnjhdsbvhjbdskjvbsajhvhgbxchfgvsdcgfvgsdcvjhcsvjkscvjdskfcvkuzsdvcsghn");
             e.printStackTrace();
             return;

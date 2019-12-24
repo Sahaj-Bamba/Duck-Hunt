@@ -3,16 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duck_hunt.utilities;
+package duck_hunt.Restart.utilities;
 
 /**
  *
- * @author user
+ * @author Sahaj Bamba
+ *
+ * A utility to play wav files.
+ *
+ * In the constructor pass the address of the wav file . It will load and play it automatically . Run it like threads.
+ *
+ * ex new playwav("Images\\Songs\\buz.wav").start();
+ *
  */
-import java.io.*;
+
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.audio.*;
 public class playwav extends Thread
 {
     

@@ -6,7 +6,7 @@
  */
 package duck_hunt.tests;
 
-import duck_hunt.utilities.playwav;
+import duck_hunt.Restart.utilities.playwav;
 
 /**
  *

@@ -5,6 +5,8 @@
  */
 package duck_hunt;
 
+import duck_hunt.Restart.Menu;
+
 import javax.swing.*;
 
 //import static duck_hunt.Restart.Duck_hunt.sqe;
