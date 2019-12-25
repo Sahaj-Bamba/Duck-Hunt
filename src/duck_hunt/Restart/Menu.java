@@ -9,9 +9,9 @@ package duck_hunt.Restart;
 import acm.program.DialogProgram;
 import duck_hunt.Credits;
 import duck_hunt.Instructions;
+import duck_hunt.Restart.extra.Settings;
+import duck_hunt.Restart.extra.almnac;
 import duck_hunt.StartGame;
-import duck_hunt.extra.Settings;
-import duck_hunt.extra.almnac;
 
 /**
  *
@@ -36,53 +36,57 @@ public class Menu extends DialogProgram implements Runnable
         setting_1 temp5=new setting_1();                                      // Settings Window
         String [] args = null;
 */
-
-        while (true)
-        {
-            cnt=readInt("\n\n\tDUCK HUNT \n\n1- Single Player \n2- Chat\n3- Connect\n4-Settings\n5- Almnac \n6- How to Play\n7- Credits \n8- Login/Signup\n9- Quit");
-            if(cnt>0&&cnt<10){
-                // TODO: 24/12/19 This will be used to make some things only accessable when login function is available.
-                /*
-                if(!(is_logged_in)){
-                    if(cnt==6||cnt==7||cnt==8||cnt==10||cnt==11)
-                        break;
-                    else{
-                        print("\tError \nYou must log in first to access these features .");
-                        continue;
+        while (true) {
+            while (true) {
+                cnt = readInt("\n\n\tDUCK HUNT \n\n1- Single Player \n2- Chat\n3- Connect\n4-Settings\n5- Almnac \n6- How to Play\n7- Credits \n8- Login/Signup\n9- Quit");
+                if (cnt > 0 && cnt < 10) {
+                    // TODO: 24/12/19 This will be used to make some things only accessable when login function is available.
+                    /*
+                    if(!(is_logged_in)){
+                        if(cnt==6||cnt==7||cnt==8||cnt==10||cnt==11)
+                            break;
+                        else{
+                            print("\tError \nYou must log in first to access these features .");
+                            continue;
+                        }
                     }
-                }
-                */
-                break;
-            }
-            print("\tError \nYou Entered an incorrect value .");
-        }
-        
-        switch(cnt)
-        {
-            case 1: new StartGame().start();
-                break;
-            case 2: // TODO: 24/12/19 Chat
-                break;
-            case 3: // TODO: 24/12/19 Connect
-                break;
-            case 4:new Settings().start();
-                break;
-            case 5:new almnac().start();
-                break;
-            case 6:new Instructions().start();
-                break;
-            case 7:new Credits().start();
-                break;
-            case 8:
-                // TODO: 24/12/19 Login/Signup
-/*
-                String[] args;
-                new LoginForm().main(args);
+                    */
                     break;
-*/
+                }
+                print("\tError \nYou Entered an incorrect value .");
+            }
+
+            switch (cnt) {
+                case 1:
+                    new StartGame().start();
+                    break;
+                case 2: // TODO: 24/12/19 Chat
+                    break;
+                case 3: // TODO: 24/12/19 Connect
+                    break;
+                case 4:
+                    new Settings().start();
+                    break;
+                case 5:
+                    new almnac().start();
+                    break;
+                case 6:
+                    new Instructions().start();
+                    break;
+                case 7:
+                    new Credits().start();
+                    break;
+                case 8:
+                    // TODO: 24/12/19 Login/Signup
+    /*
+                    String[] args;
+                    new LoginForm().main(args);
+                        break;
+    */
+                case 9:
+                    GameController.exit(0);
+                    break;
+            }
         }
-
-        GameController.exit(0);
-
     }
 }

@@ -5,7 +5,7 @@
  */
 package duck_hunt.tests;
 
-import duck_hunt.extra.almnac;
+import duck_hunt.Restart.extra.almnac;
 
 /**
  *

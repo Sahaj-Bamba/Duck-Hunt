@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duck_hunt.extra;
+package duck_hunt.Restart.extra;
 
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
@@ -17,8 +17,14 @@ import static duck_hunt.Restart.Duck_hunt.*;
 
 /**
  *
- * @author user
+ * @author Sahaj Bamba
+ *
+ * Almanac
+ *
+ * A brief intro about different in-game objects like birds guns and many more.
+ *
  */
+
 
 public class almnac extends GraphicsProgram{
     
@@ -36,17 +42,14 @@ public class almnac extends GraphicsProgram{
         
     GRect Main = null;
     GRect back = null;
-    
-    
+
     GLabel Topic = null;
+    GLabel Name = null;
     GLabel Description = null;
     GLabel Property1 = null;
     GLabel Property2 = null;
     GLabel Property3 = null;
-    GLabel Name = null;
-        
-        
-    
+
     public almnac() {
         this.Height = 1000;
         this.Width = 1900;
@@ -54,13 +57,11 @@ public class almnac extends GraphicsProgram{
     
     @Override
     public void run(){
-        
+
         addMouseListeners();
         
         setSize((int)(Width*screen_width_fraction) ,(int)(Height*screen_height_fraction));
         setLocation((int)(350.0*screen_width_fraction) , (int)(screen_height_fraction*50.0));
-        
-        //System.out.println((screen_width_fraction));
         
                 //      Create  Objects
         

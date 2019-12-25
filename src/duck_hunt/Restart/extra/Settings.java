@@ -3,26 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duck_hunt.extra;
+package duck_hunt.Restart.extra;
 
 import acm.program.DialogProgram;
+import duck_hunt.Restart.GameGlobalVariables;
 import duck_hunt.Restart.Menu;
-
-import static duck_hunt.StartGame.number_of_birds;
 
 /**
  *
  * @author admin
+ * 
+ *  It opens up a dialog window
+ * 
+ * It helps in changing various setting of the game like game mode and all.
+ * 
  */
-public class setting_1 extends DialogProgram{
+public class Settings extends DialogProgram{
     int cnt;
     @Override
     public void run(){
         do{
             cnt=readInt("\n\nEnter the number of birds in each round between 5 and 100");
         }while(cnt<5||cnt>100);
-        number_of_birds = cnt;
+        GameGlobalVariables.getInstance().setDucksCount(cnt);
+        System.out.println("Value of Ducks Count updated to "+cnt);
         new Menu().run();
     }
-    
 }
