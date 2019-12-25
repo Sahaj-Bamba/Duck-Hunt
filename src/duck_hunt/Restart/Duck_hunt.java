@@ -124,7 +124,7 @@ public class Duck_hunt {
         screen_width_fraction = screen_width/default_screen_width;
 
         
-        new Menu().run();
+        new Menu().start();
 
     }
     

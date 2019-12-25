@@ -12,6 +12,7 @@ package duck_hunt;
  *
  * @author admin
  */
+
 /*
 
 */

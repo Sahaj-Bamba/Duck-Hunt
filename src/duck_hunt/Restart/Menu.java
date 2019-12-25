@@ -7,8 +7,8 @@
 package duck_hunt.Restart;
 
 import acm.program.DialogProgram;
-import duck_hunt.Credits;
-import duck_hunt.Instructions;
+import duck_hunt.Restart.extra.Credits;
+import duck_hunt.Restart.extra.Instructions;
 import duck_hunt.Restart.extra.Settings;
 import duck_hunt.Restart.extra.almnac;
 import duck_hunt.StartGame;

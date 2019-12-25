@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duck_hunt;
+package duck_hunt.Restart.extra;
 import acm.program.DialogProgram;
 import duck_hunt.Restart.Menu;
 
@@ -20,9 +20,8 @@ public class Credits extends DialogProgram{
     @Override
     public void run()
     {
-        Menu menu = new Menu();
-        println("             Made By     \n\n         SAHAJ BAMBA\n          VIVEK KUMAR MEENA  ");
-        menu.run();
+        println("             Made By     \n\n         SAHAJ BAMBA");
+        new Menu().start();
     }
 }
 
