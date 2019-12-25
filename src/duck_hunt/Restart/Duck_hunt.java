@@ -42,11 +42,12 @@ public class Duck_hunt {
         //          Ducks
         //      float angle , float speed , int randomability , int HP , int LT , String b , String p , String name
 
+        /*
         public static Ducks Red = new Ducks(1.0, 7.0, 6 * 1000, 80, 30 * 1000, "On an island occupied by the cheeriest birds imaginable, Red is a bit of an outcast. His cynical outlook has kept him at odds with the other birds,  but a bit of cynicism might be just what they n" + "eed", "Images\\Menu_1.png", "The Red", 10, 0);
         public static Ducks Blue = new Ducks(1.0, 5.0, 4 * 1000, 50, 25 * 1000, "Why am I blue people usually ask me and my answer to them is because I am so cool. I am not bragging I really am cool. I listen to none since I am better then them all. I keep moving and changing directions as much as I want. That means almost infinitely. ", "Images\\Menu_3.png", "Blues", 10, 2);
         public static Ducks Yellow = new Ducks(1.0, 10.0, 8 * 1000, 100, 40 * 1000, "Chuck is constantly running at 100 mph and that includes his mouth as well . His impulsive nature often gets him into trouble. Lukily he is fast enough to escape from the situation. Chuck says I am not fast I am just walking its you who is slow . ", "Images\\Menu_2.png", "Chuck", 10, 1);
         public static Ducks Black = new Ducks(1.0, 12.0, 2, 2, 40 * 1000, "Generally Speaking Bomb is the Chillest Bird you will ever meet. However get him worked up and he has a tendency to go Off - explosively speaking. This can have its advantages, but Bomb struggles to control his power.", "Images\\Menu_4.png", "Bomb", 10, 3);
-
+        */
         
         //          Guns
         /*

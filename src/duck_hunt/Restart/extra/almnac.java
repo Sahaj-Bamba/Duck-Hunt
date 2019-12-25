@@ -9,11 +9,13 @@ import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
+import duck_hunt.Restart.GameObjects.Ducks.*;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-import static duck_hunt.Restart.Duck_hunt.*;
+import static duck_hunt.Restart.Duck_hunt.screen_height_fraction;
+import static duck_hunt.Restart.Duck_hunt.screen_width_fraction;
 
 /**
  *
@@ -31,11 +33,9 @@ public class almnac extends GraphicsProgram{
     private final double Height;
     private final double Width;
     
-    GImage Menu1_1 = null;
-    GImage Menu1_2 = null;
-    GImage Menu1_3 = null;
-    GImage Menu1_4 = null;
-    
+    GImage[] Menu1 = null;
+    Duck[] ducks =null;
+
     GImage[] star = new GImage[15];
   
     GImage Main_image = null;
@@ -51,8 +51,20 @@ public class almnac extends GraphicsProgram{
     GLabel Property3 = null;
 
     public almnac() {
+
         this.Height = 1000;
         this.Width = 1900;
+
+        ducks[0]=new RedDuck();
+        ducks[1] = new BlueDuck();
+        ducks[2]=new YellowDuck();
+        ducks[3] = new BlackDuck();
+        for (int i=0;i<4;i++){
+            Menu1[i] = new GImage(ducks[i].getPicLocation());
+        }
+        for(int i=0;i<15;i++){
+            star[i] = new GImage("Images\\Images\\star1.jpg");
+        }
     }
     
     @Override
@@ -64,20 +76,10 @@ public class almnac extends GraphicsProgram{
         setLocation((int)(350.0*screen_width_fraction) , (int)(screen_height_fraction*50.0));
         
                 //      Create  Objects
-        
-        Menu1_1 = new GImage(Red.pic_location);
-        Menu1_2 = new GImage(Yellow.pic_location);
-        Menu1_3 = new GImage(Blue.pic_location);
-        Menu1_4 = new GImage(Black.pic_location);
-    
-        for(int i=0;i<15;i++){
-            star[i] = new GImage("Images\\Images\\star1.jpg");
-        }
-        
+
         Main_image = new GImage("");
-        
+
         Main = new GRect(600*screen_width_fraction,500*screen_height_fraction);
-        
         back = new  GRect(1900*screen_width_fraction,1000*screen_height_fraction);         
         
         Topic = new GLabel("Almnac");
@@ -89,13 +91,12 @@ public class almnac extends GraphicsProgram{
         
         //GOval p = new GOval(200,200);
         
+
                 //      Set  Size
-                
-        Menu1_1.setSize(200*screen_width_fraction,200*screen_height_fraction);
-        Menu1_2.setSize(150*screen_width_fraction,150*screen_height_fraction);
-        Menu1_3.setSize(200*screen_width_fraction,200*screen_height_fraction);
-        Menu1_4.setSize(200*screen_width_fraction,200*screen_height_fraction);
-        
+
+        for (GImage m : Menu1) {
+            m.setSize(200*screen_width_fraction,200*screen_height_fraction);
+        }
         for(int i=0;i<15;i++){
             star[i].setSize(40*screen_width_fraction,40*screen_height_fraction);
         }
@@ -116,20 +117,18 @@ public class almnac extends GraphicsProgram{
         Property3.setFont((new Font("Serif", Font.ITALIC,(int)(25*screen_width_fraction))));
         Name.setFont((new Font("Curlz MT", Font.BOLD, (int)(50*screen_width_fraction))));
         
-        
+
                 //      Set  Locations
-        
-        Menu1_1.setLocation(400*screen_width_fraction,20*screen_height_fraction);
-        Menu1_2.setLocation(1250*screen_width_fraction,20*screen_height_fraction);
-        Menu1_3.setLocation(400*screen_width_fraction,720*screen_height_fraction);
-        Menu1_4.setLocation(1200*screen_width_fraction,720*screen_height_fraction);
+
+        Menu1[0].setLocation(400*screen_width_fraction,20*screen_height_fraction);
+        Menu1[1].setLocation(1250*screen_width_fraction,20*screen_height_fraction);
+        Menu1[2].setLocation(400*screen_width_fraction,720*screen_height_fraction);
+        Menu1[3].setLocation(1200*screen_width_fraction,720*screen_height_fraction);
         
         Main_image.setLocation(600*screen_width_fraction,220*screen_height_fraction);
-        
         Main.setLocation(600*screen_width_fraction, 220*screen_height_fraction);
         
         back.setLocation(0,0);
-        
         Topic.setLocation(650*screen_width_fraction,160*screen_height_fraction);
 
         Description.setLocation(630*screen_width_fraction,550*screen_height_fraction);
@@ -171,17 +170,14 @@ public class almnac extends GraphicsProgram{
         //p.setFilled(true);
                 
                 //      Add  Everything on the screen
-        add(back);        
-        add(Menu1_1);
-        add(Menu1_2);
-        add(Menu1_3);
-        add(Menu1_4);
-        
+
+
+        for (GImage m : Menu1) {
+            add(m);
+        }
+        add(back);
         add(Main);
-        
-                
         add(Topic);
-        
         add(Main_image);
         add(Description);
         add(Property1);
@@ -204,110 +200,31 @@ public class almnac extends GraphicsProgram{
         for(int i=0;i<15;i++){
             remove(star[i]);
         }
-        if(Menu1_1.contains(e.getX(),e.getY())){
-            
-            Main.setColor(Color.RED);
-            
-            Name.setLabel(Red.name);
-            Property1.setLabel("Speed");
-            Property2.setLabel("Hit Points");
-            Property3.setLabel("Randomability");
-            
-            Description.setLabel(Red.bio);
-            
-            Main_image.setImage(Red.pic_location);
-            
-        
-            for(int i=0;i<0;i++){
-                add(star[i]);
-            }
-            for(int i=5;i<6;i++){
-                add(star[i]);
-            }
-            for(int i=10;i<11;i++){
-                add(star[i]);
+
+        for (int i=0;i<Menu1.length;i++) {
+
+            if(Menu1[i].contains(e.getX(),e.getY())) {
+
+                Main.setColor(ducks[i].getColor());
+
+                Name.setLabel(ducks[i].getName());
+
+                Property1.setLabel("Speed");
+                Property2.setLabel("Hit Points");
+                Property3.setLabel("Randomability");
+
+                Description.setLabel(ducks[i].getBio());
+                Main_image.setImage(ducks[i].getPicLocation());
+
+                for (int j=0;j<ducks[i].getProperty().length;j++) {
+                    for (int k=0;k<ducks[i].getProperty()[j];k++) {
+                        add(star[j*5+k]);
+                    }
+                }
             }
 
-        
-            
-        }
-        else if(Menu1_2.contains(e.getX(),e.getY())){
-            
-            Main.setColor(Color.yellow);
-            
-            Name.setLabel(Yellow.name);
-            
-            Property1.setLabel("Speed");
-            Property2.setLabel("Hit Points");
-            Property3.setLabel("Randomability");
-            
-            Description.setLabel(Yellow.bio);
-            
-            Main_image.setImage(Yellow.pic_location);
-    
-            for(int i=0;i<2;i++){
-                add(star[i]);
-            }
-            for(int i=5;i<6;i++){
-                add(star[i]);
-            }
-            for(int i=10;i<10;i++){
-                add(star[i]);
-            }
-            
-        }
-        else if(Menu1_3.contains(e.getX(),e.getY())){
-            
-            Main.setColor(Color.BLUE);
-            
-            Name.setLabel(Blue.name);
-            
-            Property1.setLabel("Speed");
-            Property2.setLabel("Hit Points");
-            Property3.setLabel("Randomability");
-            
-            Description.setLabel(Blue.bio);
-            
-            Main_image.setImage(Blue.pic_location);
-    
-            for(int i=0;i<1;i++){
-                add(star[i]);
-            }
-            for(int i=5;i<5;i++){
-                add(star[i]);
-            }
-            for(int i=10;i<12;i++){
-                add(star[i]);
-            }
-            
-        }
-        else if(Menu1_4.contains(e.getX(),e.getY())){
-            
-            Main.setColor(Color.BLACK);
-            
-            Name.setLabel(Black.name);
-            
-            Property1.setLabel("Speed");
-            Property2.setLabel("Hit Points");
-            Property3.setLabel("Randomability");
-            
-            Description.setLabel(Black.bio);
-            
-            Main_image.setImage(Black.pic_location);
-    
-            for(int i=0;i<0;i++){
-                add(star[i]);
-            }
-            for(int i=5;i<7;i++){
-                add(star[i]);
-            }
-            for(int i=10;i<11;i++){
-                add(star[i]);
-            }
-            
         }
         
-        Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
     }
             
 }

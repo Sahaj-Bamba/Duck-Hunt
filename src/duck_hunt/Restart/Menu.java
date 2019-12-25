@@ -36,6 +36,7 @@ public class Menu extends DialogProgram implements Runnable
         setting_1 temp5=new setting_1();                                      // Settings Window
         String [] args = null;
 */
+
         while (true) {
             while (true) {
                 cnt = readInt("\n\n\tDUCK HUNT \n\n1- Single Player \n2- Chat\n3- Connect\n4-Settings\n5- Almnac \n6- How to Play\n7- Credits \n8- Login/Signup\n9- Quit");
