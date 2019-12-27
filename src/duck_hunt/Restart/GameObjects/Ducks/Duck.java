@@ -1,5 +1,7 @@
 package duck_hunt.Restart.GameObjects.Ducks;
 
+import duck_hunt.Restart.GameGlobalVariables;
+
 import java.awt.*;
 import java.util.Date;
 
@@ -15,6 +17,8 @@ import java.util.Date;
 
 public abstract class Duck {
 
+    private double x;                                   //      x coordinate of the pic
+    private double y;                                   //      y coordinate of the pic
     private double angle;                               //      angle
     private double speed;                               //      pixel per frame
     private int randomability;                          //      frames
@@ -50,10 +54,158 @@ public abstract class Duck {
         this.score = sc;
         this.hasLeft = false;
         this.type = type;
+        this.entryDate = new Date();
         for (int i=0;i<property.length;i++){
             this.property[i]=property[i];
         }
         this.color=color;
+    }
+
+            // Main Functions
+
+    public boolean checkDeath(){
+        if(this.isAlive) {
+            if (this.hitpoints <= 0) {
+                this.isAlive = false;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void move() {
+        if (this.isAlive){
+            x+=(Math.cos(this.angle * Math.PI / 180.0) * this.speed);
+            y+=((-1) * (Math.sin(this.angle * Math.PI / 180.0) * this.speed));
+        }
+    }
+
+    public void checkLeave(){
+        if(new Date().getTime() - this.entryDate.getTime() > this.leavetime)
+            this.hasLeft= true;
+    }
+
+
+    public void checkCollision(){
+        boolean flag = false;
+        int y,z,r = 0;
+        if(this.isAlive) {
+            if (!this.hasLeft) {
+                if (this.x > (1600 * GameGlobalVariables.getInstance().getScreenWidthFraction()) || this.x < (200 * GameGlobalVariables.getInstance().getScreenWidthFraction()) || this.y > (600 * GameGlobalVariables.getInstance().getScreenHeightFraction()) || this.y < (10 * GameGlobalVariables.getInstance().getScreenHeightFraction())) {
+                    y = (int) (Math.random() * 12);
+                    z = (int) (Math.random() * 3);
+                    int x = this.type;
+                    if (x > (1600 * GameGlobalVariables.getInstance().getScreenWidthFraction())) {
+                        switch (z) {
+                            case 0:
+                                r = 155;
+                                break;
+                            case 1:
+                                r = 180;
+                                break;
+                            case 2:
+                                r = 205;
+                                break;
+                        }
+                    }
+                    if (x < (200 * GameGlobalVariables.getInstance().getScreenWidthFraction())) {
+                        switch (z) {
+                            case 0:
+                                r = 25;
+                                break;
+                            case 1:
+                                r = 0;
+                                break;
+                            case 2:
+                                r = 335;
+                                break;
+                        }
+                    }
+                    if (y > (600 * GameGlobalVariables.getInstance().getScreenHeightFraction())) {
+                        switch (z) {
+                            case 0:
+                                r = 50;
+                                break;
+                            case 1:
+                                r = 90;
+                                break;
+                            case 2:
+                                r = 115;
+                                break;
+                        }
+                    }
+                    if (y < (10 * GameGlobalVariables.getInstance().getScreenHeightFraction())) {
+                        switch (z) {
+                            case 0:
+                                r = 270;
+                                break;
+                            case 1:
+                                r = 310;
+                                break;
+                            case 2:
+                                r = 230;
+                                break;
+                        }
+                    }
+                    this.angle = r;
+                }
+            }
+        }
+    }
+
+    public void shot(int damage){
+        this.hitpoints-=damage;
+        this.size-=this.widthDec;
+    }
+
+    public String getPic(){
+        return "Images\\Images\\"+(this.type+1)+"\\"+(int)this.angle+".png";
+    }
+
+    //  Getters and Setters
+
+    public int getType() {
+        return type;
+    }
+
+    public int getHitpoints() {
+        return hitpoints;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
+    public boolean hasLeft() {
+        return hasLeft;
+    }
+
+    public void setLeft(boolean hasLeft) {
+        this.hasLeft = hasLeft;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
     }
 
     public int[] getProperty() {

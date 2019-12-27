@@ -9,8 +9,6 @@ package duck_hunt.Restart;
 import duck_hunt.Error;
 import duck_hunt.*;
 
-import java.awt.*;
-
 /**
  *
  * @author Sahaj Bamba
@@ -66,14 +64,6 @@ public class Duck_hunt {
         
         //      Screen Size for system independence
         
-        public static double default_screen_height;
-        public static double default_screen_width;
-
-        public static double screen_height;
-        public static double screen_width;
-
-        public static double screen_height_fraction;
-        public static double screen_width_fraction;
 
         
         //  Different static variables containing data which is being used across various windows.
@@ -111,17 +101,6 @@ public class Duck_hunt {
             //  For a Good Start.
         System.out.println("hello world");
             
-            
-            //All The work of the screen size adjusting screen resolution independence
-        
-        default_screen_height = 1080.0;
-        default_screen_width = 1920.0;
-    
-        screen_height = Toolkit.getDefaultToolkit().getScreenSize().height;
-        screen_width = Toolkit.getDefaultToolkit().getScreenSize().width;
-    
-        screen_height_fraction = screen_height/default_screen_height;
-        screen_width_fraction = screen_width/default_screen_width;
 
         
         new Menu().start();

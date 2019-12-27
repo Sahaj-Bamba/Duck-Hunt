@@ -9,7 +9,7 @@ import duck_hunt.Restart.Menu;
 
 /**
  *
- * @author admin
+ * @author Sahaj Bamba
  * 
  * This is the credits Section.
  * 

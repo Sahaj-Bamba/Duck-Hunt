@@ -129,6 +129,6 @@ public class Ducks {
         this.score = a.score;
         this.width_dec = a.width_dec;
     }
-    
-    
+
+
 }
