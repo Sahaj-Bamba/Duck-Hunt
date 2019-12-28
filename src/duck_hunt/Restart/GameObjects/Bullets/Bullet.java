@@ -1,7 +1,15 @@
 package duck_hunt.Restart.GameObjects.Bullets;
 
-abstract class Bullet {
+public abstract class Bullet {
 
+    private int Damage;                                                  //      integer
 
+    public Bullet(int damage) {
+        Damage = damage;
+    }
+
+    public int getDamage() {
+        return Damage;
+    }
 
 }

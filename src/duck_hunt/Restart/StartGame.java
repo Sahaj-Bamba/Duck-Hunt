@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-package duck_hunt;
+package duck_hunt.Restart;
 
 
 /**
@@ -24,9 +24,9 @@ package duck_hunt;
 
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
-import duck_hunt.Restart.Duck_hunt;
-import duck_hunt.Restart.GameGlobalVariables;
+import duck_hunt.Guns;
 import duck_hunt.Restart.GameObjects.Ducks.*;
+import duck_hunt.Restart.utilities.Error;
 import duck_hunt.Restart.utilities.playwav;
 
 import java.awt.*;

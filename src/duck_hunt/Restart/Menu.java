@@ -11,7 +11,6 @@ import duck_hunt.Restart.extra.Credits;
 import duck_hunt.Restart.extra.Instructions;
 import duck_hunt.Restart.extra.Settings;
 import duck_hunt.Restart.extra.almnac;
-import duck_hunt.StartGame;
 
 /**
  *

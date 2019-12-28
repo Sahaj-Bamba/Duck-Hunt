@@ -6,8 +6,8 @@
 
 package duck_hunt.Restart;
 
-import duck_hunt.Error;
 import duck_hunt.*;
+import duck_hunt.Restart.utilities.Error;
 
 /**
  *

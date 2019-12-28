@@ -31,7 +31,6 @@ public class playwav extends Thread
     
     private InputStream in;
     private AudioStream au;
-    //private String song;
 
     public playwav(String s) {
         try {
@@ -44,15 +43,10 @@ public class playwav extends Thread
         }
             
     }
-    
-    
+
     @Override
     public void run(){
-        
-        //while(true){
             AudioPlayer.player.start(au);
-        //}
-        
     }
 
 }
