@@ -85,7 +85,6 @@ public abstract class Duck {
             this.hasLeft= true;
     }
 
-
     public void checkCollision(){
         boolean flag = false;
         int y,z,r = 0;
@@ -158,11 +157,17 @@ public abstract class Duck {
         this.size-=this.widthDec;
     }
 
+
+    //  Getters and Setters
+
+    public void setLocation(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public String getPic(){
         return "Images\\Images\\"+(this.type+1)+"\\"+(int)this.angle+".png";
     }
-
-    //  Getters and Setters
 
     public int getType() {
         return type;
