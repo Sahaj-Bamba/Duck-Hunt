@@ -750,8 +750,7 @@ public class StartGame extends GraphicsProgram
         
 //        add(Pointer);
         
-        
-//add(rc);
+
        // add(rc1);
         
         
