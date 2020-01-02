@@ -6,8 +6,11 @@
 
 package duck_hunt.Restart;
 
-import duck_hunt.*;
+import duck_hunt.ChatWindow;
+import duck_hunt.Client;
+import duck_hunt.Player;
 import duck_hunt.Restart.utilities.Error;
+import duck_hunt.Server;
 
 /**
  *
@@ -55,12 +58,13 @@ public class Duck_hunt {
         public int Clip_size;                                               //      number of bullets    
         public String pic_location;
         */
-        
+
+        /*
         public static Guns ak = new Guns(200, 1, 25, 1, "Images\\Images\\Guns\\1", "Images\\Songs\\1.wav");
         public static Guns shotgun = new Guns(700, 1, 40, 1, "Images\\Images\\Guns\\2", "Images\\Songs\\2.wav");
         public static Guns laser = new Guns(10, 1, 5, 1, "Images\\Images\\Guns\\3", "Images\\Songs\\3.wav");
         public static Guns sniper = new Guns(1000, 1, 60, 1, "Images\\Images\\Guns\\4", "Images\\Songs\\4.wav");
-
+        */
         
         //      Screen Size for system independence
         

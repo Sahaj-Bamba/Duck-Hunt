@@ -24,8 +24,8 @@ package duck_hunt.Restart;
 
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
-import duck_hunt.Guns;
 import duck_hunt.Restart.GameObjects.Ducks.*;
+import duck_hunt.Restart.GameObjects.Guns.*;
 import duck_hunt.Restart.utilities.Error;
 import duck_hunt.Restart.utilities.playwav;
 
@@ -34,7 +34,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Date;
 
-import static duck_hunt.Restart.Duck_hunt.*;
+import static duck_hunt.Restart.Duck_hunt.gamer;
 
 public class StartGame extends GraphicsProgram 
 {
@@ -284,20 +284,20 @@ public class StartGame extends GraphicsProgram
     
     GImage _level1 = new GImage("Images\\Images\\level1.gif");
     
-    GImage _gun1 = new GImage(ak.pic_location+"_1_1.png");
-    GImage _gun2 = new GImage(shotgun.pic_location+"_1_1.png");
-    GImage _gun3 = new GImage(laser.pic_location+"_1_1.png");
-    GImage _gun4 = new GImage(sniper.pic_location+"_1_1.png");
-    GImage _gun = new GImage(ak.pic_location+"_2_1.png");
+    GImage _gun1 = new GImage(new Rifle().getPicLocation()+"_1_1.png");
+    GImage _gun2 = new GImage(new Shotgun().getPicLocation()+"_1_1.png");
+    GImage _gun3 = new GImage(new SMG().getPicLocation()+"_1_1.png");
+    GImage _gun4 = new GImage(new Sniper().getPicLocation()+"_1_1.png");
+    GImage _gun = new GImage(new Rifle().getPicLocation()+"_2_1.png");
     
-    Guns __gun1 = new Guns(ak);
-    Guns __gun2 = new Guns(shotgun);
-    Guns __gun3 = new Guns(laser);
-    Guns __gun4 = new Guns(sniper);
-    Guns[] __gun = new Guns[4];
+    Gun __gun1 = new Rifle();
+    Gun __gun2 = new Shotgun();
+    Gun __gun3 = new SMG();
+    Gun __gun4 = new Sniper();
+    Gun[] __gun = new Gun[4];
     
     public void initialisations(){
-        
+        /*
         for(int i=0;i<4;i++){
             switch(i){
                 case 0:
@@ -316,7 +316,7 @@ public class StartGame extends GraphicsProgram
                     break;
             }
         }
-    
+        */
     }
    
     GImage _pointer = new GImage("Images\\Images\\Pointers\\" + (active_gun+1) + ".png");
@@ -677,7 +677,7 @@ public class StartGame extends GraphicsProgram
                 ducks_pic[i].setLocation(x, y);
             }
 
-            continue;
+            //continue;
 
 
             boss_active = 0;
@@ -926,51 +926,27 @@ public class StartGame extends GraphicsProgram
         System.out.println(active_gun);
         
         java.util.Date dt = new java.util.Date();
-        
-        if(dt.getTime()-__gun[active_gun].get_prev_shoot_date().getTime() < __gun[active_gun].Delay){
-            return;
-        }
-        
+
         if(rc.contains(e.getX(),e.getY()) || rc1.contains(e.getX(),e.getY()))
         {
-        new Error().run("How dare you kill a fellow human you murderer ?");
-        System.exit(0);
-        //new Menu().run();
-    }
-        
-        /*
-        if(frame - __gun[active_gun].get_previous_shoot() < __gun[active_gun].Delay){
-            return;
+            new Error().run("How dare you kill a fellow human you murderer ?");
+            System.exit(0);
         }
-        */
         
-        __gun[active_gun].set_prev_shoot_date( dt);
-        
+
+
         // __gun[active_gun].set_previous_shoot(frame);
         
         for(int i=0; i<number_of_birds; i++){
             if(ducks[i].isAlive()) {
                 if (ducks_pic[i].contains(e.getX(), e.getY())) {
-                    ducks[i].shot(__gun[active_gun].Damage);
+                    ducks[i].shot(__gun[active_gun].shot());
                 }
             }
         }
         
         //          Sounds
-        
-        
-            switch(active_gun){
-                case 0:new playwav(ak.getsd()).start();
-                        break;
-                case 1:new playwav(shotgun.getsd()).start();
-                        break;
-                case 2:new playwav(laser.getsd()).start();
-                        break;
-                case 3:new playwav(sniper.getsd()).start();
-                        break;
-                default:
-                        break;
-            }
+
             
             
         

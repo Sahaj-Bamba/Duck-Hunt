@@ -5,7 +5,7 @@ import duck_hunt.Restart.utilities.playwav;
 
 import java.util.Date;
 
-abstract class Gun {
+public abstract class Gun {
 
     private long shotDelay;                                                   //      frames
     private long reloadDelay;                                                  //      frames
@@ -23,7 +23,11 @@ abstract class Gun {
         return reloadDelay;
     }
 
-                //        Main Functions
+    public String getPicLocation() {
+        return picLocation;
+    }
+
+//        Main Functions
 
     public void reload(){
         this.currentClip=this.maxClipSize;
