@@ -845,7 +845,7 @@ public class StartGame2jan2020 extends GraphicsProgram
 
     public void update_pic() {
         for (int i = 0; i < number_of_birds; i++) {
-            ducks_pic[i].setImage(ducks[i].getPic());
+  //          ducks_pic[i].setImage(ducks[i].getPic());
             ducks_pic[i].setSize(ducks[i].getSize(), ducks[i].getSize());
         }
     }

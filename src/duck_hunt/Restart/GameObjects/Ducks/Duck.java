@@ -17,6 +17,7 @@ import java.util.Date;
 
 public abstract class Duck {
 
+    private boolean isBoss;                             //      if the bird is a boss
     private double x;                                   //      x coordinate of the pic
     private double y;                                   //      y coordinate of the pic
     private double angle;                               //      angle
@@ -58,10 +59,23 @@ public abstract class Duck {
         for (int i=0;i<property.length;i++){
             this.property[i]=property[i];
         }
-        this.color=color;
+        this.color = color;
+        this.isBoss = false;
     }
 
-            // Main Functions
+    public void setter(int size, int widthDec, double speed, int randomability, int HP, int LT, int sc, String picLocation,boolean isBoss){
+        this.speed = speed;
+        this.randomability = randomability;
+        this.hitpoints = HP;
+        this.leavetime = LT;
+        this.picLocation = picLocation;
+        this.size = size;
+        this.widthDec = widthDec;
+        this.score = sc;
+        this.isBoss = isBoss;
+    }
+
+    // Main Functions
 
     public boolean checkDeath(){
         if(this.isAlive) {
@@ -85,7 +99,7 @@ public abstract class Duck {
             this.hasLeft= true;
     }
 
-    public void checkCollision(){
+    public boolean checkCollision(){
         boolean flag = false;
         int y,z,r = 0;
         if(this.isAlive) {
@@ -147,9 +161,12 @@ public abstract class Duck {
                         }
                     }
                     this.angle = r;
+                    this.updatePic();
+                    return true;
                 }
             }
         }
+        return false;
     }
 
     public void shot(int damage){
@@ -157,16 +174,21 @@ public abstract class Duck {
         this.size-=this.widthDec;
     }
 
+    public void updatePic(){
+        if(isBoss)
+            this.picLocation = "Images\\Images\\boss\\"+(x+1)+"\\"+(int)this.angle+".png" ;
+        else{
+            this.picLocation = "Images\\Images\\"+(x+1)+"\\"+(int)this.angle+".png" ;
+        }
+    }
+
+    abstract public void bossMode();
 
     //  Getters and Setters
 
     public void setLocation(double x, double y) {
         this.x = x;
         this.y = y;
-    }
-
-    public String getPic(){
-        return "Images\\Images\\"+(this.type+1)+"\\"+(int)this.angle+".png";
     }
 
     public int getType() {
