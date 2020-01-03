@@ -43,9 +43,6 @@ public class StartGame extends GraphicsProgram
     private int[] anglesAllowed ={0,25,50,90,115,155,180,205,230,270,310,335};                                         //  Angles allowed for the ducks for rotation problems
     private int bossRoundNumber = 3;                                                                                          //  Boss round will be after every which level
     private int delay_after_all_left = 2000;                                                                            //  Delay after all ducks have left the screen
-  //  private boolean is_over = false;                                                                                  //  Game over may be not sure check latter // TODO: 03/01/20 Check if this is really needed
-  //  private int original_num_birds;                                                                                   //  starting number of ducks in game       // TODO: 03/01/20 Check if this is really needed
-  //  private int boss_active =0;                                                                                         //  if its boss stage                      // TODO: 03/01/20 Check if this is really needed
     private final int fps = 45;
 
 
@@ -83,7 +80,7 @@ public class StartGame extends GraphicsProgram
 
     //          Images for different rects
 
-    GImage _level1 = new GImage("Images\\Images\\level1.gif");                                              //  Base gif
+    GImage _level1 = new GImage("Images/Images/level1.gif");                                              //  Base gif
 
     //          Scoring part
 
@@ -115,30 +112,6 @@ public class StartGame extends GraphicsProgram
         return false;
     }
 
-    /*
-    private void bypasser(){
-        Date ds = new Date();
-        System.out.println("int bypasser starting");
-        while(true){
-        long de = new Date().getTime() - ds.getTime();
-        if(de>5000)
-            break;
-        move_all();
-        //check_collision();
-        check_death();
-        //check_has_left();
-        update_scoring();
-        //round_over();
-    
-        //frame++;
- 
-        pause(1000/fps);
-        //add(rc);
-        //add(rc1);
-        }
-        System.out.println("bypasser end");
-    }
-    */
             //  Flash function
 
     private void FL(String a)
@@ -265,7 +238,7 @@ public class StartGame extends GraphicsProgram
         pointer.setLocation(0*screenWidthFraction,0*screenHeightFraction);
         pointer.setFilled(true);
         pointer.setColor(Color.RED);
-        _pointer = new GImage("Images\\Images\\Pointers\\" + (activeGun+1) + ".png");
+        _pointer = new GImage("Images/Images/Pointers/" + (activeGun+1) + ".png");
         _pointer.setSize(50*screenWidthFraction,50*screenHeightFraction);
         _pointer.setLocation(0,0);
 
@@ -337,7 +310,7 @@ public class StartGame extends GraphicsProgram
                     break;
             }
             ducks[i].setAngle(anglesAllowed[y]);
-            ducksPic[i] = new GImage("Images\\Images\\"+(x+1)+"\\"+(int)ducks[i].getAngle()+".png");
+            ducksPic[i] = new GImage("Images/Images/"+(x+1)+"/"+(int)ducks[i].getAngle()+".png");
             ducksPic[i].setSize(ducks[i].getSize(),ducks[i].getSize());
             x =(int) ((Math.random() * 1300) + 200);
             y = (int) ((Math.random() * 600) + 50);
@@ -443,17 +416,17 @@ public class StartGame extends GraphicsProgram
     @Override
     public void run() {
 
-        addBasic();                                                                                                       //FL("Game Begins  ");
+        addBasic();
         roundNumber = 0;
 
         //  Main Game Loop
         while (true) {
             roundNumber++;
-            new playwav("Images\\Songs\\buz.wav").start();
+            new playwav("Images/Songs/buz.wav").start();
             pause(2000);
-            new playwav("Images\\Songs\\buz.wav").start();
+            new playwav("Images/Songs/buz.wav").start();
             pause(2000);
-            new playwav("Images\\Songs\\buz.wav").start();
+            new playwav("Images/Songs/buz.wav").start();
             pause(2000);
 
             if (roundNumber % bossRoundNumber == 0) {
@@ -548,7 +521,7 @@ public class StartGame extends GraphicsProgram
         //remove(mainGunImage);
         mainGun = guns[activeGun];
         mainGunImage.setImage(mainGun.getPicLocation());
-        _pointer.setImage("Images\\Images\\Pointers\\" + (activeGun+1) + ".png");
+        _pointer.setImage("Images/Images/Pointers/" + (activeGun+1) + ".png");
         _pointer.setSize(50, 50);
         mainGunImage.setSize(300*GameGlobalVariables.getInstance().getScreenWidthFraction(),400*GameGlobalVariables.getInstance().getScreenHeightFraction());
         //add(_gun);

@@ -44,9 +44,6 @@ public class StartGamebk4jan2020_0055 extends GraphicsProgram
     private int[] anglesAllowed ={0,25,50,90,115,155,180,205,230,270,310,335};                                         //  Angles allowed for the ducks for rotation problems
     private int bossRoundNumber = 3;                                                                                          //  Boss round will be after every which level
     private int delay_after_all_left = 2000;                                                                            //  Delay after all ducks have left the screen
-  //  private boolean is_over = false;                                                                                  //  Game over may be not sure check latter // TODO: 03/01/20 Check if this is really needed
-  //  private int original_num_birds;                                                                                   //  starting number of ducks in game       // TODO: 03/01/20 Check if this is really needed
-  //  private int boss_active =0;                                                                                         //  if its boss stage                      // TODO: 03/01/20 Check if this is really needed
     private final int fps = 45;
 
 
@@ -116,93 +113,8 @@ public class StartGamebk4jan2020_0055 extends GraphicsProgram
         return false;
     }
 
-    /*
-    private void bypasser(){
-        Date ds = new Date();
-        System.out.println("int bypasser starting");
-        while(true){
-        long de = new Date().getTime() - ds.getTime();
-        if(de>5000)
-            break;
-        move_all();
-        //check_collision();
-        check_death();
-        //check_has_left();
-        update_scoring();
-        //round_over();
-    
-        //frame++;
- 
-        pause(1000/fps);
-        //add(rc);
-        //add(rc1);
-        }
-        System.out.println("bypasser end");
-    }
-    */
             //  Flash function
 
-    private void FL(String a)
-    {
-        Color[] colors = new Color[9];
-        colors[0]=Color.red;
-        colors[1]=Color.GREEN;
-        colors[2]=Color.BLUE;
-        colors[3]=Color.CYAN;
-        colors[4]=Color.GRAY;
-        colors[5]=Color.MAGENTA;
-        colors[6]=Color.PINK;
-        colors[7]=Color.YELLOW;
-        char[] initial =new char [a.length()];
-        char[] org =new char[a.length()];
-        initial[0]=a.charAt(0);
-        org[0]=' ';
-        for(int i=1;a.charAt(i)!='\n';i++)
-        {
-            org[i]=a.charAt(i);
-            initial[i]=' ';
-            if(a.charAt(i)==' ')
-            {
-                i++;
-                if(a.charAt(i)==' ')
-                    break;
-                org[i]=' ';
-                initial[i]=a.charAt(i);
-            }                
-        }
-        String st_org=new String(org);
-        String st_initial =new String(initial);
-        GLabel label_initial =new GLabel(st_initial);
-        GLabel label_org =new GLabel(st_org);
-        GLabel size=new GLabel(a);
-        size.setFont("SansSerif-50");
-        label_initial.setFont("SansSerif-50");
-        label_org.setFont("SansSerif-50");
-        double x;
-        x = (getWidth()-size.getWidth())/2;
-        double y;
-        y=(getHeight()+size.getAscent())/2;
-        add(label_initial,x,y);
-        label_initial.move(0,100);
-        for(int i=0;i<10;i++)
-        {
-            label_initial.move(0,-10);
-            label_initial.setColor(Color.CYAN);
-            pause(200);
-        }
-        add(label_org,x,y);
-        label_org.move(0,100);
-        for(int i=0;i<10;i++)
-        {
-            label_org.move(0,-10);
-            label_org.setColor(colors[i%7]);
-            pause(200);
-        }
-        removeAll();
-        add(size,x,y);
-        pause(500);
-        removeAll();
-    }
 
     private void updateScoring(){
         player_red_kill.setLabel(""+ducksKilled[0]);

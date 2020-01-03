@@ -82,7 +82,7 @@ public class Menu extends DialogProgram implements Runnable
                     String[] args;
                     new LoginForm().main(args);
                         break;
-    */
+    */              break;
                 case 9:
                     GameController.exit(0);
                     break;

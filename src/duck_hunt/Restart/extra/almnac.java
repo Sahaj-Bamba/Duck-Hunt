@@ -9,13 +9,12 @@ import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
+import duck_hunt.Restart.GameGlobalVariables;
 import duck_hunt.Restart.GameObjects.Ducks.*;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-import static duck_hunt.Restart.Duck_hunt.screen_height_fraction;
-import static duck_hunt.Restart.Duck_hunt.screen_width_fraction;
 
 /**
  *
@@ -32,7 +31,10 @@ public class almnac extends GraphicsProgram{
     
     private final double Height;
     private final double Width;
-    
+
+    private final double screen_height_fraction = GameGlobalVariables.getInstance().getScreenHeightFraction();
+    private final double screen_width_fraction = GameGlobalVariables.getInstance().getScreenWidthFraction();
+
     GImage[] Menu1 = null;
     Duck[] ducks =null;
 

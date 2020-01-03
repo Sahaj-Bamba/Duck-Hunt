@@ -27,6 +27,7 @@ public abstract class Duck {
     private int leavetime;                              //      frames
     private String bio;                                 //      About me of the Duck
     private String picLocation;                         //      Pic Location of the Duck
+    private String menuPicLocation;                     //      Pic Location of the Duck
     private String name;                                //      Name of the Duck
     private boolean isAlive;                            //      Tell if the Duck is Alive
     private int entryFrame;                             //      Entry Frame
@@ -47,7 +48,7 @@ public abstract class Duck {
         this.hitpoints = HP;
         this.bio = b;
         this.leavetime = LT;
-        this.picLocation = p;
+        this.menuPicLocation = p;
         this.name = name;
         this.isAlive = true;
         this.size = 200;
@@ -61,18 +62,19 @@ public abstract class Duck {
         }
         this.color = color;
         this.isBoss = false;
+        this.updatePic();
     }
 
-    public void setter(int size, int widthDec, double speed, int randomability, int HP, int LT, int sc, String picLocation,boolean isBoss){
+    public void setter(int size, int widthDec, double speed, int randomability, int HP, int LT, int sc, boolean isBoss){
         this.speed = speed;
         this.randomability = randomability;
         this.hitpoints = HP;
         this.leavetime = LT;
-        this.picLocation = picLocation;
         this.size = size;
         this.widthDec = widthDec;
         this.score = sc;
         this.isBoss = isBoss;
+        this.updatePic();
     }
 
     // Main Functions
@@ -176,15 +178,19 @@ public abstract class Duck {
 
     public void updatePic(){
         if(isBoss)
-            this.picLocation = "Images\\Images\\boss\\"+(x+1)+"\\"+(int)this.angle+".png" ;
+            this.picLocation = "Images/Images/boss/"+(x+1)+"/"+(int)this.angle+".png" ;
         else{
-            this.picLocation = "Images\\Images\\"+(x+1)+"\\"+(int)this.angle+".png" ;
+            this.picLocation = "Images/Images/"+(x+1)+"/"+(int)this.angle+".png" ;
         }
     }
 
     abstract public void bossMode();
 
     //  Getters and Setters
+
+    public String getMenuPicLocation() {
+        return menuPicLocation;
+    }
 
     public void setLocation(double x, double y) {
         this.x = x;
