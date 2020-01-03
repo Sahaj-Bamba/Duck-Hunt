@@ -35,13 +35,13 @@ public class almnac extends GraphicsProgram{
     private final double screen_height_fraction = GameGlobalVariables.getInstance().getScreenHeightFraction();
     private final double screen_width_fraction = GameGlobalVariables.getInstance().getScreenWidthFraction();
 
-    GImage[] Menu1 = null;
-    Duck[] ducks =null;
+    GImage[] Menu1 = new GImage[4];
+    Duck[] ducks =new Duck[4];
 
     GImage[] star = new GImage[15];
   
     GImage Main_image = null;
-        
+
     GRect Main = null;
     GRect back = null;
 
@@ -62,18 +62,22 @@ public class almnac extends GraphicsProgram{
         ducks[2]=new YellowDuck();
         ducks[3] = new BlackDuck();
         for (int i=0;i<4;i++){
-            Menu1[i] = new GImage(ducks[i].getPicLocation());
+            Menu1[i] = new GImage(ducks[i].getMenuPicLocation());
         }
         for(int i=0;i<15;i++){
-            star[i] = new GImage("Images\\Images\\star1.jpg");
+            star[i] = new GImage("Images/Images/star1.jpg");
         }
     }
-    
+
+    @Override
+    public void init() {
+        addMouseListeners();
+    }
+
     @Override
     public void run(){
+        //exit();
 
-        addMouseListeners();
-        
         setSize((int)(Width*screen_width_fraction) ,(int)(Height*screen_height_fraction));
         setLocation((int)(350.0*screen_width_fraction) , (int)(screen_height_fraction*50.0));
         
@@ -92,23 +96,21 @@ public class almnac extends GraphicsProgram{
         Name = new GLabel("");
         
         //GOval p = new GOval(200,200);
-        
 
                 //      Set  Size
 
         for (GImage m : Menu1) {
-            m.setSize(200*screen_width_fraction,200*screen_height_fraction);
+            m.setSize(200*screen_width_fraction,150*screen_height_fraction);
         }
         for(int i=0;i<15;i++){
             star[i].setSize(40*screen_width_fraction,40*screen_height_fraction);
         }
-        
-        
-        
+
+
        // this line is not in use curently
        // Main_image.setSize(300*screen_width_fraction,300*screen_height_fraction);
 
-        Main.setSize(600*screen_width_fraction, 500*screen_height_fraction);
+        Main.setSize(600*screen_width_fraction, 450*screen_height_fraction);
         back.setSize(1900*screen_width_fraction, 1000*screen_height_fraction);
         
         Topic.setFont((new Font("Colonna MT", Font.BOLD, (int)(150*screen_width_fraction))));
@@ -174,9 +176,8 @@ public class almnac extends GraphicsProgram{
                 //      Add  Everything on the screen
 
 
-        for (GImage m : Menu1) {
-            add(m);
-        }
+
+
         add(back);
         add(Main);
         add(Topic);
@@ -186,7 +187,9 @@ public class almnac extends GraphicsProgram{
         add(Property2);
         add(Property3);
         add(Name);
-        
+        for (GImage m : Menu1) {
+            add(m);
+        }
         /*
         for(int i=0;i<5;i++){
             add(star[i]);
@@ -217,6 +220,7 @@ public class almnac extends GraphicsProgram{
 
                 Description.setLabel(ducks[i].getBio());
                 Main_image.setImage(ducks[i].getPicLocation());
+                Main_image.setSize(600*screen_width_fraction, 450*screen_height_fraction);
 
                 for (int j=0;j<ducks[i].getProperty().length;j++) {
                     for (int k=0;k<ducks[i].getProperty()[j];k++) {

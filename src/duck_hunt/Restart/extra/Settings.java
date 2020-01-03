@@ -19,14 +19,19 @@ import duck_hunt.Restart.Menu;
  * 
  */
 public class Settings extends DialogProgram{
-    int cnt;
+
+    public Settings() {
+    }
+
     @Override
     public void run(){
+        int cnt;
         do{
             cnt=readInt("\n\nEnter the number of birds in each round between 5 and 100");
         }while(cnt<5||cnt>100);
         GameGlobalVariables.getInstance().setDucksCount(cnt);
         System.out.println("Value of Ducks Count updated to "+cnt);
+        //exit();
         new Menu().run();
     }
 }

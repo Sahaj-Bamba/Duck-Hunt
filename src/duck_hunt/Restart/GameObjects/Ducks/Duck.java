@@ -38,7 +38,7 @@ public abstract class Duck {
     private int type;                                   //      Type of Bird
     private Date entryDate;                             //      Entry Date
                                     //  Duck properties stars count for almanac
-    private int[] property;
+    private int[] property = new int[3];
     private Color color;
 
     public Duck(double angle, double speed, int randomability, int HP, int LT, String b, String p, String name, int sc, int type,int[] property,Color color){
@@ -178,9 +178,9 @@ public abstract class Duck {
 
     public void updatePic(){
         if(isBoss)
-            this.picLocation = "Images/Images/boss/"+(x+1)+"/"+(int)this.angle+".png" ;
+            this.picLocation = "Images/Images/boss/"+(this.type+1)+"/"+(int)this.angle+".png" ;
         else{
-            this.picLocation = "Images/Images/"+(x+1)+"/"+(int)this.angle+".png" ;
+            this.picLocation = "Images/Images/"+ (this.type+1) +"/"+(int)this.angle+".png" ;
         }
     }
 

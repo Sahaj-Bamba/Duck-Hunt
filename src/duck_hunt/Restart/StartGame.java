@@ -85,8 +85,8 @@ public class StartGame extends GraphicsProgram
     //          Scoring part
 
     GLabel player_name = new GLabel("");
-    GImage player_red_duck = new GImage(new RedDuck().getPicLocation());
-    GImage player_blue_duck = new GImage(new BlueDuck().getPicLocation());
+    GImage player_red_duck = new GImage(new RedDuck().getMenuPicLocation());
+    GImage player_blue_duck = new GImage(new BlueDuck().getMenuPicLocation());
     GImage player_yellow_duck = new GImage(new YellowDuck().getPicLocation());
     GLabel player_red_kill = new GLabel("");
     GLabel player_blue_kill = new GLabel("");
