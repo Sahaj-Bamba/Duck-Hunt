@@ -228,8 +228,8 @@ public class StartGame extends GraphicsProgram
         gunsImage[3].setLocation(600*screenWidthFraction,750*screenHeightFraction);
 
                     //  main gun
-        mainGunImage.setLocation(600*screenWidthFraction,550*screenHeightFraction);
         mainGunImage = new GImage(new Rifle().getPicLocation());
+        mainGunImage.setLocation(600*screenWidthFraction,550*screenHeightFraction);
         mainGunRect = new GRect(200*screenWidthFraction,400*screenHeightFraction);
         mainGunRect.setLocation(600*screenWidthFraction,550*screenHeightFraction);
         mainGunRect.setFilled(true);
