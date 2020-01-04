@@ -12,10 +12,12 @@ public abstract class Gun {
     private int maxClipSize;                                             //      number of bullets
     private int currentClip;
     private String picLocation;
+    private String menuPicLocation;
     private String soundLocation;
     private int previousShoot = 0;
     private Date prevShootDate;
     private Bullet bullet;
+    private int type;
 
                 //      Getters and setters
 
@@ -52,13 +54,20 @@ public abstract class Gun {
         new ReloadThread(this).start();
     }
 
-    public Gun(long shotDelay, long reloadDelay, int maxClipSize, String picLocation, String soundLocation, Bullet bullet) {
+    private void setPic(){
+        this.menuPicLocation = "Images/Images/Guns/menu/"+(this.type+1)+".png" ;
+        this.picLocation = "Images/Images/Guns/"+(this.type+1)+".png" ;
+
+    }
+
+    public Gun(long shotDelay, long reloadDelay, int maxClipSize, String soundLocation, Bullet bullet, int type) {
         this.shotDelay = shotDelay;
         this.reloadDelay = reloadDelay;
         this.maxClipSize = maxClipSize;
-        this.picLocation = picLocation;
         this.soundLocation = soundLocation;
         this.bullet = bullet;
+        this.type = type;
+        setPic();
     }
 
 }
