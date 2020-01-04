@@ -21,6 +21,10 @@ public abstract class Gun {
 
                 //      Getters and setters
 
+    public String getMenuPicLocation() {
+        return menuPicLocation;
+    }
+
     public long getReloadDelay() {
         return reloadDelay;
     }

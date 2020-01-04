@@ -199,7 +199,7 @@ public class StartGame extends GraphicsProgram
         guns[3] = new Sniper();
 
         for (int i=0;i<4;i++){
-            gunsImage[i] = new GImage(guns[i].getPicLocation()+"_1_1.png");
+            gunsImage[i] = new GImage(guns[i].getMenuPicLocation());
         }
 
         gunsRect[0] = new GRect(200*screenWidthFraction,101*screenHeightFraction);
@@ -228,6 +228,7 @@ public class StartGame extends GraphicsProgram
         gunsImage[3].setLocation(600*screenWidthFraction,750*screenHeightFraction);
 
                     //  main gun
+        mainGun = new Rifle();
         mainGunImage = new GImage(new Rifle().getPicLocation());
         mainGunImage.setLocation(600*screenWidthFraction,550*screenHeightFraction);
         mainGunRect = new GRect(200*screenWidthFraction,400*screenHeightFraction);
@@ -310,7 +311,7 @@ public class StartGame extends GraphicsProgram
                     break;
             }
             ducks[i].setAngle(anglesAllowed[y]);
-            ducksPic[i] = new GImage("Images/Images/"+(x+1)+"/"+(int)ducks[i].getAngle()+".png");
+            ducksPic[i] = new GImage(ducks[i].getPicLocation());
             ducksPic[i].setSize(ducks[i].getSize(),ducks[i].getSize());
             x =(int) ((Math.random() * 1300) + 200);
             y = (int) ((Math.random() * 600) + 50);
@@ -445,7 +446,7 @@ public class StartGame extends GraphicsProgram
         add(level2);
         add(level3);
         add(level1);
-        //  GImage the gif of the main game background
+        /*//  GImage the gif of the main game background
         add(_level1);
         //  Guns Pallet
         for (int i=0;i<4;i++){
@@ -461,7 +462,7 @@ public class StartGame extends GraphicsProgram
         //  Scoring Pallet
 
         //  Human Rect
-        add(rc2);
+        add(rc2);*/
 
     }
 
@@ -569,8 +570,6 @@ public class StartGame extends GraphicsProgram
     @Override
     public void mouseClicked(MouseEvent e){
         
-        System.out.println(activeGun);
-
         //      Human Kill Game Over Part
         if(rc.contains(e.getX(),e.getY()) || rc1.contains(e.getX(),e.getY()))
         {
