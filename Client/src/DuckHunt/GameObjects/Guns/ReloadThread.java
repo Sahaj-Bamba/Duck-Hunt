@@ -1,6 +1,5 @@
-package duck_hunt.Restart.GameObjects.Guns;
+package DuckHunt.GameObjects.Guns;
 
-import static acm.util.JTFTools.pause;
 
 public class ReloadThread extends Thread {
     private Gun gun;
@@ -13,5 +12,8 @@ public class ReloadThread extends Thread {
     public void run() {
         pause(gun.getReloadDelay());
         gun.reload();
+    }
+    
+    private void pause(long reloadDelay) {
     }
 }

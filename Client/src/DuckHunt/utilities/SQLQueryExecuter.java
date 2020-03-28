@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package duck_hunt.Restart.utilities;
+package DuckHunt.utilities;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

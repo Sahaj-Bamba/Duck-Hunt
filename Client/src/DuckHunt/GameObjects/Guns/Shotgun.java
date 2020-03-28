@@ -1,6 +1,7 @@
-package duck_hunt.Restart.GameObjects.Guns;
+package DuckHunt.GameObjects.Guns;
 
-import duck_hunt.Restart.GameObjects.Bullets.Basic;
+
+import DuckHunt.GameObjects.Bullets.Basic;
 
 public class Shotgun extends Gun {
 

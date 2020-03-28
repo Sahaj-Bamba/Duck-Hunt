@@ -1,7 +1,6 @@
-package duck_hunt.Restart.GameObjects.Guns;
+package DuckHunt.GameObjects.Guns;
 
-import duck_hunt.Restart.GameObjects.Bullets.Bullet;
-import duck_hunt.Restart.utilities.playwav;
+import DuckHunt.GameObjects.Bullets.Bullet;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package duck_hunt.Restart.GameObjects.Ducks;
+package DuckHunt.GameObjects.Ducks;
 
 import java.awt.*;
 

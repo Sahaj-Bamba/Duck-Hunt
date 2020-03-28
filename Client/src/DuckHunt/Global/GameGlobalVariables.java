@@ -1,11 +1,10 @@
-package com.DotGame.Other;
+package DuckHunt.Global;
 
 /**
  *
  * @author Sahaj
  */
 
-import com.DotGame.Main.Client;
 import java.awt.*;
 
 /**
@@ -20,7 +19,6 @@ public class GameGlobalVariables {
      */
     private static GameGlobalVariables gameGlobalVariables = null;
     
-    private Client gamer = null;
     
     /**
      * Server Configuration Variables
@@ -88,13 +86,6 @@ public class GameGlobalVariables {
         return ip;
     }
     
-    public Client getClient(){
-        if(gamer == null){
-            gamerinit();
-        }
-        return this.gamer;
-    }
-    
     public double getScreenHeightFraction() {
         return screenHeightFraction;
     }
@@ -132,12 +123,5 @@ public class GameGlobalVariables {
     
     }
 
-    public void destroy() {
-        gamer = null;
-    }
-
-    private void gamerinit() {
-        gamer = new Client(ip,port);
-    }
-
+    
 }

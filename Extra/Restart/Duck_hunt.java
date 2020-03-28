@@ -9,7 +9,6 @@ package duck_hunt.Restart;
 import duck_hunt.ChatWindow;
 import duck_hunt.Client;
 import duck_hunt.Player;
-import duck_hunt.Restart.utilities.Error;
 import duck_hunt.Server;
 
 /**

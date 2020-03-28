@@ -27,8 +27,6 @@ import acm.program.GraphicsProgram;
 import duck_hunt.Restart.GameGlobalVariables;
 import duck_hunt.Restart.GameObjects.Ducks.*;
 import duck_hunt.Restart.GameObjects.Guns.*;
-import duck_hunt.Restart.utilities.Error;
-import duck_hunt.Restart.utilities.playwav;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

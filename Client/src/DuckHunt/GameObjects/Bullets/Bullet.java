@@ -1,4 +1,4 @@
-package duck_hunt.Restart.GameObjects.Bullets;
+package DuckHunt.GameObjects.Bullets;
 
 public abstract class Bullet {
 
