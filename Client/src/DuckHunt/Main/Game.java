@@ -6,7 +6,7 @@ public class Game {
 	
 	Group group;
 	
-	Game(){
+	public Game(){
 		group = new Group();
 	}
 	

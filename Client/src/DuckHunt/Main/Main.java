@@ -33,16 +33,12 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-//		Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 		Group root = new Group();
-		primaryStage.setTitle("Hello World");
+		primaryStage.setTitle("Duck Hunt");
 		primaryStage.setScene(new Scene(root, 300, 275));
 		primaryStage.setFullScreen(true);
-//		primaryStage.is
 		primaryStage.setResizable(false);
-		System.out.println(""+primaryStage.getWidth()+" "+primaryStage.getHeight());
 		primaryStage.show();
-		System.out.println(""+primaryStage.getWidth()+" "+primaryStage.getHeight());
 		splashScreen(root,primaryStage.getWidth(),primaryStage.getHeight());
 	}
 	
