@@ -208,8 +208,8 @@ public class Main extends Application {
 		// Playing
 		left.play();
 		right.play();
-	
 		
+		System.out.println(parent.toString());
 		
 	}
 	
