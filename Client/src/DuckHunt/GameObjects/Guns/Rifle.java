@@ -5,6 +5,6 @@ import DuckHunt.GameObjects.Bullets.Basic;
 
 public class Rifle extends Gun {
     public Rifle() {
-        super(200, 1000, 25,"Images/Songs/1.wav", new Basic(),0);
+        super(0, 1000, 1000,"assets/media/gunShot1.wav", new Basic(),0);
     }
 }

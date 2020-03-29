@@ -1,7 +1,10 @@
 package DuckHunt.GameObjects.Guns;
 
 import DuckHunt.GameObjects.Bullets.Bullet;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
 import java.util.Date;
 
 public abstract class Gun {
@@ -17,8 +20,9 @@ public abstract class Gun {
     private Date prevShootDate;
     private Bullet bullet;
     private int type;
-
-                //      Getters and setters
+    private Media media;
+    private Media reloadMedia;
+    //      Getters and setters
 
     public String getMenuPicLocation() {
         return menuPicLocation;
@@ -40,13 +44,12 @@ public abstract class Gun {
 
     public int shot(){
         if (currentClip!=0) {
-            if (new Date().getTime() - prevShootDate.getTime() >= shotDelay) {
-                currentClip--;
+            if (new Date().getTime() - prevShootDate.getTime() >= shotDelay || new Date().getTime() - prevShootDate.getTime() < 10) {
+//                currentClip--;
                 if (currentClip==0){
                     reloadTriggered();
                 }
                 prevShootDate = new Date();
-                new playwav(this.soundLocation).start();
                 return bullet.getDamage();
             }
         }
@@ -64,13 +67,30 @@ public abstract class Gun {
     }
 
     public Gun(long shotDelay, long reloadDelay, int maxClipSize, String soundLocation, Bullet bullet, int type) {
+        media = new Media(new File(soundLocation).toURI().toString());
+        reloadMedia = new Media(new File("assets/media/reload.wav").toURI().toString());
         this.shotDelay = shotDelay;
         this.reloadDelay = reloadDelay;
-        this.maxClipSize = maxClipSize;
+        this.currentClip = this.maxClipSize = maxClipSize;
         this.soundLocation = soundLocation;
         this.bullet = bullet;
         this.type = type;
         setPic();
+        prevShootDate = new Date();
     }
-
+    
+    public void fakeShot(){
+        if (currentClip!=0) {
+            if (new Date().getTime() - prevShootDate.getTime() >= shotDelay || new Date().getTime() - prevShootDate.getTime() < 10) {
+                System.out.println(new Date().getTime() - prevShootDate.getTime());
+                currentClip--;
+                if (currentClip==0){
+                    new MediaPlayer(reloadMedia).play();
+                    reloadTriggered();
+                }
+                new MediaPlayer(media).play();
+                prevShootDate = new Date();
+            }
+        }
+    }
 }

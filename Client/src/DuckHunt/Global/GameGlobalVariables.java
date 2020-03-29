@@ -5,6 +5,8 @@ package DuckHunt.Global;
  * @author Sahaj
  */
 
+import DuckHunt.GameObjects.Guns.Gun;
+
 import java.awt.*;
 
 /**
@@ -37,6 +39,15 @@ public class GameGlobalVariables {
     private double screenWidth;
     private double screenHeightFraction;
     private double screenWidthFraction;
+    
+    private double gameScreenWidth = 1920;
+    private double gameScreenHeight = 980;
+    private double objectSize = 100;
+    private int numberOfTrips = 30;
+    
+    private Gun activeGun;
+    private long score;
+    private int missed;
     
     /**
      * Game Control Variables
@@ -122,6 +133,53 @@ public class GameGlobalVariables {
         screenWidthFraction = screenWidth/defaultScreenWidth;
     
     }
-
+    
+    public double getGameScreenWidth() {
+        return gameScreenWidth;
+    }
+    
+    public double getGameScreenHeight() {
+        return gameScreenHeight;
+    }
+    
+    public double getObjectSize() {
+        return objectSize;
+    }
+    
+    public int getNumberOfTrips() {
+        return numberOfTrips;
+    }
+    
+    public Gun getActiveGun() {
+        return activeGun;
+    }
+    
+    public void setActiveGun(Gun activeGun) {
+        this.activeGun = activeGun;
+    }
+    
+    public long getScore() {
+        return score;
+    }
+    
+    public void setScore(long score) {
+        this.score = score;
+    }
+    
+    public void updateScore(long points){
+        score += points;
+    }
+    
+    public int getMissed() {
+        return missed;
+    }
+    
+    public void setMissed(int missed) {
+        this.missed = missed;
+    }
+    
+    public void updateMissed(){
+        this.missed++;
+    }
     
 }

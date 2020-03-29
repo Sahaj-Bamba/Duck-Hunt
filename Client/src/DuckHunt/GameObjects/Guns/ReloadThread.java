@@ -1,6 +1,10 @@
 package DuckHunt.GameObjects.Guns;
 
 
+import javafx.scene.media.MediaPlayer;
+
+import java.util.Date;
+
 public class ReloadThread extends Thread {
     private Gun gun;
 
@@ -10,7 +14,9 @@ public class ReloadThread extends Thread {
 
     @Override
     public void run() {
-        pause(gun.getReloadDelay());
+        System.out.println("Reloading");
+        Date date = new Date();
+        while( (new Date().getTime() - date.getTime()) < gun.getReloadDelay());
         gun.reload();
     }
     

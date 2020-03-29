@@ -2,6 +2,6 @@ package DuckHunt.GameObjects.Bullets;
 
 public class Basic extends Bullet {
     public Basic() {
-        super(50);
+        super(1);
     }
 }

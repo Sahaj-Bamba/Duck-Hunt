@@ -1,6 +1,6 @@
 package DuckHunt.GameObjects.Ducks;
 
-import duck_hunt.Restart.GameGlobalVariables;
+import DuckHunt.Global.GameGlobalVariables;
 
 import java.awt.*;
 import java.util.Date;
@@ -16,19 +16,13 @@ import java.util.Date;
  */
 
 public abstract class Duck {
-
+    
     private boolean isBoss;                             //      if the bird is a boss
     private double x;                                   //      x coordinate of the pic
     private double y;                                   //      y coordinate of the pic
     private double angle;                               //      angle
     private double speed;                               //      pixel per frame
-    private int randomability;                          //      frames
     private int hitpoints;                              //      integer
-    private int leavetime;                              //      frames
-    private String bio;                                 //      About me of the Duck
-    private String picLocation;                         //      Pic Location of the Duck
-    private String menuPicLocation;                     //      Pic Location of the Duck
-    private String name;                                //      Name of the Duck
     private boolean isAlive;                            //      Tell if the Duck is Alive
     private int entryFrame;                             //      Entry Frame
     private int size;                                   //      Current Size
@@ -37,9 +31,33 @@ public abstract class Duck {
     private boolean hasLeft;                            //      If the bird has left the field
     private int type;                                   //      Type of Bird
     private Date entryDate;                             //      Entry Date
-                                    //  Duck properties stars count for almanac
     private int[] property = new int[3];
     private Color color;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    private int randomability;                          //      frames
+    private int leavetime;                              //      frames
+    private String bio;                                 //      About me of the Duck
+    private String picLocation;                         //      Pic Location of the Duck
+    private String menuPicLocation;                     //      Pic Location of the Duck
+    private String name;                                //      Name of the Duck
+                                    //  Duck properties stars count for almanac
 
     public Duck(double angle, double speed, int randomability, int HP, int LT, String b, String p, String name, int sc, int type,int[] property,Color color){
         this.angle = angle;

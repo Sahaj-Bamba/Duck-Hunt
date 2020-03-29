@@ -29,13 +29,15 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
+		
 		Group root = new Group();
 		primaryStage.setTitle("Duck Hunt");
 		primaryStage.setScene(new Scene(root, 300, 275));
 		primaryStage.setFullScreen(true);
-		primaryStage.setResizable(false);
+		primaryStage.setResizable(true);
 		primaryStage.show();
 		splashScreen(root,primaryStage.getWidth(),primaryStage.getHeight());
+	
 	}
 	
 	private void splashScreen(Group root,double width,double height){
@@ -64,8 +66,6 @@ public class Main extends Application {
 		}
 		ImageView imgr = new ImageView(image1);
 		ImageView imgl = new ImageView(image2);
-//		Reflection reflection = new Reflection();
-//		imgl.setEffect(reflection);
 		
 		// Menu
 		Parent parent = null;
@@ -87,9 +87,6 @@ public class Main extends Application {
 		MediaPlayer mediaPlayer1 = new MediaPlayer(m1);
 		MediaPlayer mediaPlayer2 = new MediaPlayer(m1);
 		
-		// Creating objects
-//		Circle circleLeft = new Circle();
-//		Circle circleRight = new Circle();
 		
 		// Setting dimensions
 		imgr.setFitHeight(radius*2);
@@ -102,20 +99,9 @@ public class Main extends Application {
 		imgr.setY(height-(offset+2*radius));
 		imgl.setRotate(-1*90);
 		imgr.setRotate(90);
-
-//		circleLeft.setCenterX(offset+radius);
-//		circleLeft.setCenterY(height-offset);
-//		circleRight.setCenterX(width-(offset+radius));
-//		circleRight.setCenterY(height-offset);
-//		circleLeft.setRadius(radius);
-//		circleRight.setRadius(radius);
 		
-		// Colouring
-//		circleLeft.setFill(Color.RED);
-//		circleRight.setFill(Color.RED);
 		
 		// Adding to screen
-//		observableList.addAll(circleLeft,circleRight,parent);
 		observableList.addAll(parent,imgl,imgr);
 		
 			// Effects
