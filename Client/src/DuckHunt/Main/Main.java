@@ -1,5 +1,6 @@
 package DuckHunt.Main;
 
+import DuckHunt.GUI.MainMenu;
 import javafx.animation.*;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -32,6 +34,7 @@ public class Main extends Application {
 		primaryStage.setTitle("Duck Hunt");
 		primaryStage.setScene(new Scene(root, 300, 275));
 		primaryStage.setFullScreen(true);
+		primaryStage.setFullScreenExitHint("Press Escape to Quit");
 		primaryStage.setResizable(true);
 		primaryStage.show();
 		splashScreen(root,primaryStage.getWidth(),primaryStage.getHeight());
@@ -66,7 +69,7 @@ public class Main extends Application {
 		ImageView imgl = new ImageView(image2);
 		
 		// Menu
-		Parent parent = new Group();
+		VBox parent = new MainMenu();
 
 		
 		parent.setOpacity(0);
