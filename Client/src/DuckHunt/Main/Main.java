@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +18,6 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 
 /**
@@ -68,12 +66,8 @@ public class Main extends Application {
 		ImageView imgl = new ImageView(image2);
 		
 		// Menu
-		Parent parent = null;
-		try {
-			parent = FXMLLoader.load(getClass().getResource("../FXML/menu.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Parent parent = new Group();
+
 		
 		parent.setOpacity(0);
 		FadeTransition fadeTransition = new FadeTransition(Duration.millis(menuFade),parent);

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DuckHunt.Controller.menu">
+   <children>
+      <JFXButton id="offline" fx:id="offline" defaultButton="true" onAction="#offlineAction" prefHeight="100.0" prefWidth="500.0" ripplerFill="#b5b5b5" text="Offline" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="offline" fx:id="online" buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#onlineAction" prefHeight="100.0" prefWidth="500.0" text="Online" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="offline" fx:id="settings" buttonType="RAISED" layoutX="10.0" layoutY="110.0" onAction="#settingsAction" prefHeight="100.0" prefWidth="500.0" text="Settings" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="offline" fx:id="credits" buttonType="RAISED" onAction="#creditsAction" prefHeight="100.0" prefWidth="500.0" text="Credits" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="offline" fx:id="shop" buttonType="RAISED" layoutX="10.0" layoutY="310.0" onAction="#shopAction" prefHeight="100.0" prefWidth="500.0" text="Shopp" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="offline" fx:id="quit" cancelButton="true" layoutX="10.0" layoutY="410.0" onAction="#quitAction" prefHeight="100.0" prefWidth="500.0" text="Quit" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</VBox>

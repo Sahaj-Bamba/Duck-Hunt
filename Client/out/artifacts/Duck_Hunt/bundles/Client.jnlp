@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Client.jnlp">
+  <information>
+    <title>Duck Hunt</title>
+    <vendor>Sahaj Bamba</vendor>
+    <description>My touch to the old classic duck hunt game. Online Global Multiplayer mode.</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Client.jar" size="34658" download="eager" />
+    <jar href="jfoenix-8.0.8.jar" size="2708772" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="1920" height="1080" main-class="DuckHunt.Main.Main"  name="Duck Hunt" />
+  <update check="background"/>
+</jnlp>

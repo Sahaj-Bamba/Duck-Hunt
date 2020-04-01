@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Duck Hunt">
+    <output-path>$PROJECT_DIR$/out/artifacts/Duck_Hunt</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="alias" value="" />
+        <option name="appClass" value="DuckHunt.Main.Main" />
+        <option name="convertCss2Bin" value="true" />
+        <option name="description" value="My touch to the old classic duck hunt game.&#13;&#10;Online Global Multiplayer mode." />
+        <option name="height" value="1080" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="keystore" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="selfSigning" value="false" />
+        <option name="title" value="Duck Hunt" />
+        <option name="vendor" value="Sahaj Bamba" />
+        <option name="version" value="1.0" />
+        <option name="width" value="1920" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Client.jar">
+        <element id="module-output" name="Client" />
+        <element id="file-copy" path="$USER_HOME$/Downloads/jfoenix-8.0.8.jar" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="08c17fa7-c3a3-4134-a50f-2d8ead9364db" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Client/.idea/artifacts/Client.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/.idea/artifacts/Client2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Controller/menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Controller/menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/FXML/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/FXML/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Bullets/Basic.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Bullets/Basic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Bullets/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Bullets/Bullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/BasicDuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/BasicDuck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/BlackDuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/BlackDuck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/BlueDuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/BlueDuck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/Duck.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/Duck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/NewDuck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/RedDuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/RedDuck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/YellowDuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Ducks/YellowDuck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Gun.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Gun.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/ReloadThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/ReloadThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Rifle.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Rifle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/SMG.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/SMG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Shotgun.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Shotgun.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Sniper.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/GameObjects/Guns/Sniper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Global/GameGlobalVariables.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Global/GameGlobalVariables.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/GameCaller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/GameCaller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Request/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Request/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Utility/SQLQueryExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/out/production/Client/DuckHunt/Utility/SQLQueryExecuter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/DuckHunt/FXML/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/DuckHunt/FXML/menu.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Zw93EtoN2QzZKT2whmY7SUwnEp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Client" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08c17fa7-c3a3-4134-a50f-2d8ead9364db" name="Default Changelist" comment="" />
+      <created>1585739087087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585739087087</updated>
+      <workItem from="1585739093569" duration="29000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1585739119355">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1585739119355" />
+  </component>
+</project>
