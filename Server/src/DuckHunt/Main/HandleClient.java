@@ -8,7 +8,7 @@ import DuckHunt.Constant.Request;
 import DuckHunt.Constant.Responses;
 import DuckHunt.Request.*;
 import DuckHunt.Other.GameGlobalVariables;
-import com.DotGame.Request.*;
+import DuckHunt.Request.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
