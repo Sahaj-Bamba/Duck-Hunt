@@ -1,17 +1,18 @@
 package DuckHunt.GUI;
 
 import DuckHunt.Main.Game;
-import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.TextAlignment;
+import javafx.scene.text.*;
 
 import java.util.Optional;
 
@@ -60,19 +61,30 @@ public class MainMenu extends VBox {
 		} else if (str.equals("Credits")) {
 		
 		} else if (str.equals("Quit")) {
-			JFXAlert alert = new JFXAlert();
-			alert.setTitle("Test");
-			alert.setHeaderText("This is a test.");
-			alert.setResizable(false);
-			alert.setContentText("Select okay or cancel this alert.");
-			Optional<ButtonType> result = alert.showAndWait();
-			if (!result.isPresent()) {
-				System.out.println("Nukk");
-			} else if (result.get() == ButtonType.OK) {
-				System.out.println("Ok clicked");
-			} else if (result.get() == ButtonType.CANCEL) {
-				System.out.println("Cancel clicked");
-			}
+			quitAction();
 		}
+	}
+	
+	private void quitAction(){
+		System.exit(0);
+//		JFXDialogLayout dialogLayout = new JFXDialogLayout();
+//		dialogLayout.setHeading(new Text("Hi I am the heading"));
+//		dialogLayout.setBody(new Text("Hi I am the body"));
+//		StackPane stackPane = new StackPane();
+//		stackPane.setPrefHeight(500);
+//		stackPane.setPrefWidth(500);
+//		JFXDialog dialog = new JFXDialog(stackPane,dialogLayout, JFXDialog.DialogTransition.CENTER,false);
+//		dialog.setContent(new Label("Content"));
+//
+//
+//		((Group) this.getParent()).getChildren().add(stackPane);
+//
+//		dialog.show();
+//		button.setOnAction((action)->dialog.show(rootStackPane));
+
+//		Region content = new Region();
+//		JFXDialog dialog = new JFXDialog(this,content, JFXDialog.DialogTransition.CENTER);
+//		dialog.setOverlayClose(false);
+//
 	}
 }

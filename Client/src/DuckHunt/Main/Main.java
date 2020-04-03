@@ -47,14 +47,14 @@ public class Main extends Application {
 		// parameters
 		final int offset = 50;
 		final int radius = 50;
-		final int upTime = 3000;
-		final int diagonalTime = 1300;
-		final double diagonalShiftRight = 300;
-		final int pauseTime = 500;
-		final int downTime = 1500;
+		final int upTime = 1;//3000;
+		final int diagonalTime = 1;//1300;
+		final double diagonalShiftRight = 1;//300;
+		final int pauseTime = 1;//500;
+		final int downTime = 1;//1500;
 		final String gunShot = "assets/media/gunShot1.wav";
-		final int menuFade = 2000;
-		final int rotateDuration = 300;
+		final int menuFade = 1;//2000;
+		final int rotateDuration = 1;//300;
 		
 		// Images Creating
 		Image image1 = null;
