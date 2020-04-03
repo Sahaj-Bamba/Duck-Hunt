@@ -4,9 +4,11 @@ import DuckHunt.Main.Game;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
@@ -54,6 +56,11 @@ public class MainMenu extends VBox {
 			scene.setRoot(new Game().getGroup());
 		} else if (str.equals("Online")) {
 		
+			Group group = (Group)this.getScene().getRoot();
+			ObservableList<Node> observableList = group.getChildren();
+			observableList.remove(this);
+			observableList.add(new GroupSelect());
+			
 		} else if (str.equals("Settings")) {
 		
 		} else if (str.equals("Shop")) {
