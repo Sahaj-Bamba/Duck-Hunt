@@ -5,13 +5,13 @@
  */
 package com.DotGame.Main;
 
-import com.DotGame.Constant.Request;
+import DuckHunt.Constant.Request;
 import com.DotGame.Other.GameGlobalVariables;
-import com.DotGame.Request.AddMember;
+import DuckHunt.Request.AddMember;
 import com.DotGame.Request.Message;
 import com.DotGame.Request.MoveToStart;
 import com.DotGame.Request.RemoveMember;
-import com.DotGame.Request.StartGame;
+import DuckHunt.Request.StartGame;
 import com.DotGame.Utilities.GroupView;
 
 /**

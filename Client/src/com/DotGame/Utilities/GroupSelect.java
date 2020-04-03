@@ -5,10 +5,10 @@
  */
 package com.DotGame.Utilities;
 
-import com.DotGame.Constant.Request;
-import com.DotGame.Constant.Responses;
+import DuckHunt.Constant.Request;
+import DuckHunt.Constant.Responses;
 import com.DotGame.Other.GameGlobalVariables;
-import com.DotGame.Request.GroupDetails;
+import DuckHunt.Request.GroupDetails;
 import com.DotGame.Request.Response;
 
 /**

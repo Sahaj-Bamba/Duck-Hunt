@@ -5,16 +5,13 @@
  */
 package com.DotGame.Main;
 
-import com.DotGame.Constant.Request;
+import DuckHunt.Constant.Request;
 import com.DotGame.Other.GameGlobalVariables;
-import com.DotGame.Request.AddMember;
-import com.DotGame.Request.GameOver;
+import DuckHunt.Request.GameOver;
 import com.DotGame.Request.GameState;
 import com.DotGame.Request.Message;
 import com.DotGame.Request.Move;
 import com.DotGame.Request.RemoveMember;
-import com.DotGame.Utilities.GroupView;
-import java.awt.Color;
 
 /**
  *

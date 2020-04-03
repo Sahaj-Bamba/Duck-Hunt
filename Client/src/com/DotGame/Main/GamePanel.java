@@ -5,7 +5,7 @@
  */
 package com.DotGame.Main;
 
-import com.DotGame.Constant.LineType;
+import DuckHunt.Constant.LineType;
 import com.DotGame.Other.GameGlobalVariables;
 import com.DotGame.Request.GameState;
 import com.DotGame.Request.Move;

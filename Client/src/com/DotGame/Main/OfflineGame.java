@@ -5,20 +5,9 @@
  */
 package com.DotGame.Main;
 
-import com.DotGame.Constant.MessageType;
-import com.DotGame.Other.GameGlobalVariables;
 import com.DotGame.Request.GameState;
-import com.DotGame.Request.GroupList;
-import com.DotGame.Request.Message;
-import com.DotGame.Request.RemoveMember;
-import com.DotGame.Test.CanvasPannel;
-import com.DotGame.Test.MyCanvas;
 import com.DotGame.Utilities.Menu;
 import com.DotGame.Utilities.OverScreen;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JPanel;
 
 /**
  *
