@@ -182,6 +182,7 @@ public class HandleClient implements Runnable{
 					return;
 				}else if (obj.toString().equals(String.valueOf(Request.STARTGAME))){
 					startGame((StartGame) obj);
+					
 				}else if (obj.toString().equals(String.valueOf(Request.MOVETOSTART))){
 					return;
 				}
@@ -246,6 +247,7 @@ public class HandleClient implements Runnable{
 		try {
 			GroupList groupList = (GroupList) objectInputStream.readObject();
 			objectOutputStream.writeObject(new GroupList(GameGlobalVariables.getInstance().getGAMER().getClientList(groupList.getGroupName())));
+			objectOutputStream.flush();
 			GameGlobalVariables.getInstance().getGAMER().sendState(groupName,clientName);
 			while (true){
 				Object obj = objectInputStream.readObject();
@@ -255,7 +257,6 @@ public class HandleClient implements Runnable{
 				}else if (obj.toString().equals(String.valueOf(Request.MEMBERREMOVE))){
 					removeMember((RemoveMember)obj);
 					return;
-					
 				}else if (obj.toString().equals(String.valueOf(Request.MOVE))){
 					GameGlobalVariables.getInstance().getGAMER().makeMove(groupName,(Move) obj);
 				}else if (obj.toString().equals(String.valueOf(Request.GAMEOVER))){

@@ -19,13 +19,13 @@ public abstract class NewDuck {
 	
 	private Image image[];
 	private ImageView imageView;
-	
-	private int hitPoints;                              //     Health of the duck
+	private int number;                                 //      A number to recognise the duck useful in multi player game
+	private int hitPoints;                              //      Health of the duck
 	private boolean isBoss;                             //      True if the bird is a boss
 	private double speed;                               //      pixel per sec
 	private boolean isAlive;                            //      Tell if the Duck is Alive
 	private long entryDate;                             //      Entry Date
-	private long score;                                  //      Score Awarded
+	private long score;                                 //      Score Awarded
 	private double speedIncrement;                      //      Increment in the speed based on level
 	private int level;                                  //      Level of the bird
 	
@@ -44,7 +44,8 @@ public abstract class NewDuck {
 	private String name;                                //      Name of the Duck
 	//  Duck properties stars count for almanac
 	
-	public NewDuck(String name,double[] X,double[] Y,int numberOfTrips,double speed,int hitpoints,boolean isBoss,long score, int speedIncrement,int level ){
+	public NewDuck(String name,double[] X,double[] Y,int numberOfTrips,double speed,int hitpoints,boolean isBoss,long score, int speedIncrement,int level,int number ){
+		this.number = number;
 		this.entryDate = new Date().getTime();
 		this.speedIncrement = speedIncrement;
 		this.level = level;
@@ -115,9 +116,6 @@ public abstract class NewDuck {
 				@Override
 				public void handle(ActionEvent actionEvent) {
 					isAlive = false;
-//					if (this.hitpoints!=0){
-//						GameGlobalVariables.getInstance().updateMissed();
-//					}
 				}
 			});
 			sequentialTransition.onFinishedProperty().set(new EventHandler<ActionEvent>() {

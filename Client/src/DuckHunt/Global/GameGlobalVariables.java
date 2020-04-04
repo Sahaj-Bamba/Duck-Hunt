@@ -15,7 +15,8 @@ import java.awt.*;
  *
  */
 
-public class GameGlobalVariables {
+public class
+GameGlobalVariables {
     
     /**
      * The main instance of the class
@@ -29,6 +30,7 @@ public class GameGlobalVariables {
      */
     private int port;
     private String ip;
+    private boolean isOnline;
     
     private Client gamer;
     
@@ -133,6 +135,7 @@ public class GameGlobalVariables {
     
     public void destroyGamer() {
         gamer = null;
+        isOnline = false;
     }
     
     /**
@@ -200,4 +203,11 @@ public class GameGlobalVariables {
         this.missed++;
     }
     
+    public boolean isOnline() {
+        return isOnline;
+    }
+    
+    public void setOnline(boolean online) {
+        isOnline = online;
+    }
 }

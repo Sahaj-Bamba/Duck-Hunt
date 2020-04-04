@@ -16,22 +16,21 @@ import java.io.Serializable;
  */
 public class Move implements Serializable{
     
-    private Point point;
-    private LineType lineType;
-
-    public Move(Point point, LineType lineType) {
-        this.point = point;
-        this.lineType = lineType;
-    }
-
-    public Point getPoint() {
-        return point;
-    }
-
-    public LineType getLineType() {
-        return lineType;
+    private int score;
+    private int duckNumber;
+    
+    public Move(int score, int duckNumber) {
+        this.score = score;
+        this.duckNumber = duckNumber;
     }
     
+    public int getScore() {
+        return score;
+    }
+    
+    public int getDuckNumber() {
+        return duckNumber;
+    }
     
     @Override
     public String toString() {

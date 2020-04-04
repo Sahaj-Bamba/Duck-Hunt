@@ -158,7 +158,7 @@ public class Group {
 	}
 	
 	public void startGame(int size) {
-		game = new Game(size,numOfClients());
+		game = new Game(size);
 	}
 	
 	public void makeMove(Move move){

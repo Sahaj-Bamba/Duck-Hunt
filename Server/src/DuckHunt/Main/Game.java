@@ -6,37 +6,38 @@ import DuckHunt.Request.Move;
 
 public class Game {
 	
-	private int size;
+	private int numberOfRounds;
+	private int roundNumber;
+	private boolean over;
 	private GameState gameState;
 	
-	public Game(int size, int numOfPlayers) {
-		this.size = size;
-		gameState = new GameState(size,numOfPlayers);
+	public Game(int size) {
+		this.numberOfRounds = size;
+		this.roundNumber = -1;
+		over = false;
+		newRound();
 	}
 	
-	public void update(LineType lineType, int x , int y){
-		if (lineType == LineType.Horizontal){
-			gameState.addHorizontalLine(x,y);
-		}else if (lineType == LineType.Vertical){
-			gameState.addVerticalLine(x,y);
+	public void newRound(){
+	
+		roundNumber++;
+		if (roundNumber == numberOfRounds){
+			over = true;
+			return;
 		}
+		int numberOfDucks = roundNumber / 2 + 2;
+		int numOfTrips = 20;
+		gameState = new GameState(roundNumber,numberOfDucks,numOfTrips);
+		
+	}
+	
+	public boolean isOver() {
+		return over;
 	}
 	
 	public GameState getGameState() {
 		return gameState;
 	}
 	
-	public boolean makeMove(Move move){
-		gameState.makeMove(move);
-		return gameState.isOver();
-	}
-	
-	public int getWinner(){
-		return gameState.getWinner();
-	}
-	
-	public void remove(int i){
-		gameState.remove(i);
-	}
 	
 }
