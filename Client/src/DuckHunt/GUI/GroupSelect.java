@@ -10,9 +10,12 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.FadeTransition;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
@@ -185,7 +188,11 @@ public class GroupSelect extends GridPane {
 	}
 	
 	private void nextStage() {
-		System.out.println("Ready for next");
+		System.out.println("Ready for Group Wait");
+		Group group = (Group)this.getScene().getRoot();
+		ObservableList<Node> observableList = group.getChildren();
+		observableList.remove(this);
+		observableList.add(new GroupView());
 	}
 	
 	

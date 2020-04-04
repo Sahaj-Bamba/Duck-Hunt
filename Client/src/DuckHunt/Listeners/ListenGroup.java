@@ -32,6 +32,7 @@ public class ListenGroup implements Runnable{
 				removeMember((RemoveMember)obj);
 			}else if (obj.toString().equals(String.valueOf(Request.STARTGAME))){
 				startGame((StartGame) obj);
+				break;
 			}
 			
 		}

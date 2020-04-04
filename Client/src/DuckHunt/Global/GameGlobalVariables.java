@@ -131,7 +131,7 @@ public class GameGlobalVariables {
         gamer = new Client(ip,port);
     }
     
-    private void destroyGamer() {
+    public void destroyGamer() {
         gamer = null;
     }
     

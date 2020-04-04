@@ -1,15 +1,22 @@
 package DuckHunt.GUI;
 
+import DuckHunt.Constant.MessageType;
 import DuckHunt.Global.GameGlobalVariables;
 import DuckHunt.Listeners.ListenGroup;
 import DuckHunt.Main.Game;
 import DuckHunt.Request.GroupList;
+import DuckHunt.Request.Message;
+import DuckHunt.Request.RemoveMember;
+import DuckHunt.Request.StartGame;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.FadeTransition;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -24,6 +31,7 @@ public class GroupView extends GridPane {
 	private Text player1;
 	private Text player2;
 	private Text chatArea;
+	private JFXTextField message;
 	
 	private Thread listen;
 	
@@ -39,7 +47,7 @@ public class GroupView extends GridPane {
 		player2 = textCreater("");
 		chatArea = textCreater("");
 	
-		JFXTextField message = new JFXTextField();
+		message = new JFXTextField();
 		
 		chatArea.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.REGULAR, 18));
 		
@@ -72,7 +80,6 @@ public class GroupView extends GridPane {
 		listen = new Thread(new ListenGroup(this));
 		listen.start();
 		
-		this.setVisible(true);
 	}
 	
 	private void init() {
@@ -110,27 +117,63 @@ public class GroupView extends GridPane {
 	
 	public void clickEventHandller(String str) {
 		System.out.println(str);
-		System.out.println(str);
-		if (str.equals("Create Group")) {
-			createAction();
-		} else if (str.equals("Join Group")) {
-			joinAction();
-		} else if (str.equals("Random")) {
-			randomAction();
+		if (str.equals("Start Game")) {
+			startAction();
+		} else if (str.equals("Leave Group")) {
+			leaveAction();
+		} else if (str.equals("Send")) {
+			sendAction();
 		}
-		
+	}
+	
+	private void sendAction() {
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new Message(GameGlobalVariables.getInstance().getGamer().getName(),GameGlobalVariables.getInstance().getGamer().getGroupName(),message.getText(), MessageType.UserToGroup));
+		message.setText("");
+	}
+	
+	private void leaveAction() {
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new RemoveMember(GameGlobalVariables.getInstance().getGamer().getName()));
+		GameGlobalVariables.getInstance().destroyGamer();
+		backToMenu();
+	}
+	
+	private void backToMenu() {
+		Group group = (Group)this.getScene().getRoot();
+		ObservableList<Node> observableList = group.getChildren();
+		observableList.remove(this);
+		observableList.add(new MainMenu());
+	}
+	
+	
+	private void startAction() {
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new StartGame(GameGlobalVariables.getInstance().getSIZE()));
 	}
 	
 	
 	public void gotMessage(String s) {
+		chatArea.setText(s);
 	}
 	
 	public void gotPlayer(String name) {
+		if(player1.getText().equals("")){
+			player1.setText(name);
+		}else if(player2.getText().equals("")){
+			player2.setText(name);
+		}
+		chatArea.setText(name + " joined the room. ");
 	}
 	
 	public void lostPlayer(String name) {
+		if(player1.getText().equals(name)){
+			player1.setText("");
+		}else if(player2.getText().equals(name)){
+			player2.setText("");
+		}
+		chatArea.setText(name + " left the room. ");
 	}
 	
 	public void startGame(int size) {
+		System.out.println("Start Game");
 	}
+	
 }
