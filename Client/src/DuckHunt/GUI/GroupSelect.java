@@ -1,6 +1,11 @@
 package DuckHunt.GUI;
 
+import DuckHunt.Constant.Request;
+import DuckHunt.Constant.Responses;
+import DuckHunt.Global.GameGlobalVariables;
 import DuckHunt.Main.Game;
+import DuckHunt.Request.GroupDetails;
+import DuckHunt.Request.Response;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -19,6 +24,12 @@ import javafx.util.Duration;
 
 public class GroupSelect extends GridPane {
 	
+	private JFXTextField clientName;
+	private JFXTextField groupName;
+	private JFXPasswordField password;
+	
+	private Text error;
+	
 	public GroupSelect(){
 		
 		setPrefSize(600,600);
@@ -35,10 +46,12 @@ public class GroupSelect extends GridPane {
 		Text text1 = textCreater("Your Name");
 		Text text2 = textCreater("Group Name");
 		Text text3 = textCreater("Password");
+		error = textCreater("");
+		Font f = error.getFont();
 		
-		JFXTextField clientName = new JFXTextField();
-		JFXTextField groupName = new JFXTextField();
-		JFXPasswordField password = new JFXPasswordField();
+		clientName = new JFXTextField();
+		groupName = new JFXTextField();
+		password = new JFXPasswordField();
 		
 		clientName.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.REGULAR, 18));
 		groupName.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.REGULAR, 18));
@@ -46,7 +59,7 @@ public class GroupSelect extends GridPane {
 		
 		
 		getColumnConstraints().addAll(new ColumnConstraints(300),new ColumnConstraints(300));
-		getRowConstraints().addAll(new RowConstraints(100),new RowConstraints(100),new RowConstraints(100),new RowConstraints(100),new RowConstraints(100));
+		getRowConstraints().addAll(new RowConstraints(100),new RowConstraints(100),new RowConstraints(100),new RowConstraints(100),new RowConstraints(100),new RowConstraints(100));
 		
 		add(text1, 0, 0);
 		add(text2, 0, 1);
@@ -54,6 +67,7 @@ public class GroupSelect extends GridPane {
 		add(clientName, 1, 0);
 		add(groupName, 1, 1);
 		add(password, 1, 2);
+		add(error,0,5,2,1);
 		
 		add(buttonContainer,0,3,2,2);
 		
@@ -95,20 +109,83 @@ public class GroupSelect extends GridPane {
 	
 	public void clickEventHandller(String str) {
 		System.out.println(str);
-		if (str.equals("Offline")) {
-			Scene scene = this.getScene();
-			scene.setRoot(new Game().getGroup());
-		} else if (str.equals("Online")) {
-		
-		} else if (str.equals("Settings")) {
-		
-		} else if (str.equals("Shop")) {
-		
-		} else if (str.equals("Credits")) {
-		
-		} else if (str.equals("Quit")) {
-	
+		if (str.equals("Create Group")) {
+			createAction();
+		} else if (str.equals("Join Group")) {
+			joinAction();	
+		} else if (str.equals("Random")) {
+			randomAction();	
 		}
+	}
+	
+	private void randomAction() {
+		
+		if (clientName.getText().equals("" )) {
+			error.setText("Please enter name.");
+			return;
+		}
+		
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new GroupDetails("", "", clientName.getText(), String.valueOf(Request.RANDOM)));
+		
+		Response response = (Response) GameGlobalVariables.getInstance().getGamer().receiveMessage();
+		error.setText(response.getErrorMessage());
+		
+		if(response.getStatus().equals(Responses.OK))
+		{
+			GameGlobalVariables.getInstance().getGamer().setName(clientName.getText(),response.getErrorMessage());
+			nextStage();
+		}else{
+		
+		}
+		
+	}
+	
+	private void joinAction() {
+		
+		if (groupName.getText()=="" || password.getText()=="" || clientName.getText()=="") {
+			error.setText("Please enter name and Password.");
+			return;
+		}
+		
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new GroupDetails(password.getText(), groupName.getText(), clientName.getText(), String.valueOf(Request.JOINGROUP)));
+		
+		Response response = (Response) GameGlobalVariables.getInstance().getGamer().receiveMessage();
+		error.setText(response.getErrorMessage());
+		
+		if(response.getStatus().equals(Responses.OK))
+		{
+			GameGlobalVariables.getInstance().getGamer().setName(clientName.getText(),groupName.getText());
+			nextStage();
+		}else{
+		
+		}
+		
+	}
+	
+	private void createAction() {
+		if (groupName.getText()=="" || password.getText()=="" || clientName.getText()=="") {
+			error.setText("Please enter name and Password.");
+			return;
+		}
+		
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new GroupDetails(password.getText(), groupName.getText(), clientName.getText(), String.valueOf(Request.CREATEGROUP)));
+		
+		Response response = (Response) GameGlobalVariables.getInstance().getGamer().receiveMessage();
+		error.setText(response.getErrorMessage());
+		
+		if(response.getStatus().equals(Responses.OK))
+		{
+			GameGlobalVariables.getInstance().getGamer().setName(clientName.getText(),groupName.getText());
+			GameGlobalVariables.getInstance().getGamer().makeOwner();
+			nextStage();
+			
+		}else{
+		
+		}
+	}
+	
+	private void nextStage() {
+		System.out.println("Ready for next");
 	}
 	
 	

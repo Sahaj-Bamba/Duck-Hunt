@@ -6,6 +6,7 @@ package DuckHunt.Global;
  */
 
 import DuckHunt.GameObjects.Guns.Gun;
+import DuckHunt.Main.Client;
 
 import java.awt.*;
 
@@ -28,6 +29,8 @@ public class GameGlobalVariables {
      */
     private int port;
     private String ip;
+    
+    private Client gamer;
     
     /**
      * Screen size controls
@@ -81,8 +84,8 @@ public class GameGlobalVariables {
      */
     private void init(){
         calculateFraction(1080,1920);
-        port = 5555;
-        ip = "www.sahajbamba.me";
+        port = 5560;
+        ip = "localhost";
     }
     
     public int getSIZE() {
@@ -115,6 +118,21 @@ public class GameGlobalVariables {
 
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
+    }
+    
+    public Client getGamer() {
+        if(gamer == null){
+            gamerinit();
+        }
+        return gamer;
+    }
+    
+    private void gamerinit() {
+        gamer = new Client(ip,port);
+    }
+    
+    private void destroyGamer() {
+        gamer = null;
     }
     
     /**

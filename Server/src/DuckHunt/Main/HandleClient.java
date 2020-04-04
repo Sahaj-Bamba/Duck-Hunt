@@ -38,7 +38,7 @@ public class HandleClient implements Runnable{
 			System.out.println("Streams created");
 			left = false;
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Stream Creation error");
 		}
 	}
 	
@@ -85,11 +85,10 @@ public class HandleClient implements Runnable{
 			}else if (groupDetails.toString().equals(String.valueOf(Request.RANDOM))) {
 				objectOutputStream.writeObject(randomGroup(groupDetails));
 			}
-			
+			objectOutputStream.flush();
 		} catch (Exception e) {
-			System.out.println("Client Disconnected");
+			System.out.println("Client Disconnected During group joining step");
 			leftMember();
-			e.printStackTrace();
 		}
 		
 	}
@@ -107,6 +106,7 @@ public class HandleClient implements Runnable{
 		GameGlobalVariables.getInstance().getGAMER().add_group(groupDetails.get_group_name(),groupDetails.get_password(),groupDetails.get_client_name());
 		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream);
 		goBack = false;
+		System.out.println("Group Created");
 		return new Response(Responses.OK,"Group Created");
 	}
 	
@@ -187,11 +187,11 @@ public class HandleClient implements Runnable{
 			}
 			
 		} catch (IOException e) {
+			System.out.println("Client io exception during group wait state");
 			leftMember();
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
+			System.out.println("Class not found during group wait state");
 			leftMember();
-			e.printStackTrace();
 		}
 		
 	}
@@ -263,11 +263,11 @@ public class HandleClient implements Runnable{
 			}
 			
 		} catch (IOException e) {
+			System.out.println("IO exception during gameplay");
 			leftMember();
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
+			System.out.println("Class not found during game play");
 			leftMember();
-			e.printStackTrace();
 		}
 		
 	}

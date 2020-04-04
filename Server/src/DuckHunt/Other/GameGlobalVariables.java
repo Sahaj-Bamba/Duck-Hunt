@@ -56,7 +56,7 @@ public class GameGlobalVariables {
      *
      */
     private void init(){
-        port = 5555;
+        port = 5560;
         GAMER = new Owner();
     }
     
