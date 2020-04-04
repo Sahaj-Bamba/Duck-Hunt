@@ -4,6 +4,7 @@ import DuckHunt.Main.Game;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,8 +16,10 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.*;
+import javafx.util.Duration;
 
 import java.util.Optional;
+
 
 public class MainMenu extends VBox {
 	
@@ -25,6 +28,7 @@ public class MainMenu extends VBox {
 		this.setWidth(500);
 		this.setHeight(600);
 		this.getChildren().addAll(buttonCreater("Offline"),buttonCreater("Online"),buttonCreater("Settings"),buttonCreater("Shop"),buttonCreater("Credits"),buttonCreater("Quit"));
+		init();
 	}
 	
 	public JFXButton buttonCreater(String str){
@@ -94,4 +98,11 @@ public class MainMenu extends VBox {
 //		dialog.setOverlayClose(false);
 //
 	}
+	
+	private void init() {
+		setLayoutX(1920/2 - 600/2);
+		setLayoutY(1080/2 - 600/2);
+	}
+	
+	
 }

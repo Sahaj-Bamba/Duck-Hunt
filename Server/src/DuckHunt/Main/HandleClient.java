@@ -151,6 +151,7 @@ public class HandleClient implements Runnable{
 		}
 		
 		GameGlobalVariables.getInstance().getGAMER().add_client(grp,groupDetails.get_client_name(),this.objectOutputStream);
+		groupName = grp;
 		goBack = false;
 		return new Response(Responses.OK,grp);
 	}
