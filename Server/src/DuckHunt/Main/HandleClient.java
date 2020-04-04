@@ -234,7 +234,8 @@ public class HandleClient implements Runnable{
 	
 	private void leftMember(){
 		left = true;
-		GameGlobalVariables.getInstance().getGAMER().remove_client(groupName,clientName);
+		removeMember(new RemoveMember(clientName));
+//		GameGlobalVariables.getInstance().getGAMER().remove_client(groupName,clientName);
 	}
 	
 	/**
