@@ -56,12 +56,12 @@ public class GroupView extends GridPane {
 		
 		add(groupName, 1, 0);
 		add(buttonCreater("Start Game", GameGlobalVariables.getInstance().getGamer().isIsOwner()), 0, 1);
-		add(buttonCreater("Leave Group", GameGlobalVariables.getInstance().getGamer().isIsOwner()), 2, 1);
+		add(buttonCreater("Leave Group", true), 2, 1);
 		add(player1, 0, 2);
 		add(player2, 0, 3);
 		add(chatArea,0,4,3,1);
 		add(message,0,5,2,1);
-		add(buttonCreater("Send",true),2,6);
+		add(buttonCreater("Send",true),2,5);
 		
 		init();
 		objectsInit();

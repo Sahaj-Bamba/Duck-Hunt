@@ -115,8 +115,10 @@ public class Owner {
 		if (group_exist(groupName)){
 			groups.get(groupName).remove_client(clientName);
 		}
-		if ( groups.get(groupName).getClientList()[0].equals("")){
-			remove_group(groupName);
+		if ( groups.get(groupName)!= null) {
+			if (groups.get(groupName).getClientList()[0].equals("")) {
+				remove_group(groupName);
+			}
 		}
 	}
 	
