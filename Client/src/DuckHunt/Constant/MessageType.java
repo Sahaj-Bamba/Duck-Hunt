@@ -13,6 +13,7 @@ public enum MessageType {
     	
     UserToUser(),
     UserToGroup(),
+    Provoke(),
     ;
 
     int Responses(int S){

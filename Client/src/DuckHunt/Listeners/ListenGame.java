@@ -1,5 +1,6 @@
 package DuckHunt.Listeners;
 
+import DuckHunt.Constant.MessageType;
 import DuckHunt.Constant.Request;
 import DuckHunt.GUI.GroupView;
 import DuckHunt.Global.GameGlobalVariables;
@@ -42,7 +43,15 @@ public class ListenGame implements Runnable{
 	}
 	
 	private void receivedMessage(Message obj) {
-		onlineGame.gotMessage(obj.getFrom() + " :- " + obj.getContent());
+		if (obj.getType().equals(MessageType.Provoke)){
+			if (obj.getFrom().equals(GameGlobalVariables.getInstance().getGamer().getName())){
+			
+			}else{
+				onlineGame.provoke();
+			}
+		}else{
+			onlineGame.gotMessage(obj.getFrom() + " :- " + obj.getContent());
+		}
 	}
 	
 	

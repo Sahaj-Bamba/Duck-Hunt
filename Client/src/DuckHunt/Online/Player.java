@@ -73,4 +73,7 @@ public class Player extends GridPane {
 		imageView.setImage(image);
 	}
 	
+	public void provoke() {
+		System.out.println(name + " is provoked.");
+	}
 }

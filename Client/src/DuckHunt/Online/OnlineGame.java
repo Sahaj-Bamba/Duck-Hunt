@@ -38,6 +38,7 @@ public class OnlineGame extends GridPane {
 	private int roundNumber;                //  Current round number
 	private NewDuck[] ducks;                //  Ducks list
 	private Thread listen;
+	private int opponentIndex;
 	
 	public OnlineGame() {
 		
@@ -129,6 +130,11 @@ public class OnlineGame extends GridPane {
 		String[] players = groupList.getClients();
 		player[0].setName(players[0]);
 		player[1].setName(players[1]);
+		if (players[0].equals(GameGlobalVariables.getInstance().getGamer().getName())){
+			opponentIndex = 1;
+		}else{
+			opponentIndex = 0;
+		}
 	}
 	
 	public JFXButton buttonCreater(String str){
@@ -165,6 +171,7 @@ public class OnlineGame extends GridPane {
 	}
 	
 	private void provokeAction() {
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new Message(GameGlobalVariables.getInstance().getGamer().getName(),GameGlobalVariables.getInstance().getGamer().getGroupName(),message.getText(), MessageType.Provoke));
 	}
 	
 	private void leaveAction() {
@@ -202,6 +209,10 @@ public class OnlineGame extends GridPane {
 		System.out.println("Game Over");
 		System.out.println(obj.getName());
 		System.out.println(obj.getMessage());
+	}
+	
+	public void provoke() {
+		player[opponentIndex].provoke();
 	}
 
 
