@@ -41,7 +41,7 @@ public class ListenGame implements Runnable{
 	}
 	
 	private void receivedMessage(Message obj) {
-		groupView.gotMessage(obj.getFrom() + " :- " + obj.getContent());
+		onlineGame.gotMessage(obj.getFrom() + " :- " + obj.getContent());
 	}
 	
 	private void addMember(AddMember addMember) {

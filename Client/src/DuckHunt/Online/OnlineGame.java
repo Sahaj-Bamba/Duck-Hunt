@@ -1,5 +1,6 @@
 package DuckHunt.Online;
 
+import DuckHunt.Constant.MessageType;
 import DuckHunt.GameObjects.Ducks.BasicDuck;
 import DuckHunt.GameObjects.Ducks.NewDuck;
 import DuckHunt.GameObjects.Guns.Sniper;
@@ -156,7 +157,7 @@ public class OnlineGame extends GridPane {
 	}
 	
 	private void sendAction() {
-		GameGlobalVariables.getInstance().getGamer().sendMessage(new Message());
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new Message(GameGlobalVariables.getInstance().getGamer().getName(),GameGlobalVariables.getInstance().getGamer().getGroupName(),message.getText(), MessageType.UserToGroup));
 	}
 	
 	
@@ -175,8 +176,11 @@ public class OnlineGame extends GridPane {
 		
 	}
 	
-	
-	
+	public void gotMessage(String s) {
+		generalText.setText(s);
+	}
+
+
 //	public void checkOver() {
 //		int tmp=0;
 //		for (int i = 0; i < numOfDucks; i++) {
