@@ -1,6 +1,9 @@
 package DuckHunt.GameObjects.Ducks;
 
+import DuckHunt.Constant.MoveType;
 import DuckHunt.Global.GameGlobalVariables;
+import DuckHunt.Main.Game;
+import DuckHunt.Request.Move;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -123,6 +126,11 @@ public abstract class NewDuck {
 				public void handle(ActionEvent actionEvent) {
 					isAlive = false;
 					GameGlobalVariables.getInstance().updateMissed();
+					if (GameGlobalVariables.getInstance().isOnline()){
+						if (GameGlobalVariables.getInstance().getGamer().isIsOwner()){
+							GameGlobalVariables.getInstance().getGamer().sendMessage(new Move(number, MoveType.Left));
+						}
+					}
 				}
 			});
 			

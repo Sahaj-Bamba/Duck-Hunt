@@ -4,9 +4,11 @@ import DuckHunt.GameObjects.Ducks.BasicDuck;
 import DuckHunt.GameObjects.Ducks.NewDuck;
 import DuckHunt.GameObjects.Guns.Sniper;
 import DuckHunt.Global.GameGlobalVariables;
+import DuckHunt.Main.Game;
 import DuckHunt.Main.GameCaller;
 import DuckHunt.Request.GameState;
 import DuckHunt.Request.GroupList;
+import DuckHunt.Request.Message;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -154,7 +156,7 @@ public class OnlineGame extends GridPane {
 	}
 	
 	private void sendAction() {
-	
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new Message());
 	}
 	
 	

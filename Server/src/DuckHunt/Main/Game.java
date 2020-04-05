@@ -10,6 +10,7 @@ public class Game {
 	private int roundNumber;
 	private boolean over;
 	private GameState gameState;
+	private Duck[] duck;
 	
 	public Game(int size) {
 		this.numberOfRounds = size;
@@ -28,6 +29,10 @@ public class Game {
 		int numberOfDucks = roundNumber / 2 + 2;
 		int numOfTrips = 20;
 		gameState = new GameState(roundNumber,numberOfDucks,numOfTrips);
+		duck = new Duck[numberOfDucks];
+		for (int i = 0; i < numberOfDucks; i++) {
+			duck[i] = new Duck(1);
+		}
 		
 	}
 	
@@ -39,5 +44,26 @@ public class Game {
 		return gameState;
 	}
 	
+	
+}
+
+
+class Duck{
+	int hp;
+	
+	public Duck(int hp) {
+		this.hp = hp;
+	}
+	
+	public int getHp() {
+		return hp;
+	}
+	
+	public void damage(int damage){
+		hp -= damage;
+		if (hp<0){
+			hp=0;
+		}
+	}
 	
 }

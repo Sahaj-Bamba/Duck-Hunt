@@ -4,10 +4,8 @@ import DuckHunt.Constant.MessageType;
 import DuckHunt.Global.GameGlobalVariables;
 import DuckHunt.Listeners.ListenGroup;
 import DuckHunt.Main.Game;
-import DuckHunt.Request.GroupList;
-import DuckHunt.Request.Message;
-import DuckHunt.Request.RemoveMember;
-import DuckHunt.Request.StartGame;
+import DuckHunt.Online.OnlineGame;
+import DuckHunt.Request.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -174,6 +172,9 @@ public class GroupView extends GridPane {
 	
 	public void startGame(int size) {
 		System.out.println("Start Game");
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new MoveToStart());
+		Scene scene = this.getScene();
+		scene.setRoot(new OnlineGame());
 	}
 	
 }

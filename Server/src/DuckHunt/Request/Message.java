@@ -27,6 +27,10 @@ public class Message implements Serializable{
 		this.type = type;
 	}
 	
+	public Message(String content) {
+		this.content = content;
+	}
+	
 	public String getFrom() {
 		return from;
 	}

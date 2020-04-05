@@ -161,20 +161,20 @@ public class Group {
 		game = new Game(size);
 	}
 	
-	public void makeMove(Move move){
-		if(game.makeMove(move)){
-			send_message(new GameOver(game.getWinner()));
-			return;
-		}
-//		send_message(game.getGameState());
-//		for (int i = 0; i < 3; i++) {
-//			for (int j = 0; j < 3; j++) {
-//				System.out.println(game.getGameState().getHColor(i, j));
-//			}
+//	public void makeMove(Move move){
+//		if(game.makeMove(move)){
+//			send_message(new GameOver(game.getWinner()));
+//			return;
 //		}
-		send_message(move);
-	}
-	
+////		send_message(game.getGameState());
+////		for (int i = 0; i < 3; i++) {
+////			for (int j = 0; j < 3; j++) {
+////				System.out.println(game.getGameState().getHColor(i, j));
+////			}
+////		}
+//		send_message(move);
+//	}
+//
 	public void sendState(String client){
 		send_message(game.getGameState(),client);
 	}
