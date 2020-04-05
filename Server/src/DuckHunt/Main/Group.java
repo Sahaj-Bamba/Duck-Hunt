@@ -87,6 +87,11 @@ public class Group {
 //		}
 		if (client_exist(name)) {
 			clients.remove(name);
+			if (game != null){
+				if (numOfClients()==1){
+					onlyOnePlayerInGame();
+				}
+			}
 			return true;
 		}
 		return false;
@@ -175,6 +180,12 @@ public class Group {
 //		send_message(move);
 //	}
 //
+	
+	private void onlyOnePlayerInGame() {
+		send_message(new GameOver(getClientList()[0],"Others have forfeited the game"));
+		game = null;
+	}
+	
 	public void sendState(String client){
 		send_message(game.getGameState(),client);
 	}

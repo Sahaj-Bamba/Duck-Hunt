@@ -14,13 +14,19 @@ import java.io.Serializable;
  */
 public class GameOver implements Serializable{
 	
-	private int name;
+	private String name;
+	private String message;
 	
-	public GameOver(int name) {
+	public GameOver(String name, String message) {
 		this.name = name;
+		this.message = message;
 	}
 	
-	public int getName() {
+	public String getMessage() {
+		return message;
+	}
+	
+	public String getName() {
 		return name;
 	}
 	

@@ -1,15 +1,14 @@
 package DuckHunt.Online;
 
 import DuckHunt.Constant.MessageType;
+import DuckHunt.GUI.Base;
 import DuckHunt.GameObjects.Ducks.BasicDuck;
 import DuckHunt.GameObjects.Ducks.NewDuck;
 import DuckHunt.GameObjects.Guns.Sniper;
 import DuckHunt.Global.GameGlobalVariables;
 import DuckHunt.Main.Game;
 import DuckHunt.Main.GameCaller;
-import DuckHunt.Request.GameState;
-import DuckHunt.Request.GroupList;
-import DuckHunt.Request.Message;
+import DuckHunt.Request.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -19,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -114,6 +114,10 @@ public class OnlineGame extends GridPane {
 		
  	}
 	
+	public void lostPlayer(String name) {
+	
+	}
+	
 	private void init() {
 		setOpacity(0);
 		FadeTransition fadeTransition = new FadeTransition(Duration.millis(2000),this);
@@ -153,7 +157,21 @@ public class OnlineGame extends GridPane {
 		System.out.println(str);
 		if (str.equals("Send")) {
 			sendAction();
+		}else if (str.equals("Provoke")) {
+			provokeAction();
+		}else if (str.equals("Leave")) {
+			leaveAction();
 		}
+	}
+	
+	private void provokeAction() {
+	}
+	
+	private void leaveAction() {
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new RemoveMember(GameGlobalVariables.getInstance().getGamer().getName()));
+		GameGlobalVariables.getInstance().destroyGamer();
+		Scene scene = this.getScene();
+		scene.setRoot(new Base());
 	}
 	
 	private void sendAction() {
@@ -178,6 +196,12 @@ public class OnlineGame extends GridPane {
 	
 	public void gotMessage(String s) {
 		generalText.setText(s);
+	}
+	
+	public void gameOver(GameOver obj) {
+		System.out.println("Game Over");
+		System.out.println(obj.getName());
+		System.out.println(obj.getMessage());
 	}
 
 
