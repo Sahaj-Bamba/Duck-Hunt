@@ -202,8 +202,8 @@ public class Owner {
 	 * @param group Name of the group
 	 * @param move The move to make
 	 */
-	public void makeMove(String group, Move move){
-		groups.get(group).makeMove(move);
+	public void makeMove(String group, String clientName,Move move){
+		groups.get(group).makeMove(move,clientName);
 	}
 	
 	/**

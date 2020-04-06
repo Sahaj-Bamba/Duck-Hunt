@@ -40,6 +40,7 @@ public class Move implements Serializable{
 		this.moveType = moveType;
 	}
 	
+	
 	public MoveType getMoveType() {
 		return moveType;
 	}

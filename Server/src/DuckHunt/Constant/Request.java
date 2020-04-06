@@ -22,7 +22,10 @@ public enum Request {
 	
 	RANDOM("15"),
 	
+	SCORE ("16"),
+	NEWROUND("17"),
 	;
+	
 	
 	
 	Request(String s){

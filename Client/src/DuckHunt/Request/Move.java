@@ -40,6 +40,7 @@ public class Move implements Serializable{
         this.moveType = moveType;
     }
     
+    
     public MoveType getMoveType() {
         return moveType;
     }
@@ -60,5 +61,5 @@ public class Move implements Serializable{
     public String toString() {
         return String.valueOf(Request.MOVE);
     }
-
+    
 }

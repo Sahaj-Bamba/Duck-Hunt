@@ -258,7 +258,7 @@ public class HandleClient implements Runnable{
 					removeMember((RemoveMember)obj);
 					return;
 				}else if (obj.toString().equals(String.valueOf(Request.MOVE))){
-					GameGlobalVariables.getInstance().getGAMER().makeMove(groupName,(Move) obj);
+					GameGlobalVariables.getInstance().getGAMER().makeMove(groupName,clientName,(Move) obj);
 				}else if (obj.toString().equals(String.valueOf(Request.GAMEOVER))){
 					GameGlobalVariables.getInstance().getGAMER().remove_client(groupName,clientName);
 					return;

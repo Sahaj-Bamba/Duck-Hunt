@@ -140,7 +140,7 @@ public abstract class NewDuck {
 		EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent e) {
-				GameGlobalVariables.getInstance().updateScore(hit(e.getX(),e.getY(),GameGlobalVariables.getInstance().getActiveGun().shot()));
+				GameGlobalVariables.getInstance().updateScore(shot(GameGlobalVariables.getInstance().getActiveGun().shot()));
 			}
 		};
 		//Adding event Filter
@@ -155,7 +155,32 @@ public abstract class NewDuck {
 		this.sequentialTransition.play();
 	}
 	
-	public long shot(int damage){
+	private long shot(int damage){
+		if (GameGlobalVariables.getInstance().isOnline()){
+			GameGlobalVariables.getInstance().getGamer().sendMessage(new Move(number,damage,MoveType.Damage));
+		}
+		hitPoints -= damage;
+		if (hitPoints<=0){
+			hitPoints=0;
+		}
+		imageView.setImage(image[hitPoints]);
+		if (hitPoints==0){
+			sequentialTransition.stop();
+			endTransition.play();
+			Glow glow = new Glow();
+			glow.setLevel(0.8);
+			imageView.setEffect(glow);
+			isAlive = false;
+			score = score - ((new Date().getTime() ) - entryDate );
+			if (score<0){
+				score = 0;
+			}
+			return score;
+		}
+		return 0;
+	}
+	
+	public long shotext(int damage){
 		hitPoints -= damage;
 		if (hitPoints<=0){
 			hitPoints=0;

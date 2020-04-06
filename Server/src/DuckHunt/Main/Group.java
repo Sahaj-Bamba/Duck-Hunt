@@ -4,8 +4,9 @@ package DuckHunt.Main;
  * @author Sahaj
  */
 
-import DuckHunt.Request.GameOver;
-import DuckHunt.Request.Move;
+import DuckHunt.Constant.MessageType;
+import DuckHunt.Constant.MoveType;
+import DuckHunt.Request.*;
 
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
@@ -163,23 +164,54 @@ public class Group {
 	}
 	
 	public void startGame(int size) {
-		game = new Game(size);
+		game = new Game(size,getClientList());
 	}
 	
-//	public void makeMove(Move move){
+	public void makeMove(Move move,String clientName){
+		game.makeMove(move,clientName);
+		if (move.getMoveType().equals(MoveType.Left)){
+		
+		}else if (move.getMoveType().equals(MoveType.Damage)){
+			
+			Iterator client = clients.entrySet().iterator();
+			while (client.hasNext()){
+				Map.Entry g = (Map.Entry)client.next();
+				if (((String)g.getKey()).equals(clientName)){
+				
+				}else{
+					send_message(move,clientName);
+				}
+			}
+			
+		}
+		if (game.getMessage().equals("")){
+		
+		}else{
+			send_message(new Message("Refree","",game.getMessage(), MessageType.UserToGroup));
+			game.setMessage("");
+			send_message(new ScoreBoard(game.getScore()));
+		}
+		
+		if (game.checkOver()){
+			send_message(new NewRound());
+			game.newRound();
+		}
+		send_message(game.getGameState());
+		
 //		if(game.makeMove(move)){
 //			send_message(new GameOver(game.getWinner()));
 //			return;
 //		}
-////		send_message(game.getGameState());
-////		for (int i = 0; i < 3; i++) {
-////			for (int j = 0; j < 3; j++) {
-////				System.out.println(game.getGameState().getHColor(i, j));
-////			}
-////		}
+//		send_message(game.getGameState());
+//		for (int i = 0; i < 3; i++) {
+//			for (int j = 0; j < 3; j++) {
+//				System.out.println(game.getGameState().getHColor(i, j));
+//			}
+//		}
 //		send_message(move);
-//	}
-//
+
+	}
+
 	
 	private void onlyOnePlayerInGame() {
 		send_message(new GameOver(getClientList()[0],"Others have forfeited the game"));

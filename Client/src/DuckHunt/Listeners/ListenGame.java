@@ -32,10 +32,28 @@ public class ListenGame implements Runnable{
 				removeMember((RemoveMember)obj);
 			}else if (obj.toString().equals(String.valueOf(Request.GAMEOVER))){
 				gameOver((GameOver)obj);
+			}else if (obj.toString().equals(String.valueOf(Request.MOVE))){
+				makeMove((Move)obj);
+			}else if (obj.toString().equals(String.valueOf(Request.SCORE))){
+				updateScore((ScoreBoard)obj);
+			}else if (obj.toString().equals(String.valueOf(Request.NEWROUND))){
+				newRound();
 			}
 			
 		}
 		
+	}
+	
+	private void newRound() {
+		onlineGame.newRound();
+	}
+	
+	private void updateScore(ScoreBoard obj) {
+		onlineGame.updateScore(obj);
+	}
+	
+	private void makeMove(Move obj) {
+		onlineGame.makeMove(obj);
 	}
 	
 	private void gameOver(GameOver obj) {

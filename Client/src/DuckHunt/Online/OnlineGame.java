@@ -214,6 +214,21 @@ public class OnlineGame extends GridPane {
 	public void provoke() {
 		player[opponentIndex].provoke();
 	}
+	
+	public void makeMove(Move obj) {
+		ducks[obj.getDuckNumber()].shotext(obj.getDamage());
+	}
+	
+	public void updateScore(ScoreBoard obj) {
+		int[] score = obj.getScore();
+		for (int i = 0; i < 2; i++) {
+			player[i].setScore(score[i]);
+		}
+	}
+	
+	public void newRound() {
+		roundStart();
+	}
 
 
 //	public void checkOver() {
