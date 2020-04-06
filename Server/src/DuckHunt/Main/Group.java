@@ -196,7 +196,16 @@ public class Group {
 			send_message(new NewRound());
 			game.newRound();
 		}
-		send_message(game.getGameState());
+		
+		if (game.isOver()){
+			
+			@// TODO: 4/6/2020 OVER TASK 
+			
+		}else{
+			send_message(game.getGameState());
+		}
+		
+		
 		
 //		if(game.makeMove(move)){
 //			send_message(new GameOver(game.getWinner()));
