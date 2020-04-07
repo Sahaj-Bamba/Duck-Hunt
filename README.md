@@ -22,8 +22,10 @@ There is also a chat feature in the game and during room waiting plus a video ca
 * Online Multiplayer
 * Single player practice mode
 * Game Rooms 
-* Video Call
 * Chatting
+
+# Currently working on
+* Video Call
 
 
 # Features for next release
