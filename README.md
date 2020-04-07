@@ -41,4 +41,5 @@ There is also a chat feature in the game and during room waiting plus a video ca
 
 # Releases
 [Windows](https://sahajbamba.me/Files/Duck-Hunt.exe)
+<br>
 [Basic Jar for Linuix](https://sahajbamba.me/Files/Duck-Hunt.jar)
