@@ -2,7 +2,7 @@
 A global multiplayer online Duck Hunt game
 
 # Techstack 
- * Java 11
+ * Java 8
  * Intellij 
  * Sockets
  * Native java drawing
