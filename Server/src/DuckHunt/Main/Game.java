@@ -21,9 +21,9 @@ public class Game {
 		this.players = players;
 		score = new int[2];
 		score[0]=0;
-		score[1]=1;
+		score[1]=0;
 		this.numberOfRounds = size;
-		this.roundNumber = -1;
+		this.roundNumber = 0;
 		over = false;
 		newRound();
 	}
@@ -90,6 +90,7 @@ public class Game {
 	}
 	
 	public int[] getScore() {
+		System.out.println(score[0]+" "+score[1]);
 		return score;
 	}
 }

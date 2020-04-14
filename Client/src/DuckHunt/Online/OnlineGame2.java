@@ -208,6 +208,7 @@ public class OnlineGame2 extends Group {
 	
 	public void roundStart(GameState gameState) {
 		
+		roundNumber++;
 		generalText.setText("Round " + roundNumber + " beginning.");
 		int numberOfDucks = roundNumber / 2 + 2;
 		int numOfTrips = 20;
@@ -221,7 +222,12 @@ public class OnlineGame2 extends Group {
 	}
 	
 	public void gotMessage(String s) {
-		generalText.setText(s);
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				generalText.setText(s);
+			}
+		});
 	}
 	
 	public void gameOver(GameOver obj) {
@@ -236,7 +242,12 @@ public class OnlineGame2 extends Group {
 	}
 	
 	public void makeMove(Move obj) {
-		ducks[obj.getDuckNumber()].shotext(obj.getDamage());
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				ducks[obj.getDuckNumber()].shotext(obj.getDamage());
+			}
+		});
 	}
 	
 	public void updateScore(ScoreBoard obj) {
