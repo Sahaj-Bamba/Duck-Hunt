@@ -179,7 +179,7 @@ public class Group {
 				if (((String)g.getKey()).equals(clientName)){
 				
 				}else{
-					send_message(move,clientName);
+					((Client)g.getValue()).send_message(move);
 				}
 			}
 			
@@ -195,6 +195,7 @@ public class Group {
 		if (game.checkOver()){
 			send_message(new NewRound());
 			game.newRound();
+			send_message(game.getGameState());
 		}
 		
 		if (game.isOver()){
@@ -202,7 +203,7 @@ public class Group {
 			// @TODO: 4/6/2020 OVER TASK
 			
 		}else{
-			send_message(game.getGameState());
+//			send_message(game.getGameState());
 		}
 		
 		

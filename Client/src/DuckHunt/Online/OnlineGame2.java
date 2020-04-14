@@ -207,8 +207,8 @@ public class OnlineGame2 extends Group {
 	
 	
 	public void roundStart(GameState gameState) {
-		generalText.setText("Round " + roundNumber + " beginning.");
 		
+		generalText.setText("Round " + roundNumber + " beginning.");
 		int numberOfDucks = roundNumber / 2 + 2;
 		int numOfTrips = 20;
 		ducks = new BasicDuck[numberOfDucks];
@@ -231,6 +231,7 @@ public class OnlineGame2 extends Group {
 	}
 	
 	public void provoke() {
+		System.out.println("You have been provoked by your opponent.");
 		player[opponentIndex].provoke();
 	}
 	
@@ -246,11 +247,9 @@ public class OnlineGame2 extends Group {
 	}
 	
 	public void newRound(GameState gameState) {
-		System.out.println("hiiiiiiiiiiii");;
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
-				System.out.println("innnnnnnnnnnnnrunnnnnnnnnnnn");
 				roundStart(gameState);
 			}
 		});
