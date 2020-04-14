@@ -9,6 +9,7 @@ import DuckHunt.Constant.MoveType;
 import DuckHunt.Request.*;
 
 import java.io.ObjectOutputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -195,6 +196,8 @@ public class Group {
 		if (game.checkOver()){
 			send_message(new NewRound());
 			game.newRound();
+			Date date = new Date();
+			while( (new Date().getTime() - date.getTime()) < 500);
 			send_message(game.getGameState());
 		}
 		

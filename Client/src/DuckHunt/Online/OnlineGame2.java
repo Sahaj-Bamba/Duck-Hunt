@@ -251,10 +251,17 @@ public class OnlineGame2 extends Group {
 	}
 	
 	public void updateScore(ScoreBoard obj) {
-		int[] score = obj.getScore();
-		for (int i = 0; i < 2; i++) {
-			player[i].setScore(score[i]);
-		}
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				int[] score = obj.getScore();
+				for (int i = 0; i < 2; i++) {
+					player[i].setScore(score[i]);
+					System.out.println(score[i]);
+				}
+			}
+		});
+		
 	}
 	
 	public void newRound(GameState gameState) {
