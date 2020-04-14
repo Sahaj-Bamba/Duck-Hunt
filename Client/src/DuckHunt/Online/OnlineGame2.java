@@ -62,14 +62,14 @@ public class OnlineGame2 extends Group {
 		container.setLayoutX(0);
 		container.setLayoutY(0);
 		
-		container.getColumnConstraints().addAll(new ColumnConstraints(900),new ColumnConstraints(400),new ColumnConstraints(200));
+		container.getColumnConstraints().addAll(new ColumnConstraints(200),new ColumnConstraints(700),new ColumnConstraints(400),new ColumnConstraints(200));
 		container.getRowConstraints().addAll(new RowConstraints(100));
 		
 		generalText = textCreater("");
 		message = new JFXTextField();
 		message.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.REGULAR, 18));
 		
-		container.addRow(0,generalText,message,buttonCreater("Send"));
+		container.addRow(0,textCreater(""),generalText,message,buttonCreater("Send"));
 		
 		getChildren().add(container);
 		
