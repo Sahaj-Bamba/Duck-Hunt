@@ -1,5 +1,6 @@
 package DuckHunt.Online;
 
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
@@ -29,9 +30,10 @@ public class Player extends GridPane {
 		setPrefSize(420,490);
 		setPadding(new Insets(10));
 		getColumnConstraints().addAll(new ColumnConstraints(420));
-		getRowConstraints().addAll(new RowConstraints(420),new RowConstraints(70));
+		getRowConstraints().addAll(new RowConstraints(420),new RowConstraints(50));
 		
 		score = new Text("0");
+		setHalignment(score, HPos.CENTER);
 		scr = 0;
 		score.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
 		
