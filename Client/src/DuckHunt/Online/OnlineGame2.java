@@ -6,10 +6,12 @@ import DuckHunt.GameObjects.Ducks.BasicDuck;
 import DuckHunt.GameObjects.Ducks.NewDuck;
 import DuckHunt.GameObjects.Guns.Sniper;
 import DuckHunt.Global.GameGlobalVariables;
+import DuckHunt.Listeners.ListenGame;
 import DuckHunt.Request.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -33,9 +35,10 @@ public class OnlineGame2 extends Group {
 	private NewDuck[] ducks;                //  Ducks list
 	private Thread listen;
 	private int opponentIndex;
+	private boolean makeRountStart;
 	
 	public OnlineGame2() {
-		
+		makeRountStart=false;
 		GameGlobalVariables.getInstance().setActiveGun(new Sniper());
 		GameGlobalVariables.getInstance().setOnline(true);
 		roundNumber = 0;
@@ -126,8 +129,8 @@ public class OnlineGame2 extends Group {
 		
 		init();
 		
-		roundStart();
-		
+		listen = new Thread(new ListenGame(this));
+		listen.start();
  	}
 	
 	public void lostPlayer(String name) {
@@ -201,12 +204,11 @@ public class OnlineGame2 extends Group {
 	}
 	
 	
-	public void roundStart() {
+	public void roundStart(GameState gameState) {
 		generalText.setText("Round " + roundNumber + " beginning.");
 		
 		int numberOfDucks = roundNumber / 2 + 2;
 		int numOfTrips = 20;
-		GameState gameState = (GameState) GameGlobalVariables.getInstance().getGamer().receiveMessage();
 		ducks = new BasicDuck[numberOfDucks];
 		for (int i = 0; i < numberOfDucks; i++) {
 			ducks[i] = new BasicDuck(gameState.getX(i), gameState.getY(i), numOfTrips, false, roundNumber,i);
@@ -241,8 +243,15 @@ public class OnlineGame2 extends Group {
 		}
 	}
 	
-	public void newRound() {
-		roundStart();
+	public void newRound(GameState gameState) {
+		System.out.println("hiiiiiiiiiiii");;
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("innnnnnnnnnnnnrunnnnnnnnnnnn");
+				roundStart(gameState);
+			}
+		});
 	}
 
 

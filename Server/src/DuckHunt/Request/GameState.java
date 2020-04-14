@@ -1,6 +1,8 @@
 package DuckHunt.Request;
 
 
+import DuckHunt.Constant.Request;
+
 import java.io.Serializable;
 
 public class GameState implements Serializable {
@@ -30,4 +32,8 @@ public class GameState implements Serializable {
 		return Y[num];
 	}
 	
+	@Override
+	public String toString() {
+		return String.valueOf(Request.GAMESTATE);
+	}
 }

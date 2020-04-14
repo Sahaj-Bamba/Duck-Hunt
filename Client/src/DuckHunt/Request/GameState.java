@@ -1,5 +1,6 @@
 package DuckHunt.Request;
 
+import DuckHunt.Constant.Request;
 import DuckHunt.Global.GameGlobalVariables;
 
 import java.io.Serializable;
@@ -19,7 +20,6 @@ public class GameState implements Serializable {
 			}
 			X[i][numOfTrips] = 1920 + Math.random()*(200);
 			Y[i][numOfTrips] = 1080 + Math.random()*(200);
-			
 		}
 	}
 	
@@ -29,6 +29,11 @@ public class GameState implements Serializable {
 	
 	public double[] getY(int num) {
 		return Y[num];
+	}
+	
+	@Override
+	public String toString() {
+		return String.valueOf(Request.GAMESTATE);
 	}
 	
 }

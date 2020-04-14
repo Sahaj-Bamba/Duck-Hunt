@@ -41,8 +41,10 @@ public class Player extends GridPane {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 		imageView = new ImageView(i1);
-	
+		imageView.setFitHeight(400);
+		imageView.setFitWidth(400);
 		add(imageView,0,0);
 		add(score,0,1);
 		

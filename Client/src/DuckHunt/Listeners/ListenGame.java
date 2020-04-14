@@ -5,6 +5,7 @@ import DuckHunt.Constant.Request;
 import DuckHunt.GUI.GroupView;
 import DuckHunt.Global.GameGlobalVariables;
 import DuckHunt.Online.OnlineGame;
+import DuckHunt.Online.OnlineGame2;
 import DuckHunt.Request.*;
 
 /**
@@ -13,9 +14,9 @@ import DuckHunt.Request.*;
  */
 public class ListenGame implements Runnable{
 	
-	private OnlineGame onlineGame;
+	private OnlineGame2 onlineGame;
 	
-	public ListenGame(OnlineGame onlineGame) {
+	public ListenGame(OnlineGame2 onlineGame) {
 		this.onlineGame = onlineGame;
 	}
 	
@@ -36,16 +37,18 @@ public class ListenGame implements Runnable{
 				makeMove((Move)obj);
 			}else if (obj.toString().equals(String.valueOf(Request.SCORE))){
 				updateScore((ScoreBoard)obj);
-			}else if (obj.toString().equals(String.valueOf(Request.NEWROUND))){
+			}/*else if (obj.toString().equals(String.valueOf(Request.NEWROUND))){
 				newRound();
+			}*/else if (obj.toString().equals(String.valueOf(Request.GAMESTATE))){
+				newRound((GameState) obj);
 			}
 			
 		}
 		
 	}
 	
-	private void newRound() {
-		onlineGame.newRound();
+	private void newRound(GameState gameState) {
+		onlineGame.newRound(gameState);
 	}
 	
 	private void updateScore(ScoreBoard obj) {
