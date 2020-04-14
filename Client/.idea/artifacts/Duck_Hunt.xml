@@ -21,8 +21,8 @@
     <root id="root">
       <element id="archive" name="Client.jar">
         <element id="module-output" name="Client" />
-        <element id="file-copy" path="$USER_HOME$/Downloads/jfoenix-8.0.8.jar" />
       </element>
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Software/jfoenix-8.0.8.jar" />
     </root>
   </artifact>
 </component>

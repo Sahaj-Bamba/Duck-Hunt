@@ -182,7 +182,6 @@ public class HandleClient implements Runnable{
 					return;
 				}else if (obj.toString().equals(String.valueOf(Request.STARTGAME))){
 					startGame((StartGame) obj);
-					
 				}else if (obj.toString().equals(String.valueOf(Request.MOVETOSTART))){
 					return;
 				}
@@ -271,6 +270,9 @@ public class HandleClient implements Runnable{
 		} catch (ClassNotFoundException e) {
 			System.out.println("Class not found during game play");
 			leftMember();
+		} catch (Exception e){
+			e.printStackTrace();
+//			System.out.println("Other Exception");
 		}
 		
 	}

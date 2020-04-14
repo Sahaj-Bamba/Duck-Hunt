@@ -81,7 +81,7 @@ public class OnlineGame extends GridPane {
 		
 		// Main game
 		
-		Group gameGroup = new Group();
+		gameGroup = new Group();
 		
 		Image i1 = null;
 		try {

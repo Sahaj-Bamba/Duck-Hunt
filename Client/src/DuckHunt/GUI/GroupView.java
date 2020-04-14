@@ -172,7 +172,7 @@ public class GroupView extends GridPane {
 	
 	public void startGame(int size) {
 		System.out.println("Start Game");
-		GameGlobalVariables.getInstance().getGamer().sendMessage(new MoveToStart());
+//		GameGlobalVariables.getInstance().getGamer().sendMessage(new MoveToStart());
 		Scene scene = this.getScene();
 		scene.setRoot(new OnlineGame());
 	}

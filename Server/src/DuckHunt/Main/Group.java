@@ -199,7 +199,7 @@ public class Group {
 		
 		if (game.isOver()){
 			
-			@// TODO: 4/6/2020 OVER TASK 
+			// @TODO: 4/6/2020 OVER TASK
 			
 		}else{
 			send_message(game.getGameState());
