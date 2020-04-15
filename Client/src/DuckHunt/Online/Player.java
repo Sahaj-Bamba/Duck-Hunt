@@ -22,8 +22,12 @@ public class Player extends GridPane {
 	private ImageView imageView;
 	private String name;
 	private int scr;
+	private WebCamService webCamService;
+	private boolean player;
 	
 	public Player(){
+		
+		player = false;
 		
 		setHgap(0);
 		setVgap(0);
@@ -50,6 +54,17 @@ public class Player extends GridPane {
 		add(imageView,0,0);
 		add(score,0,1);
 		
+	}
+	
+	public void setWebCamService(WebCamService webCamService) {
+		this.webCamService = webCamService;
+		imageView.imageProperty().unbind();
+		imageView.imageProperty().bind(webCamService.valueProperty());
+		webCamService.restart();
+	}
+	
+	public void setPlayer(boolean player) {
+		this.player = player;
 	}
 	
 	public int getScore() {

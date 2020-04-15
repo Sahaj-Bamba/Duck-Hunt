@@ -8,6 +8,7 @@ import DuckHunt.GameObjects.Guns.Sniper;
 import DuckHunt.Global.GameGlobalVariables;
 import DuckHunt.Listeners.ListenGame;
 import DuckHunt.Request.*;
+import com.github.sarxos.webcam.Webcam;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.FadeTransition;
@@ -37,8 +38,19 @@ public class OnlineGame2 extends Group {
 	private Thread listen;
 	private int opponentIndex;
 	private boolean makeRountStart;
+	private WebCamService service;
+
+//	public void init(){
+//
+//	}
 	
 	public OnlineGame2() {
+		
+		Webcam cam = Webcam.getWebcams().get(0);
+		service = new WebCamService(cam);
+		
+		
+		
 		makeRountStart=false;
 		GameGlobalVariables.getInstance().setActiveGun(new Sniper());
 		GameGlobalVariables.getInstance().setOnline(true);
@@ -138,7 +150,7 @@ public class OnlineGame2 extends Group {
 	public void lostPlayer(String name) {
 	
 	}
-	
+
 	private void init() {
 		setOpacity(0);
 		FadeTransition fadeTransition = new FadeTransition(Duration.millis(2000),this);
@@ -151,6 +163,8 @@ public class OnlineGame2 extends Group {
 		player[0].setName(players[0]);
 		player[1].setName(players[1]);
 		if (players[0].equals(GameGlobalVariables.getInstance().getGamer().getName())){
+			player[0].setPlayer(true);
+			player[0].setWebCamService(service);
 			opponentIndex = 1;
 		}else{
 			opponentIndex = 0;

@@ -10,7 +10,34 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Software/jfoenix-8.0.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Java Liberaries/jfoenix-8.0.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../Java Liberaries/webcam-capture-0.3.12-dist/webcam-capture-0.3.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../Java Liberaries/webcam-capture-0.3.12-dist/libs/bridj-0.7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../Java Liberaries/webcam-capture-0.3.12-dist/libs/slf4j-api-1.7.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

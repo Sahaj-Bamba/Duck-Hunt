@@ -9,6 +9,7 @@ import DuckHunt.Global.GameGlobalVariables;
 import DuckHunt.Main.Game;
 import DuckHunt.Main.GameCaller;
 import DuckHunt.Request.*;
+import com.github.sarxos.webcam.Webcam;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -41,6 +42,7 @@ public class OnlineGame extends GridPane {
 	private int opponentIndex;
 	
 	public OnlineGame() {
+		
 		
 		GameGlobalVariables.getInstance().setActiveGun(new Sniper());
 		GameGlobalVariables.getInstance().setOnline(true);
@@ -131,6 +133,7 @@ public class OnlineGame extends GridPane {
 		player[0].setName(players[0]);
 		player[1].setName(players[1]);
 		if (players[0].equals(GameGlobalVariables.getInstance().getGamer().getName())){
+			
 			opponentIndex = 1;
 		}else{
 			opponentIndex = 0;
