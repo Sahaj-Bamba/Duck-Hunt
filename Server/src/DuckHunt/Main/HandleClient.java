@@ -32,6 +32,7 @@ public class HandleClient implements Runnable{
 	 */
 	public HandleClient(Socket socket) {
 		this.socket = socket;
+		System.out.println(socket.getLocalAddress().toString());
 		try {
 			objectInputStream = new ObjectInputStream(socket.getInputStream());
 			objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
@@ -104,7 +105,7 @@ public class HandleClient implements Runnable{
 			return new Response(Responses.ERROR,"Group already exists.");
 		}
 		GameGlobalVariables.getInstance().getGAMER().add_group(groupDetails.get_group_name(),groupDetails.get_password(),groupDetails.get_client_name());
-		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream);
+		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream,socket.getInetAddress());
 		goBack = false;
 		System.out.println("Group Created");
 		return new Response(Responses.OK,"Group Created");
@@ -133,7 +134,7 @@ public class HandleClient implements Runnable{
 			return new Response(Responses.ERROR,"A gamer with that name already exist .");
 		}
 		
-		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream);
+		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream, socket.getInetAddress());
 		goBack = false;
 		return new Response(Responses.OK,"Group Joined");
 	}
@@ -150,7 +151,7 @@ public class HandleClient implements Runnable{
 			return new Response(Responses.ERROR,"There are currently no free groups available. You can create your own though.");
 		}
 		
-		GameGlobalVariables.getInstance().getGAMER().add_client(grp,groupDetails.get_client_name(),this.objectOutputStream);
+		GameGlobalVariables.getInstance().getGAMER().add_client(grp,groupDetails.get_client_name(),this.objectOutputStream,socket.getInetAddress());
 		groupName = grp;
 		goBack = false;
 		return new Response(Responses.OK,grp);

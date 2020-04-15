@@ -7,6 +7,7 @@ package DuckHunt.Main;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
 
 /**
@@ -16,15 +17,16 @@ import java.net.Socket;
 public class Client {
 
 	private String name;
-	private Socket socket;
 	private ObjectOutputStream objectOutputStream;
+	private InetAddress inetAddress;
 	
 	/**
 	 * Create an instance of the Client
 	 * @param name The name of the Client. Be sure that 2 clients do not have same name.
 	 * @param objectOutputStream The output stream used for writing objects.
 	 */
-	public Client(String name, ObjectOutputStream objectOutputStream){
+	public Client(String name, ObjectOutputStream objectOutputStream, InetAddress inetAddress){
+		this.inetAddress = inetAddress;
 		this.name = name;
 		this.objectOutputStream = objectOutputStream;
 		try {
@@ -59,6 +61,10 @@ public class Client {
 	 */
 	public String getName(){
 		return this.name;
+	}
+	
+	public InetAddress getInetAddress() {
+		return inetAddress;
 	}
 	
 }

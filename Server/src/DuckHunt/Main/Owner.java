@@ -10,6 +10,7 @@ import DuckHunt.Other.GameGlobalVariables;
 import DuckHunt.Request.Move;
 
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -102,8 +103,8 @@ public class Owner {
 	 * @param clientName The name of client
 	 * @param objectOutputStream The object output stream of client
 	 */
-	public void add_client(String groupName, String clientName, ObjectOutputStream objectOutputStream){
-		groups.get(groupName).add_client(clientName,objectOutputStream);
+	public void add_client(String groupName, String clientName, ObjectOutputStream objectOutputStream, InetAddress inetAddress){
+		groups.get(groupName).add_client(clientName,objectOutputStream,inetAddress);
 	}
 	
 	/**

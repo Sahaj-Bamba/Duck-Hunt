@@ -9,6 +9,7 @@ import DuckHunt.Constant.MoveType;
 import DuckHunt.Request.*;
 
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -66,8 +67,8 @@ public class Group {
 	 * @param name the name of the client
 	 * @param objectOutputStream the object output stream of the client
 	 */
-	public void add_client(String name, ObjectOutputStream objectOutputStream){
-		clients.put(name, new Client(name,objectOutputStream));
+	public void add_client(String name, ObjectOutputStream objectOutputStream, InetAddress inetAddress){
+		clients.put(name, new Client(name,objectOutputStream,inetAddress));
 	}
 	
 	/**

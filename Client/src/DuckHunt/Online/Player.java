@@ -1,5 +1,8 @@
 package DuckHunt.Online;
 
+import DuckHunt.Request.GameState;
+import DuckHunt.Request.NewRound;
+import javafx.concurrent.Service;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
@@ -22,7 +25,7 @@ public class Player extends GridPane {
 	private ImageView imageView;
 	private String name;
 	private int scr;
-	private WebCamService webCamService;
+	private Service webCamService;
 	private boolean player;
 	
 	public Player(){
@@ -53,7 +56,6 @@ public class Player extends GridPane {
 		imageView.setFitWidth(400);
 		add(imageView,0,0);
 		add(score,0,1);
-		
 	}
 	
 	public void setWebCamService(WebCamService webCamService) {
