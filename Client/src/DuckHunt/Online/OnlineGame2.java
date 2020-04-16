@@ -39,6 +39,7 @@ public class OnlineGame2 extends Group {
 	private int opponentIndex;
 	private boolean makeRountStart;
 	private WebCamService service;
+	private SocketCamService socketCamService;
 
 //	public void init(){
 //
@@ -46,8 +47,6 @@ public class OnlineGame2 extends Group {
 	
 	public OnlineGame2() {
 		
-		Webcam cam = Webcam.getWebcams().get(0);
-		service = new WebCamService(cam);
 		
 		
 		
@@ -162,11 +161,19 @@ public class OnlineGame2 extends Group {
 		String[] players = groupList.getClients();
 		player[0].setName(players[0]);
 		player[1].setName(players[1]);
+		
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new OpponentAddress(""));
+		String oppadd = ( (OpponentAddress) (GameGlobalVariables.getInstance().getGamer().receiveMessage())).getAddress();
+		Webcam cam = Webcam.getWebcams().get(0);
+		service = new WebCamService(cam,oppadd);
+		socketCamService = new SocketCamService();
+		
 		if (players[0].equals(GameGlobalVariables.getInstance().getGamer().getName())){
 			player[0].setPlayer(true);
 			player[0].setWebCamService(service);
 			opponentIndex = 1;
 		}else{
+			player[0].setWebCamService(socketCamService);
 			opponentIndex = 0;
 		}
 	}

@@ -25,7 +25,7 @@ public class Player extends GridPane {
 	private ImageView imageView;
 	private String name;
 	private int scr;
-	private Service webCamService;
+	private Service<Image> webCamService;
 	private boolean player;
 	
 	public Player(){
@@ -58,7 +58,7 @@ public class Player extends GridPane {
 		add(score,0,1);
 	}
 	
-	public void setWebCamService(WebCamService webCamService) {
+	public void setWebCamService(Service<Image> webCamService) {
 		this.webCamService = webCamService;
 		imageView.imageProperty().unbind();
 		imageView.imageProperty().bind(webCamService.valueProperty());

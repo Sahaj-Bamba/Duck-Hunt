@@ -236,6 +236,20 @@ public class Group {
 		send_message(game.getGameState(),client);
 	}
 	
+	public String getOpponentAddress(String clientName) {
+		String st="";
+		Iterator client = clients.entrySet().iterator();
+		while (client.hasNext()){
+			Map.Entry g = (Map.Entry)client.next();
+			if( ((String)g.getKey()).equals(clientName)){
+			
+			}else{
+				return ((Client)(g.getValue())).getInetAddress().toString();
+			}
+		}
+		return x;
+	}
+	
 }
 
 

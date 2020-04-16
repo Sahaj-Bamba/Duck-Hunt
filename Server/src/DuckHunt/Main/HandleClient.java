@@ -248,6 +248,9 @@ public class HandleClient implements Runnable{
 			GroupList groupList = (GroupList) objectInputStream.readObject();
 			objectOutputStream.writeObject(new GroupList(GameGlobalVariables.getInstance().getGAMER().getClientList(groupList.getGroupName())));
 			objectOutputStream.flush();
+			OpponentAddress opponentAddress = (OpponentAddress) objectInputStream.readObject();
+			objectOutputStream.writeObject(new OpponentAddress(GameGlobalVariables.getInstance().getGAMER().getOpponentAddress(groupName,clientName)));
+			objectOutputStream.flush();
 			GameGlobalVariables.getInstance().getGAMER().send_message(new NewRound(),groupName,clientName);
 //			wait(100);
 			GameGlobalVariables.getInstance().getGAMER().sendState(groupName,clientName);

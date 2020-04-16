@@ -24,6 +24,8 @@ public enum Request {
 	
 	SCORE ("16"),
 	NEWROUND("17"),
+	OPPONENTADDRESS("18"),
+	OPPONENTCAMERAFEED("19"),
 	;
 	
 	

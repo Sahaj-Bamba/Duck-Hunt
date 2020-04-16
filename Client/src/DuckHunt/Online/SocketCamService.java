@@ -1,5 +1,7 @@
 package DuckHunt.Online;
 
+import DuckHunt.Global.GameGlobalVariables;
+import DuckHunt.Request.OpponentCameraFeed;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 import javafx.concurrent.Service;
@@ -9,22 +11,26 @@ import javafx.scene.image.Image;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
 
 public class SocketCamService extends Service<Image> {
 	
-	private final Webcam cam ;
+	private DatagramSocket dSock;
 	
-	private final WebcamResolution resolution ;
-	
-	public SocketCamService(Webcam cam, WebcamResolution resolution) {
-		this.cam = cam ;
-		this.resolution = resolution;
-		cam.setCustomViewSizes(new Dimension[] {resolution.getSize()});
-		cam.setViewSize(resolution.getSize());
-	}
-	
-	public SocketCamService(Webcam cam) {
-		this(cam, WebcamResolution.QVGA);
+	public SocketCamService() {
+		
+		try {
+			dSock = new DatagramSocket(GameGlobalVariables.getInstance().getPort()+1);
+		} catch (SocketException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	@Override
@@ -34,33 +40,38 @@ public class SocketCamService extends Service<Image> {
 			protected Image call() throws Exception {
 				
 				try {
-					cam.open();
 					while (!isCancelled()) {
-						if (cam.isImageNew()) {
-							BufferedImage bimg = cam.getImage();
+							BufferedImage bimg = getImage();
 							
 							updateValue(SwingFXUtils.toFXImage(bimg, null));
-						}
+						
 					}
 					System.out.println("Cancelled, closing cam");
-					cam.close();
 					System.out.println("Cam closed");
 					return getValue();
 				} finally {
-					cam.close();
+				
 				}
 			}
 			
 		};
 	}
 	
-	
-	public int getCamWidth() {
-		return resolution.getSize().width ;
+	private BufferedImage getImage(){
+		try {
+			byte[] recvBuf = new byte[5000];
+			DatagramPacket packet = new DatagramPacket(recvBuf, recvBuf.length);
+			dSock.receive(packet);
+			int byteCount = packet.getLength();
+			ByteArrayInputStream byteStream = new ByteArrayInputStream(recvBuf);
+			ObjectInputStream is = new ObjectInputStream(new BufferedInputStream(byteStream));
+			Object o = is.readObject();
+			is.close();
+			return ((OpponentCameraFeed)o).getBufferedImage();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
-	
-	public int getCamHeight() {
-		return resolution.getSize().height ;
-	}
-	
+
 }
