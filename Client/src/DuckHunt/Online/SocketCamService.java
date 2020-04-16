@@ -9,6 +9,7 @@ import javafx.concurrent.Task;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
@@ -26,7 +27,7 @@ public class SocketCamService extends Service<Image> {
 	public SocketCamService() {
 		
 		try {
-			dSock = new DatagramSocket(GameGlobalVariables.getInstance().getPort()+1);
+			dSock = new DatagramSocket(GameGlobalVariables.getInstance().getPort()+2);
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}
@@ -50,7 +51,7 @@ public class SocketCamService extends Service<Image> {
 					System.out.println("Cam closed");
 					return getValue();
 				} finally {
-				
+					dSock.close();
 				}
 			}
 			
@@ -65,9 +66,11 @@ public class SocketCamService extends Service<Image> {
 			int byteCount = packet.getLength();
 			ByteArrayInputStream byteStream = new ByteArrayInputStream(recvBuf);
 			ObjectInputStream is = new ObjectInputStream(new BufferedInputStream(byteStream));
-			Object o = is.readObject();
-			is.close();
-			return ((OpponentCameraFeed)o).getBufferedImage();
+			return ImageIO.read(ImageIO.createImageOutputStream(is.readObject()));
+//			Object o = is.readObject();
+//			is.close();
+
+//			return ((OpponentCameraFeed)o).getBufferedImage();
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}

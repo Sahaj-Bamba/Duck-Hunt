@@ -9,6 +9,7 @@ import javafx.concurrent.Task;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
@@ -39,7 +40,7 @@ public class WebCamService extends Service<Image> {
 		
 		try {
 			dSock = new DatagramSocket();
-			address = InetAddress.getByName(opponentAdd);
+			address = InetAddress.getByName("127.0.0.1");
 			byteStream = new ByteArrayOutputStream(5000);
 			objectOutputStream= new ObjectOutputStream(new BufferedOutputStream(byteStream));
 		} catch (UnknownHostException e) {
@@ -93,10 +94,11 @@ public class WebCamService extends Service<Image> {
 	private void sendImage(BufferedImage bufferedImage){
 		try {
 			objectOutputStream.flush();
-			objectOutputStream.writeObject(new OpponentCameraFeed(bufferedImage));
+//			objectOutputStream.writeObject(new OpponentCameraFeed(bufferedImage));
+			ImageIO.write(bufferedImage, "png", objectOutputStream);
 			objectOutputStream.flush();
 			byte[] sendBuf = byteStream.toByteArray();
-			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, GameGlobalVariables.getInstance().getPort()+1);
+			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, GameGlobalVariables.getInstance().getPort()+2);
 			dSock.send(packet);
 		} catch (IOException e) {
 			e.printStackTrace();

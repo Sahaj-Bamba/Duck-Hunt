@@ -247,7 +247,7 @@ public class Group {
 				return ((Client)(g.getValue())).getInetAddress().toString();
 			}
 		}
-		return x;
+		return st;
 	}
 	
 }
