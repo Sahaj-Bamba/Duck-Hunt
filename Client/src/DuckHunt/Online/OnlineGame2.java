@@ -231,9 +231,11 @@ public class OnlineGame2 extends Group {
 	public void roundStart(GameState gameState) {
 		roundNumber++;
 		generalText.setText("Round " + roundNumber + " beginning.");
-		Date date = new Date();
-		while( (new Date().getTime() - date.getTime()) < 3000);
+//		Date date = new Date();
+//		while( (new Date().getTime() - date.getTime()) < 3000);
+		if (ducks!=null)
 		for (NewDuck d : ducks){
+			if (d!=null)
 			gameGroup.getChildren().remove(d.getImageView());
 		}
 		int numberOfDucks = roundNumber / 2 + 2;

@@ -5,8 +5,10 @@
  */
 package DuckHunt.Request;
 
+import DuckHunt.Constant.LineType;
+import DuckHunt.Constant.MoveType;
 import DuckHunt.Constant.Request;
-
+import java.awt.Point;
 import java.io.Serializable;
 
 /**
@@ -21,8 +23,16 @@ public class ScoreBoard implements Serializable{
 		this.score = score;
 	}
 	
+	public ScoreBoard() {
+	
+	}
+	
 	public int[] getScore() {
 		return score;
+	}
+	
+	public void setScore(int[] score) {
+		this.score = score;
 	}
 	
 	@Override

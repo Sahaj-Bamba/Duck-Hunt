@@ -23,8 +23,16 @@ public class ScoreBoard implements Serializable{
 		this.score = score;
 	}
 	
+	public ScoreBoard() {
+	
+	}
+	
 	public int[] getScore() {
 		return score;
+	}
+	
+	public void setScore(int[] score) {
+		this.score = score;
 	}
 	
 	@Override

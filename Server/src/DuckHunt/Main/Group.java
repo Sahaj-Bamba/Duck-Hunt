@@ -191,7 +191,9 @@ public class Group {
 		}else{
 			send_message(new Message("Refree","",game.getMessage(), MessageType.UserToGroup));
 			game.setMessage("");
-			send_message(new ScoreBoard(game.getScore()));
+			ScoreBoard s = new ScoreBoard();
+			s.setScore(game.getScore());
+			send_message(s);
 		}
 		
 		if (game.checkOver()){
