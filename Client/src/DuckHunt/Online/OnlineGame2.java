@@ -26,6 +26,7 @@ import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Date;
 
 public class OnlineGame2 extends Group {
 	
@@ -228,9 +229,13 @@ public class OnlineGame2 extends Group {
 	
 	
 	public void roundStart(GameState gameState) {
-		
 		roundNumber++;
 		generalText.setText("Round " + roundNumber + " beginning.");
+		Date date = new Date();
+		while( (new Date().getTime() - date.getTime()) < 3000);
+		for (NewDuck d : ducks){
+			gameGroup.getChildren().remove(d.getImageView());
+		}
 		int numberOfDucks = roundNumber / 2 + 2;
 		int numOfTrips = 20;
 		ducks = new BasicDuck[numberOfDucks];

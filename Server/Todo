@@ -3,8 +3,8 @@
 
         Basic Main Game working need to work on
 
-        Ducks spawn location
-        Ducks ending removal
+        Ducks spawn location                                done
+        Ducks ending removal                                done
         Score update not working
 
         Game Over
@@ -12,7 +12,7 @@
 
 
 
-        Camera feed
+        Camera feed                                         tried, now need multi test
             (Video Call)
         Audio Call
 
