@@ -27,7 +27,7 @@ public class SocketCamService extends Service<Image> {
 	public SocketCamService() {
 		
 		try {
-			dSock = new DatagramSocket(GameGlobalVariables.getInstance().getPort()+2);
+			dSock = new DatagramSocket(GameGlobalVariables.getInstance().getPort()+1);
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}
@@ -60,13 +60,14 @@ public class SocketCamService extends Service<Image> {
 	
 	private BufferedImage getImage(){
 		try {
-			byte[] recvBuf = new byte[5000];
+			byte[] recvBuf = new byte[100000];
 			DatagramPacket packet = new DatagramPacket(recvBuf, recvBuf.length);
 			dSock.receive(packet);
-			int byteCount = packet.getLength();
 			ByteArrayInputStream byteStream = new ByteArrayInputStream(recvBuf);
-			ObjectInputStream is = new ObjectInputStream(new BufferedInputStream(byteStream));
-			return ImageIO.read(ImageIO.createImageOutputStream(is.readObject()));
+			ObjectInputStream is = new ObjectInputStream(byteStream);
+			OpponentCameraFeed obj = (OpponentCameraFeed) is.readObject();
+			ByteArrayInputStream bais = new ByteArrayInputStream(obj.getImageData());
+			return ImageIO.read(bais);
 //			Object o = is.readObject();
 //			is.close();
 

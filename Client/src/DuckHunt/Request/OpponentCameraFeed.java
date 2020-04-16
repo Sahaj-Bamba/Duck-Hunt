@@ -16,14 +16,14 @@ import java.io.Serializable;
  */
 public class OpponentCameraFeed implements Serializable{
     
-    private BufferedImage bufferedImage;
+    private byte[] imageData;
     
-    public OpponentCameraFeed(BufferedImage bufferedImage) {
-        this.bufferedImage = bufferedImage;
+    public OpponentCameraFeed(byte[] imageData) {
+        this.imageData = imageData;
     }
     
-    public BufferedImage getBufferedImage() {
-        return bufferedImage;
+    public byte[] getImageData() {
+        return imageData;
     }
     
     @Override

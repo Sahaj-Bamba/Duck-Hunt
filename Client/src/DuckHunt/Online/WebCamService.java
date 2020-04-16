@@ -28,8 +28,6 @@ public class WebCamService extends Service<Image> {
 	private final WebcamResolution resolution ;
 	private InetAddress address;
 	private DatagramSocket dSock;
-	private ObjectOutputStream objectOutputStream;
-	private ByteArrayOutputStream byteStream;
 	
 	public WebCamService(Webcam cam, String opponentAdd, WebcamResolution resolution) {
 		this.cam = cam;
@@ -40,9 +38,7 @@ public class WebCamService extends Service<Image> {
 		
 		try {
 			dSock = new DatagramSocket();
-			address = InetAddress.getByName("127.0.0.1");
-			byteStream = new ByteArrayOutputStream(5000);
-			objectOutputStream= new ObjectOutputStream(new BufferedOutputStream(byteStream));
+			address = InetAddress.getByName(opponentAdd.substring(1));
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -93,12 +89,13 @@ public class WebCamService extends Service<Image> {
 	
 	private void sendImage(BufferedImage bufferedImage){
 		try {
-			objectOutputStream.flush();
-//			objectOutputStream.writeObject(new OpponentCameraFeed(bufferedImage));
-			ImageIO.write(bufferedImage, "png", objectOutputStream);
-			objectOutputStream.flush();
-			byte[] sendBuf = byteStream.toByteArray();
-			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, GameGlobalVariables.getInstance().getPort()+2);
+			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(100000);
+			ImageIO.write(bufferedImage,"png",byteArrayOutputStream);
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(bos);
+			objectOutputStream.writeObject(new OpponentCameraFeed(byteArrayOutputStream.toByteArray()));
+			byte[] sendBuf = bos.toByteArray();
+			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, GameGlobalVariables.getInstance().getPort()+1);
 			dSock.send(packet);
 		} catch (IOException e) {
 			e.printStackTrace();
