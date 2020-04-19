@@ -1,0 +1,8 @@
+
+	Technical Difficulties
+
+1) Responsivenes :- I designed the game on my laptop and i thought since it will run in locked full-screen mode only responsiveness won't be an issue but I forgot that different laptops have different resolutions even if same screen-size so to cope up with it I designed it to calculate a ratio based on my screen and user's screen and multiply all my hard number height and width with there respective ratio and boom. Everything was great. It even managed the speed position issue of bird in multiplayer mode.
+
+2) FX thread limitation :- They gave me a huge headache. I have almost given up on the project due to it. The problem is in java fx all the on screen change work needs to be done on the UI thread but I need to update stuff based on packet reception. To solve it I came across the concept of tasks and services in java which can let to add tasks in the UI thread run queue which will then be performed by the UI thread.
+
+3) Multiplayer Design :- This was another important stuff. Till now I had only created turn based multiplayer games which are easy since you kind of know when the packet will be received all humans take some time to make a turn. 
