@@ -258,7 +258,7 @@ public class Owner {
 		return ans;
 	}
 	
-	public String getOpponentAddress(String groupName, String clientName) {
+	public byte[] getOpponentAddress(String groupName, String clientName) {
 		return groups.get(groupName).getOpponentAddress(clientName);
 	}
 }

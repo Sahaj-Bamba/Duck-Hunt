@@ -24,12 +24,12 @@ import java.net.UnknownHostException;
 public class WebCamService extends Service<Image> {
 	
 	private final Webcam cam ;
-	private final String opponentAdd;
+	private final byte[] opponentAdd;
 	private final WebcamResolution resolution ;
 	private InetAddress address;
 	private DatagramSocket dSock;
 	
-	public WebCamService(Webcam cam, String opponentAdd, WebcamResolution resolution) {
+	public WebCamService(Webcam cam, byte[] opponentAdd, WebcamResolution resolution) {
 		this.cam = cam;
 		this.opponentAdd = opponentAdd;
 		this.resolution = resolution;
@@ -38,7 +38,7 @@ public class WebCamService extends Service<Image> {
 		
 		try {
 			dSock = new DatagramSocket();
-			address = InetAddress.getByName(opponentAdd.substring(1));
+			address = InetAddress.getByAddress(opponentAdd);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -46,7 +46,7 @@ public class WebCamService extends Service<Image> {
 		}
 	}
 	
-	public WebCamService(Webcam cam, String opponentAdd) {
+	public WebCamService(Webcam cam, byte[] opponentAdd) {
 		this(cam, opponentAdd, WebcamResolution.QVGA);
 	}
 	

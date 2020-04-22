@@ -238,15 +238,15 @@ public class Group {
 		send_message(game.getGameState(),client);
 	}
 	
-	public String getOpponentAddress(String clientName) {
-		String st="";
+	public byte[] getOpponentAddress(String clientName) {
+		byte[] st = null;
 		Iterator client = clients.entrySet().iterator();
 		while (client.hasNext()){
 			Map.Entry g = (Map.Entry)client.next();
 			if( ((String)g.getKey()).equals(clientName)){
 			
 			}else{
-				return ((Client)(g.getValue())).getInetAddress().toString();
+				return ((Client)(g.getValue())).getInetAddress().getAddress();
 			}
 		}
 		return st;

@@ -163,8 +163,8 @@ public class OnlineGame2 extends Group {
 		player[0].setName(players[0]);
 		player[1].setName(players[1]);
 		
-		GameGlobalVariables.getInstance().getGamer().sendMessage(new OpponentAddress(""));
-		String oppadd = ( (OpponentAddress) (GameGlobalVariables.getInstance().getGamer().receiveMessage())).getAddress();
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new OpponentAddress(null));
+		byte[] oppadd = ( (OpponentAddress) (GameGlobalVariables.getInstance().getGamer().receiveMessage())).getAddress();
 		Webcam cam = Webcam.getWebcams().get(0);
 		service = new WebCamService(cam,oppadd);
 		socketCamService = new SocketCamService();

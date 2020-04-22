@@ -15,13 +15,13 @@ import java.io.Serializable;
  */
 public class OpponentAddress implements Serializable{
     
-    private String name;
+    private byte[] name;
 
-    public OpponentAddress(String name) {
+    public OpponentAddress(byte[] name) {
         this.name = name;
     }
 
-    public String getAddress() {
+    public byte[] getAddress() {
         return name;
     }
     
