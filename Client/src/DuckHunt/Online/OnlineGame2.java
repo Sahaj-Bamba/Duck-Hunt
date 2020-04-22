@@ -172,9 +172,12 @@ public class OnlineGame2 extends Group {
 		if (players[0].equals(GameGlobalVariables.getInstance().getGamer().getName())){
 			player[0].setPlayer(true);
 			player[0].setWebCamService(service);
+			player[1].setWebCamService(socketCamService);
 			opponentIndex = 1;
 		}else{
 			player[0].setWebCamService(socketCamService);
+			player[1].setPlayer(true);
+			player[1].setWebCamService(service);
 			opponentIndex = 0;
 		}
 	}

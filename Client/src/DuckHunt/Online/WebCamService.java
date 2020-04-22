@@ -89,8 +89,8 @@ public class WebCamService extends Service<Image> {
 	
 	private void sendImage(BufferedImage bufferedImage){
 		try {
-			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(100000);
-			ImageIO.write(bufferedImage,"png",byteArrayOutputStream);
+			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(65500);
+			ImageIO.write(bufferedImage,"jpg",byteArrayOutputStream);
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(bos);
 			objectOutputStream.writeObject(new OpponentCameraFeed(byteArrayOutputStream.toByteArray()));

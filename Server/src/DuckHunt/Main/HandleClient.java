@@ -150,7 +150,6 @@ public class HandleClient implements Runnable{
 		if (grp.equals("")){
 			return new Response(Responses.ERROR,"There are currently no free groups available. You can create your own though.");
 		}
-		
 		GameGlobalVariables.getInstance().getGAMER().add_client(grp,groupDetails.get_client_name(),this.objectOutputStream,socket.getInetAddress());
 		groupName = grp;
 		goBack = false;
