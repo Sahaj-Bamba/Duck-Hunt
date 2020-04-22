@@ -87,7 +87,7 @@ GameGlobalVariables {
     private void init(){
         calculateFraction(1080,1920);
         port = 5560;
-        ip = "localhost";
+        ip = "sahajbamba.me";
     }
     
     public int getSIZE() {
