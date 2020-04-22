@@ -97,6 +97,12 @@ public class WebCamService extends Service<Image> {
 			byte[] sendBuf = bos.toByteArray();
 			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, GameGlobalVariables.getInstance().getPort()+1);
 			dSock.send(packet);
+			System.out.println(packet.getAddress().getHostAddress());
+			System.out.println(packet.getAddress().getHostName());
+			System.out.println(packet.getAddress().getCanonicalHostName());
+			System.out.println(address.toString());
+			System.out.println(packet.getPort());
+			System.out.println("sent");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

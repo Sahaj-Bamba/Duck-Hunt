@@ -27,7 +27,7 @@ public class OpponentAddress implements Serializable{
     
     @Override
     public String toString() {
-        return String.valueOf(Request.MEMBERADD);
+        return String.valueOf(Request.OPPONENTADDRESS);
     }
     
 }

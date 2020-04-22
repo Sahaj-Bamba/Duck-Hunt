@@ -62,7 +62,9 @@ public class SocketCamService extends Service<Image> {
 		try {
 			byte[] recvBuf = new byte[100000];
 			DatagramPacket packet = new DatagramPacket(recvBuf, recvBuf.length);
+			System.out.println("hell");
 			dSock.receive(packet);
+			System.out.println("hi");
 			ByteArrayInputStream byteStream = new ByteArrayInputStream(recvBuf);
 			ObjectInputStream is = new ObjectInputStream(byteStream);
 			OpponentCameraFeed obj = (OpponentCameraFeed) is.readObject();

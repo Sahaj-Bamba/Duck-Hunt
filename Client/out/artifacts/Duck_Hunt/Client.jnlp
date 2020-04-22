@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Client.jar" size="37145" download="eager" />
+    <jar href="Client.jar" size="94284" download="eager" />
     <jar href="jfoenix-8.0.8.jar" size="2708772" download="eager" />
   </resources>
   <jfx:javafx-desc  width="1920" height="1080" main-class="DuckHunt.Main.Main"  name="Duck Hunt" />

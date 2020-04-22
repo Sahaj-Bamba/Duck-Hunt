@@ -13,6 +13,7 @@ import DuckHunt.Request.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Inet6Address;
 import java.net.Socket;
 
 public class HandleClient implements Runnable{
@@ -250,6 +251,7 @@ public class HandleClient implements Runnable{
 			OpponentAddress opponentAddress = (OpponentAddress) objectInputStream.readObject();
 			objectOutputStream.writeObject(new OpponentAddress(GameGlobalVariables.getInstance().getGAMER().getOpponentAddress(groupName,clientName)));
 			objectOutputStream.flush();
+			
 			GameGlobalVariables.getInstance().getGAMER().send_message(new NewRound(),groupName,clientName);
 //			wait(100);
 			GameGlobalVariables.getInstance().getGAMER().sendState(groupName,clientName);

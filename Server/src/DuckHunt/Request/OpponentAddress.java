@@ -16,18 +16,18 @@ import java.io.Serializable;
 public class OpponentAddress implements Serializable{
     
     private byte[] name;
-
+    
     public OpponentAddress(byte[] name) {
         this.name = name;
     }
-
+    
     public byte[] getAddress() {
         return name;
     }
     
     @Override
     public String toString() {
-        return String.valueOf(Request.MEMBERADD);
+        return String.valueOf(Request.OPPONENTADDRESS);
     }
     
 }
