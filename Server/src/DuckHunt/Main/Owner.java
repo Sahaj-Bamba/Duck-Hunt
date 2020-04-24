@@ -8,8 +8,10 @@ package DuckHunt.Main;
 
 import DuckHunt.Other.GameGlobalVariables;
 import DuckHunt.Request.Move;
+import DuckHunt.Request.OpponentCameraFeed;
 
 import java.io.ObjectOutputStream;
+import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,6 +21,8 @@ import java.util.Map;
  * Owner links to various groups
  */
 public class Owner {
+	
+	
 	
 	/**
 	 * groups is hash map of group name vs group class objects
@@ -260,5 +264,12 @@ public class Owner {
 	
 	public byte[] getOpponentAddress(String groupName, String clientName) {
 		return groups.get(groupName).getOpponentAddress(clientName);
+	}
+	
+	
+	public void sendUDP(String group, String client, DatagramPacket packet) {
+		
+		groups.get(group).sendUDP(client,packet);
+		
 	}
 }

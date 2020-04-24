@@ -9,6 +9,7 @@ import DuckHunt.Constant.MoveType;
 import DuckHunt.Request.*;
 
 import java.io.ObjectOutputStream;
+import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.util.Date;
 import java.util.HashMap;
@@ -250,6 +251,18 @@ public class Group {
 			}
 		}
 		return st;
+	}
+	
+	public void sendUDP(String clientName, DatagramPacket packet) {
+		Iterator client = clients.entrySet().iterator();
+		while (client.hasNext()){
+			Map.Entry g = (Map.Entry)client.next();
+			if( ((String)g.getKey()).equals(clientName)){
+			
+			}else{
+				((Client)(g.getValue())).sendUDP(packet);
+			}
+		}
 	}
 	
 }

@@ -4,11 +4,12 @@ package DuckHunt.Main;
  * @author Sahaj
  */
 
+import DuckHunt.Request.OpponentCameraFeed;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.InetAddress;
-import java.net.Socket;
+import java.net.*;
 
 /**
  * The bottom level units clients . One instance for each client. Used for actual writing to clients.
@@ -19,6 +20,7 @@ public class Client {
 	private String name;
 	private ObjectOutputStream objectOutputStream;
 	private InetAddress inetAddress;
+	private DatagramSocket datagramSocket;
 	
 	/**
 	 * Create an instance of the Client
@@ -34,6 +36,11 @@ public class Client {
 			myWriter.write(name + "\n");
 			myWriter.close();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			datagramSocket = new DatagramSocket();
+		} catch (SocketException e) {
 			e.printStackTrace();
 		}
 	}
@@ -67,4 +74,12 @@ public class Client {
 		return inetAddress;
 	}
 	
+	public void sendUDP(DatagramPacket packet) {
+		packet.setAddress(inetAddress);
+		try {
+			datagramSocket.send(packet);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

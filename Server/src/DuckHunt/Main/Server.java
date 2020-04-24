@@ -36,6 +36,8 @@ public class Server {
 	 */
 	public void start(){
 		
+		
+		new HandleUDP().start();
 		try {
 			serverSocket = new ServerSocket(GameGlobalVariables.getInstance().getPort());
 		} catch (IOException e) {

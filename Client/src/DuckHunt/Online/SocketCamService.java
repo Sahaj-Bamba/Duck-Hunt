@@ -60,7 +60,7 @@ public class SocketCamService extends Service<Image> {
 	
 	private BufferedImage getImage(){
 		try {
-			byte[] recvBuf = new byte[100000];
+			byte[] recvBuf = new byte[66000];
 			DatagramPacket packet = new DatagramPacket(recvBuf, recvBuf.length);
 			System.out.println("hell");
 			dSock.receive(packet);

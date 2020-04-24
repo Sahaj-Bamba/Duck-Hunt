@@ -38,7 +38,9 @@ public class WebCamService extends Service<Image> {
 		
 		try {
 			dSock = new DatagramSocket();
-			address = InetAddress.getByAddress(opponentAdd);
+//			address = InetAddress.getByAddress(opponentAdd);
+			// @TODO: 4/23/2020  Change here to make p2p between client video call
+			address = InetAddress.getByName(GameGlobalVariables.getInstance().getip());
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -93,7 +95,7 @@ public class WebCamService extends Service<Image> {
 			ImageIO.write(bufferedImage,"jpg",byteArrayOutputStream);
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(bos);
-			objectOutputStream.writeObject(new OpponentCameraFeed(byteArrayOutputStream.toByteArray()));
+			objectOutputStream.writeObject(new OpponentCameraFeed(byteArrayOutputStream.toByteArray(), GameGlobalVariables.getInstance().getGamer().getName(), GameGlobalVariables.getInstance().getGamer().getGroupName()));
 			byte[] sendBuf = bos.toByteArray();
 			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, GameGlobalVariables.getInstance().getPort()+1);
 			dSock.send(packet);
