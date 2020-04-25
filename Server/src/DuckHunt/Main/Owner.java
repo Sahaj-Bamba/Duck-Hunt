@@ -107,8 +107,8 @@ public class Owner {
 	 * @param clientName The name of client
 	 * @param objectOutputStream The object output stream of client
 	 */
-	public void add_client(String groupName, String clientName, ObjectOutputStream objectOutputStream, InetAddress inetAddress){
-		groups.get(groupName).add_client(clientName,objectOutputStream,inetAddress);
+	public void add_client(String groupName, String clientName, ObjectOutputStream objectOutputStream, InetAddress inetAddress, int port){
+		groups.get(groupName).add_client(clientName,objectOutputStream,inetAddress,port);
 	}
 	
 	/**
@@ -266,6 +266,9 @@ public class Owner {
 		return groups.get(groupName).getOpponentAddress(clientName);
 	}
 	
+	public int getOpponentPort(String groupName, String clientName) {
+		return groups.get(groupName).getOpponentPort(clientName);
+	}
 	
 	public void sendUDP(String group, String client, DatagramPacket packet) {
 		
@@ -275,6 +278,10 @@ public class Owner {
 	
 	public void setAddress(String groupName,String clientName, InetAddress inetAddress,int port){
 		groups.get(groupName).setAddress(clientName,inetAddress,port);
+	}
+	
+	public int getPort(String groupName, String clientName){
+		return groups.get(groupName).getPort(clientName);
 	}
 	
 }

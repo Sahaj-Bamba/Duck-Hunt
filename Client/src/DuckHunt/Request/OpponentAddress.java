@@ -16,13 +16,19 @@ import java.io.Serializable;
 public class OpponentAddress implements Serializable{
     
     private byte[] name;
+    private int port;
     
-    public OpponentAddress(byte[] name) {
+    public OpponentAddress(byte[] name, int port) {
         this.name = name;
+        this.port = port;
     }
     
     public byte[] getAddress() {
         return name;
+    }
+    
+    public int getPort() {
+        return port;
     }
     
     @Override

@@ -28,10 +28,11 @@ public class Client {
 	 * @param name The name of the Client. Be sure that 2 clients do not have same name.
 	 * @param objectOutputStream The output stream used for writing objects.
 	 */
-	public Client(String name, ObjectOutputStream objectOutputStream, InetAddress inetAddress){
+	public Client(String name, ObjectOutputStream objectOutputStream, InetAddress inetAddress, int port){
 		this.inetAddress = inetAddress;
 		this.name = name;
 		this.objectOutputStream = objectOutputStream;
+		this.port = port;
 		try {
 			FileWriter myWriter = new FileWriter("Gamers.txt",true);
 			myWriter.write(name + "\n");
@@ -75,7 +76,14 @@ public class Client {
 		return inetAddress;
 	}
 	
+	public int getPort() {
+		return port;
+	}
+	
 	public void sendUDP(DatagramPacket packet) {
+		if (port==0){
+			return;
+		}
 		packet.setAddress(inetAddress);
 		System.out.println("Sending packet to");
 		System.out.println(inetAddress.toString());

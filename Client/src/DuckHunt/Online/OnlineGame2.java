@@ -163,21 +163,21 @@ public class OnlineGame2 extends Group {
 		player[0].setName(players[0]);
 		player[1].setName(players[1]);
 		
-		GameGlobalVariables.getInstance().getGamer().sendMessage(new OpponentAddress(null));
-		byte[] oppadd = ( (OpponentAddress) (GameGlobalVariables.getInstance().getGamer().receiveMessage())).getAddress();
+		GameGlobalVariables.getInstance().getGamer().sendMessage(new OpponentAddress(null,0));
+		OpponentAddress oppadd = ( (OpponentAddress) (GameGlobalVariables.getInstance().getGamer().receiveMessage()));
+		Webcam cam = Webcam.getWebcams().get(0);
+		service = new WebCamService(cam,oppadd);
+		socketCamService = new SocketCamService();
 		
 		if (players[0].equals(GameGlobalVariables.getInstance().getGamer().getName())){
-			Webcam cam = Webcam.getWebcams().get(0);
-			service = new WebCamService(cam,oppadd);
 			player[0].setPlayer(true);
 			player[0].setWebCamService(service);
-//			player[1].setWebCamService(socketCamService);
+			player[1].setWebCamService(socketCamService);
 			opponentIndex = 1;
 		}else{
-			socketCamService = new SocketCamService();
 			player[0].setWebCamService(socketCamService);
-//			player[1].setPlayer(true);
-//			player[1].setWebCamService(service);
+			player[1].setPlayer(true);
+			player[1].setWebCamService(service);
 			opponentIndex = 0;
 		}
 	}

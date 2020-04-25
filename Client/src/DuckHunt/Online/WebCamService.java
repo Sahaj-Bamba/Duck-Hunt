@@ -1,6 +1,7 @@
 package DuckHunt.Online;
 
 import DuckHunt.Global.GameGlobalVariables;
+import DuckHunt.Request.OpponentAddress;
 import DuckHunt.Request.OpponentCameraFeed;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
@@ -24,12 +25,13 @@ import java.net.UnknownHostException;
 public class WebCamService extends Service<Image> {
 	
 	private final Webcam cam ;
-	private final byte[] opponentAdd;
+	private OpponentAddress opponentAdd;
 	private final WebcamResolution resolution ;
 	private InetAddress address;
+	private int port;
 	private DatagramSocket dSock;
 	
-	public WebCamService(Webcam cam, byte[] opponentAdd, WebcamResolution resolution) {
+	public WebCamService(Webcam cam, OpponentAddress opponentAdd, WebcamResolution resolution) {
 		this.cam = cam;
 		this.opponentAdd = opponentAdd;
 		this.resolution = resolution;
@@ -38,9 +40,11 @@ public class WebCamService extends Service<Image> {
 		
 		try {
 			dSock = new DatagramSocket();
-//			address = InetAddress.getByAddress(opponentAdd);
+//			address = InetAddress.getByAddress(opponentAdd.getAddress());
+//			this.port = opponentAdd.getPort();
 			// @TODO: 4/23/2020  Change here to make p2p between client video call
 			address = InetAddress.getByName(GameGlobalVariables.getInstance().getip());
+			this.port = GameGlobalVariables.getInstance().getPort()+1;
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -48,7 +52,7 @@ public class WebCamService extends Service<Image> {
 		}
 	}
 	
-	public WebCamService(Webcam cam, byte[] opponentAdd) {
+	public WebCamService(Webcam cam, OpponentAddress opponentAdd) {
 		this(cam, opponentAdd, WebcamResolution.QVGA);
 	}
 	
@@ -97,7 +101,7 @@ public class WebCamService extends Service<Image> {
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(bos);
 			objectOutputStream.writeObject(new OpponentCameraFeed(byteArrayOutputStream.toByteArray(), GameGlobalVariables.getInstance().getGamer().getName(), GameGlobalVariables.getInstance().getGamer().getGroupName()));
 			byte[] sendBuf = bos.toByteArray();
-			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, GameGlobalVariables.getInstance().getPort()+1);
+			DatagramPacket packet = new DatagramPacket(sendBuf, sendBuf.length, address, port);
 			dSock.send(packet);
 			System.out.println(packet.getAddress().getHostAddress());
 			System.out.println(packet.getAddress().getHostName());

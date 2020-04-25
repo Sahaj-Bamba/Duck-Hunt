@@ -106,7 +106,7 @@ public class HandleClient implements Runnable{
 			return new Response(Responses.ERROR,"Group already exists.");
 		}
 		GameGlobalVariables.getInstance().getGAMER().add_group(groupDetails.get_group_name(),groupDetails.get_password(),groupDetails.get_client_name());
-		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream,socket.getInetAddress());
+		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream,socket.getInetAddress(),socket.getPort());
 		goBack = false;
 		System.out.println("Group Created");
 		return new Response(Responses.OK,"Group Created");
@@ -135,7 +135,7 @@ public class HandleClient implements Runnable{
 			return new Response(Responses.ERROR,"A gamer with that name already exist .");
 		}
 		
-		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream, socket.getInetAddress());
+		GameGlobalVariables.getInstance().getGAMER().add_client(groupDetails.get_group_name(),groupDetails.get_client_name(),this.objectOutputStream, socket.getInetAddress(),socket.getPort());
 		goBack = false;
 		return new Response(Responses.OK,"Group Joined");
 	}
@@ -151,7 +151,7 @@ public class HandleClient implements Runnable{
 		if (grp.equals("")){
 			return new Response(Responses.ERROR,"There are currently no free groups available. You can create your own though.");
 		}
-		GameGlobalVariables.getInstance().getGAMER().add_client(grp,groupDetails.get_client_name(),this.objectOutputStream,socket.getInetAddress());
+		GameGlobalVariables.getInstance().getGAMER().add_client(grp,groupDetails.get_client_name(),this.objectOutputStream,socket.getInetAddress(),socket.getPort());
 		groupName = grp;
 		goBack = false;
 		return new Response(Responses.OK,grp);
@@ -249,7 +249,7 @@ public class HandleClient implements Runnable{
 			objectOutputStream.writeObject(new GroupList(GameGlobalVariables.getInstance().getGAMER().getClientList(groupList.getGroupName())));
 			objectOutputStream.flush();
 			OpponentAddress opponentAddress = (OpponentAddress) objectInputStream.readObject();
-			objectOutputStream.writeObject(new OpponentAddress(GameGlobalVariables.getInstance().getGAMER().getOpponentAddress(groupName,clientName)));
+			objectOutputStream.writeObject(new OpponentAddress(GameGlobalVariables.getInstance().getGAMER().getOpponentAddress(groupName,clientName),GameGlobalVariables.getInstance().getGAMER().getOpponentPort(groupName,clientName)));
 			objectOutputStream.flush();
 			
 			GameGlobalVariables.getInstance().getGAMER().send_message(new NewRound(),groupName,clientName);

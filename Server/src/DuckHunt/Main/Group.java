@@ -68,8 +68,8 @@ public class Group {
 	 * @param name the name of the client
 	 * @param objectOutputStream the object output stream of the client
 	 */
-	public void add_client(String name, ObjectOutputStream objectOutputStream, InetAddress inetAddress){
-		clients.put(name, new Client(name,objectOutputStream,inetAddress));
+	public void add_client(String name, ObjectOutputStream objectOutputStream, InetAddress inetAddress, int port){
+		clients.put(name, new Client(name,objectOutputStream,inetAddress, port));
 	}
 	
 	/**
@@ -253,7 +253,22 @@ public class Group {
 		return st;
 	}
 	
+	public int getOpponentPort(String clientName) {
+		int st = 0;
+		Iterator client = clients.entrySet().iterator();
+		while (client.hasNext()){
+			Map.Entry g = (Map.Entry)client.next();
+			if( ((String)g.getKey()).equals(clientName)){
+			
+			}else{
+				return ((Client)(g.getValue())).getPort();
+			}
+		}
+		return st;
+	}
+	
 	public void sendUDP(String clientName, DatagramPacket packet) {
+		clients.get(clientName).setAddress(packet.getAddress(),packet.getPort());
 		Iterator client = clients.entrySet().iterator();
 		while (client.hasNext()){
 			Map.Entry g = (Map.Entry)client.next();
@@ -267,6 +282,10 @@ public class Group {
 	
 	public void setAddress(String clientName, InetAddress inetAddress,int port){
 		clients.get(clientName).setAddress(inetAddress,port);
+	}
+	
+	public int getPort(String clientName){
+		return clients.get(clientName).getPort();
 	}
 	
 }

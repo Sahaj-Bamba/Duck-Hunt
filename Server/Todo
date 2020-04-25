@@ -28,3 +28,5 @@
 
             p2p
                     Sending opponent address for update.
+                    try with tcp port first
+                    then go for udp
