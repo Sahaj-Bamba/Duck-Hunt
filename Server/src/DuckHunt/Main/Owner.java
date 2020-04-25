@@ -272,4 +272,9 @@ public class Owner {
 		groups.get(group).sendUDP(client,packet);
 		
 	}
+	
+	public void setAddress(String groupName,String clientName, InetAddress inetAddress,int port){
+		groups.get(groupName).setAddress(clientName,inetAddress,port);
+	}
+	
 }

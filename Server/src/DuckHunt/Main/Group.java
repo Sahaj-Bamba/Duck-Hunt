@@ -265,6 +265,10 @@ public class Group {
 		}
 	}
 	
+	public void setAddress(String clientName, InetAddress inetAddress,int port){
+		clients.get(clientName).setAddress(inetAddress,port);
+	}
+	
 }
 
 

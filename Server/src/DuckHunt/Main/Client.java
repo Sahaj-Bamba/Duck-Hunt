@@ -21,6 +21,7 @@ public class Client {
 	private ObjectOutputStream objectOutputStream;
 	private InetAddress inetAddress;
 	private DatagramSocket datagramSocket;
+	private int port;
 	
 	/**
 	 * Create an instance of the Client
@@ -76,10 +77,21 @@ public class Client {
 	
 	public void sendUDP(DatagramPacket packet) {
 		packet.setAddress(inetAddress);
+		System.out.println("Sending packet to");
+		System.out.println(inetAddress.toString());
+		System.out.println(inetAddress.getHostName());
+		System.out.println(inetAddress.getCanonicalHostName());
+		System.out.println(inetAddress.getHostAddress());
 		try {
 			datagramSocket.send(packet);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public void setAddress(InetAddress inetAddress,int port){
+		this.inetAddress = inetAddress;
+		this.port = port;
+	}
+	
 }
