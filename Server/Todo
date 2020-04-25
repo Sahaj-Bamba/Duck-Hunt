@@ -21,3 +21,10 @@
         camera close on back to menu
 
         group remaining
+
+        udp punching
+            Server to client
+                    Added update address.
+
+            p2p
+                    Sending opponent address for update.
