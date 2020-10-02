@@ -1,7 +1,7 @@
 # Duck-Hunt
 A global multiplayer online Duck Hunt game
 
-# Techstack 
+# Techstack mklfmklsmfklmsklfmeklfmklmwdwd
  * Java 8
  * Intellij 
  * Sockets
