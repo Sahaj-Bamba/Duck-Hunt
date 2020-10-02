@@ -1,4 +1,4 @@
-# Duck-Hunt
+# Duck-Hunt Bamba Mc
 A global multiplayer online Duck Hunt game
 
 # Techstack 
