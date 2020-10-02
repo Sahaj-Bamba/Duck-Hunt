@@ -1,4 +1,4 @@
-# Duck-Hunt
+# Duck-Hunt bamba lodu
 A global multiplayer online Duck Hunt game
 
 # Techstack 
