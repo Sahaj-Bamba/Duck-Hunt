@@ -6,7 +6,7 @@ A global multiplayer online Duck Hunt game
  * Intellij 
  * Sockets
  * Native java drawing
- * Java fx
+ * Java fxsdmnsdnskmdklmskldmklsmkldmsmd nsklmcklsmklcmdslkcs
  * Scene Builder
  * JFoenix 
 
